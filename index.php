@@ -1,10 +1,10 @@
-<HTML>
-	<HEAD>
-	<TITLE> OpenSCAD - advanced scripting with python </TITLE>
+<html>
+	<head>
+	<title> OpenSCAD - advanced scripting with python </title>
         <META name="description" content="Alternative approach to use python with openscad, due to nature of python its much more flexible">
-        </HEAD>
-	<BODY>
-<h1><center>  OpenSCAD - Python Edition </center> </H1>
+        </head>
+	<body>
+    <h1><center>  OpenSCAD - Python Edition </center> </h1>
 		<img src="pictures/plogo.PNG" height=120 >
 
 		Original website of OpenSCAD is <a href="http://www.openscad.org"> Here </a> and !!!ALL!!! my work is based on it and I fully respect all the effort, the Open Source community has contributed to it. <p>
@@ -144,8 +144,8 @@ output([union(parts), cylinder(r=1,h=10).translate([20,10,0])])
 		<p>Have fun and let me know. If you have comments, criticism or even improvement suggestions, dont hesitate to write me a short message at guenther.sohler@gmail.com
 	
 		
-<?php	
-mail("guenther.sohler@gmail.com","Openscad Index",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
-?>
-	</BODY>
-</HTML>
+    <?php	
+    mail("guenther.sohler@gmail.com","Openscad Index",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
+    ?>
+	</body>
+</html>
