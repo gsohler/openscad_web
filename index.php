@@ -56,6 +56,43 @@
         width: calc(50% - 0.5cm);
       }
 
+      @media(max-width: 720px) {
+        .block {
+          width: 100%;
+        }
+      }
+
+      @media(min-width: 1280px) {
+        .block {
+          width: calc(33% - 0.5cm);
+        }
+      }
+
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .features .micro-block {
+        width: calc(100% - 0.5cm);
+      }
+
+      @media(max-width: 720px) {
+        .features .micro-block {
+          width: 100%;
+        }
+      }
+
+      @media(min-width: 1280px) {
+        .additional-features {
+          width: 100%;
+        }
+        .features .micro-block {
+          width: calc(50% - 0.5cm);
+        }
+      }
+
       .block > div:nth-of-type(1) {
         padding-top: 0.5em;
         font-size: 1.5em;
@@ -200,10 +237,10 @@ output([union(parts), cylinder(r=1,h=10).translate([20,10,0])])
           </p>
         </div>
       </div>
-      <div class="block">
+      <div class="block additional-features">
         <div>Additional features</div>
-        <p>On top of Python support, a few extra things are available as well.</p>
-
+        <p>On top of Python support, this fork also has the following extra capabilities.</p>
+        <div class="features">
         <div class="micro-block">
           <div>Texture your models</div>
           <div>
@@ -222,11 +259,11 @@ color(texture=1) // specify the index to use
           <div>F-REP/SDF engine (libfive)</div>
           <div>
           <p>
-        	<img src="pictures/sdf.png" width="100%">
+            Use SDFs to create organic meshes!
         	</p>
+        	<img src="pictures/sdf.png" width="100%">
           <p>
-            SDFs allow you to create organic meshes. If you're unfamiliar please
-            look up "Inigo Iquilez", the god-father of SDFs.
+            If you're unfamiliar please look up "Inigo Iquilez", the god-father of SDFs.
           </p>
 
          <p>
@@ -314,8 +351,8 @@ square().path_extrude([[0,0,0],[0,0,10]])
           </p>
           </div>
         </div>
-
       </div>
+    </div>
    </div>
 
 
