@@ -165,7 +165,7 @@
             So the proposed solution is to put the Python capability behind an option, which I have done.
             Now I hope it's just a matter of time until things are merged.</p>
 
-            <p>This is where you come in. Use this fork, <a href="https://github.com/openscad/openscad/pull/4601">have your say</a>, and let's get it in!</p>
+            <p>This is where you come in. Use this fork, <a href="https://github.com/openscad/openscad/pull/4588">have your say</a>, and let's get it in!</p>
 
         </div>
       </div>
@@ -179,7 +179,7 @@
           <p>
             Before downloading it, please understand that "Python | OpenSCAD" is a fork currently maintained by myself, gsohler.
             I heavily wish for this fork/branch to be merged into mainline OpenSCAD and have been working towards
-            making it happen. <a href="https://github.com/openscad/openscad/pull/4601">You can follow the progress here</a>.
+            making it happen. <a href="https://github.com/openscad/openscad/pull/4588">You can follow the progress here</a>.
           </p>
 
           <p>
@@ -269,13 +269,13 @@ from pylibfive import *
 c=lv_coord()
 s1=lv_sphere(lv_trans(c,[2,2,2]),2)
 b1=lv_box(c,[2,2,2])
-sdf=lv_union_stairs(s1,b1,0.4,3])
+sdf=lv_union_smooth(s1,b1,0.6])
 fobj=frep(sdf,[-4,-4,-4],[4,4,4],20)
 output(obj)
 
             </pre>
           <p>
-            If you're unfamiliar please look up "Inigo Iquilez", the god-father of SDFs.
+            If you're unfamiliar please look up "Inigo Quilez", the god-father of SDFs.
           </p>
 
          <p>
