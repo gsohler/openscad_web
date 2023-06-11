@@ -1,49 +1,182 @@
 <html>
 	<head>
-	<title> OpenSCAD - advanced scripting with python </title>
-        <META name="description" content="Alternative approach to use python with openscad, due to nature of python its much more flexible">
-        </head>
+  	<title>Python | OpenSCAD</title>
+    <meta name="description" content="Work more quickly with OpenSCAD, using Python.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        padding-top: 2cm;
+        padding-bottom: 1cm;
+        font-size: 3em;
+        text-align: center;
+        font-family: 'Play', sans-serif;
+        font-weight: 400;
+        background-color: rgb(43, 91, 132);
+        color: white;
+        border-bottom: 1px solid rgb(68, 68, 68);
+      }
+
+      main {
+        font-family: 'Source Sans 3', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        margin: 1cm 1cm;
+      }
+
+      pre {
+        overflow-x: scroll;
+        overflow-y: hidden;
+      }
+
+      .code {
+        font-size: 14px;
+      }
+
+      .equation {
+        display: flex;
+        gap: 0.5em;
+        align-items: center;
+        justify-content: center;
+      }
+
+      header p {
+        font-size: 0.5em;
+      }
+
+      .block {
+        border-top: 4px solid #75a8d3;
+        padding-bottom: 1cm;
+        width: calc(50% - 0.5cm);
+      }
+
+      .block > div:nth-of-type(1) {
+        padding-top: 0.5em;
+        font-size: 1.5em;
+      }
+
+      .micro-block {
+        border-top: 2px solid #75a8d3;
+        margin-top: 0.5em;
+        padding-bottom: 0.5cm;
+      }
+
+      .micro-block > div:nth-of-type(1) {
+        padding-top: 0.5em;
+        font-size: 1.25em;
+      }
+    </style>
+  </head>
 	<body>
-    <h1><center>  OpenSCAD - Python Edition </center> </h1>
-		<img src="pictures/plogo.PNG" height=120 >
+    <header>
+      <div class="equation">
+    		<img src="pictures/logo_python.png" height=120/>
+    		<span>+</span>
+    		<img src="pictures/logo_openscad.png" height=120/>
+    		<span>=</span>
+    		<img src="pictures/plogo.PNG" height=120/>
+  		</div>
+      <div>Python | OpenSCAD</div>
+      <p style="margin: 1cm;">Leverage one of the world's most popular programming languages to express parametric 3D models.</p>
+    </header>
 
-		Original website of OpenSCAD is <a href="http://www.openscad.org"> Here </a> and !!!ALL!!! my work is based on it and I fully respect all the effort, the Open Source community has contributed to it. <p>
-		OpenSCAD is very powerful, but its also very limited in several ways because variables can only be assigned once ie.g. and tricky workarounds are
-		required  to overcome this shortness. Also, for original Openscad security is absolutely important, whereas with this version and
-		python included , it bases absolutely on trusting to the files and to the people. Vision of original OpenSCAD is  to evaluate each chane very careful, so it takes  very long for any change to become public, whereas this version of openscad is much more progressive.
-		<p>Python has all the options you like and you can do clever
-		things before rendering your 3D shapes, but it also imposes the risks which come with the power of python.
-		A Python OpenSCAD program can  e.g. calculate the bits  of an QR code on the fly. Additionally with python you can store results or intermediate results in
-		variables and you can decide whether to use them (or not) and you can use them as arguments to functions.
-		So  no need to use the openscad children feature anymore, you simple pass a result to a function for futher 
-		processing it.  How cool is that ? 
+    <main>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+      <div class="block">
+        <div>Motivation</div>
+        <div>
+            <p>
+          		<a href="http://www.openscad.org">OpenSCAD</a> is a very cool tool that lets you express 3D models using its own language.
+          		Unfortunately the language itself comes with a lot of intentional limitations.
+        		</p>
 
-		<p>This Variant is still under heavy development, Almost all functions of openscad are available. There are equal  in name 
-		and equal in function parameters. Beyond mathematical functions and language constructs here is an explicit list of functions, which are *NOT* available yet
+        		<ul>
+        		  <li>No mutation of variables (immutability, "single assignment of any variable")</li>
+        		  <li>Limited number of iterations</li>
+        		  <li>No file I/O</li>
+        		</ul>
 
-		<ul>
-			<li> dxf_dim
-			<li> dxf_cross
-			<li> intersection_for
-			<li> dxf_linear_extrude
-			<li> dxf_rotation_extrude
-			<li> fontmetrics
-		</ul>
+        		<p>These exist for the reason that they don't want the language
+        		to be able to do bad things to people's computers, which allows the "script sharing culture" to
+        		be safe.</p>
 
-		and these are the additional functions, which are available:
-		<ul>
-			<li> output: accepts one variable.  Please run output at the end of your program to specify, which variable shall be displayed
-			<li> path_extrude (see chapter below)
-			<li> offset (for 3D objects see chapter below)
-		</ul>
-		OpenSCAD import is called "osimport" due to a naming conflict with the famous python command. All the transfomation functions of openscad are also available as object oriented methods. this allows for more compact and  intuitive coding. Arguments to union, difference, and intersection are python lists to allow for  variable number of arguments. Wherever you specify an object an function, you can
-alternatively also specify [object1, object2, .. objectn] instead and openscad will happily insert an union of them to combine them for you.
+            <p>
+        		Additionally the choice to use their own language brings with it a whole new mental model
+        		that must be learned and mastered. This is a problem for wide adoption.
+            </p>
 
-		<h2> Programming Example </h2>
-		A possible working program  like
+            <p>
+              Before I continue I'd like to say I fully appreciate all the efforts the team and the Open Source community has contributed towards it over the years.
+              The project is truly a work of love and has brought for many the joy of programming back into their lives.
+              I believe the choice to have a safe script language is a good one.
+            </p>
 
-		<pre>
+            <p>These limitations cause OpenSCAD programs to be written in the most convoluted ways,
+            making them difficult to understand. While my goal to be able to use Python with OpenSCAD is
+            actually completed, the problem that remains is getting it merged into mainline OpenSCAD.
+            </p>
 
+            <p>The argument is Python will introduce a massive security hole into the sharing culture.
+            So the proposed solution is to put the Python capability behind an option, which I have done.
+            Now I hope it's just a matter of time until things are merged.</p>
+
+            <p>This is where you come in. Use this fork, have your say, and let's get it in!</p>
+
+        </div>
+      </div>
+      <div class="block">
+        <div>Get started</div>
+        <div>
+          <p>
+            If you're new to "code CAD", please first <a href="https://learn.cadhub.xyz/blog/curated-code-cad/">read this short introduction</a> and
+            browse the plethora of already existing solutions to this problem space.
+          </p>
+          <p>
+            Before downloading it, please understand that "Python | OpenSCAD" is a fork currently maintained by myself, gsohler.
+            I heavily wish for this fork/branch to be merged into mainline OpenSCAD and have been working towards
+            making it happen. <a href="https://github.com/openscad/openscad/pull/4601">You can follow the progress here</a>.
+          </p>
+
+          <p>
+            There are several benefits to using Python over OpenSCAD's DSL (domain specific language):
+          </p>
+          <ol>
+            <li>Faster general computation due to faster interpreter</li>
+            <li>Utilize any pip packages</li>
+            <li>More familiar syntax</li>
+            <li>More familiar computation model</li>
+          </ol>
+          <p>
+            Hopefully these benefits will help draw more people to the wonderful world of code CAD!
+          </p>
+          <p>
+            Ok, now it's probably a good idea to <a href="download.php">download</a> it.
+          </p>
+          <div class="micro-block">
+            <div>Contact</div>
+            <div>
+              <p>
+                If you have comments, criticism or even improvement suggestions, don't hesitate to write to me at guenther.sohler@gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div>Usage samples</div>
+        <div>
+          <p>
+            Not quite like "Hello world!" but hey, we need to start somewhere. Here's an example
+            of a table:
+          </p>
+      		<img src="pictures/openscad.png" width="100%" >
+      		<pre class="code">
 def foot(x,y):
 	c=cube([1,1,10])
 	return translate(c,[x,y,0])
@@ -59,93 +192,137 @@ for y in [0,10]:
 		parts.append(foot(x,y]))
 
 output([union(parts), cylinder(r=1,h=10).translate([20,10,0])])
-		</pre>
-		and the output is here: <br>
-		<img src="pictures/openscad.png" width=480 > <br>
+      		</pre>
 
-	A Nice example of using openscad together with Qrcodes is here at <a href="examples/qrcode.txt">qrcode.py </a> <br>
-	Other example is this one using  <a href="examples/figlet.txt">figelt.py </a> <br>
+          <p>
+            There is also a <a href="examples/qrcode.txt">QR code generator</a> and
+            <a href="examples/figlet.txt">Figlet</a> example you can see.
+          </p>
+        </div>
+      </div>
+      <div class="block">
+        <div>Additional features</div>
+        <p>On top of Python support, a few extra things are available as well.</p>
 
-	<h2> Additional functions </h2>
+        <div class="micro-block">
+          <div>Texture your models</div>
+          <div>
+          <p>
+            Use textures to make your objects more impressive!
+          </p>
+            <img src="pictures/island.png" width="100%">
+            <pre class="code">
+texture("texture1.jpg"); // get a texture index
+color(texture=1) // specify the index to use
+  cube(10); // on the object
+            </pre>
+          </div>
+        </div>
+        <div class="micro-block">
+          <div>F-REP/SDF engine (libfive)</div>
+          <div>
+          <p>
+        	<img src="pictures/sdf.png" width="100%">
+        	</p>
+          <p>
+            SDFs allow you to create organic meshes. If you're unfamiliar please
+            look up "Inigo Iquilez", the god-father of SDFs.
+          </p>
 
-	As my new functions did not yet it to the mainstream and/or they have an incredible timeline, they are already available from here.
-	<h3> built in dictionary </h3>
-	  Each of the generated objects has got a built in dictionary, which can be used to store additional information along the object. e.g to store coordinate information about special locations of the object. e.g 
-	<pre>
-	myobject["top"] = [10,10,90]
-        </pre>
-	<h3> textures </h3>
-	Dont stay with the ordinary faces. use textures to make your objects more impressive.<p>
-	<img src="pictures/island.png" width=480> <br>
-	Sample code with textures is:
-        <pre>
-	texture("texture1.jpg"); // each texture statement loads an image, and yields an texture index starting with 1
-	color(texture=1) // color  got an additional paramter texture which is 0 by default. use color in addition to dye the picture
-	cube(10); 	// the textured object
-	</pre>
-	<h3> path_extrude </h3>
+         <p>
+            The available operators are:
+        	</p>
+          	
+          	<ul>
+          		<li> X()
+          		<li> Y()
+          		<li> Z()
+          		<li> operators + = * / %
+          		<li> sqrt()
+          		<li> abs()
+          		<li> max()
+          		<li> min()
+          		<li> sin()
+          		<li> cos()
+          		<li> tan()
+          		<li> asin()
+          		<li> acos()
+          		<li> atan()
+          		<li> exp()
+          		<li> log()
+          	</ul>
 
-	path_extrude has works very similar to linear_extrude or rotate_extrude. IMHO it can actually act as a superset of both of them.
-	the syntax is
-	<pre>
-	path_extrude([[0,0,0],[0,0,10]) square(); // most simple form
+          	<p>
+            	I've integrated libfive into OpenSCAD, but only through the Python bindings.
+          	</p>
 
-	square().path_extrude([[0,0,0],[0,0,10]]) // python syntax
-	</pre>
-	Possible parameters are
-	<ul>
-	<li> path	list of points in 3d space where to feed the path. Points can optionally specified as a 4-value-vector where the 4th value acts as a radius parameter for round corners
-	<li> twist	amount of degrees to twist the profile along the path
-	<li> origin	determines 2D center point of the twist  rotation within the profile
-	<li> scale	factor to scale the profile along the path, can also be 2d vector
-	<li> closed	whether to close the path to form a ring . true/false
-	<li> allow_intersect By default path_extrude will yield an empty result on self-intersection. use this on override
-	<li> xdir	Direction of the x vector of the profile for the very first path segment.
-	</ul>
-	See example at <a href="examples/path_extrude_example.txt">path_extrude_example.py </a>
+          	See example at <a href="examples/libfive_example.txt">libfive_example.py </a>
 
-	<h3> offset for 3D </h3>
+          	<h3>ifrep</h3>
+          	<p>
+          	There is first support for ifrep. ifrep takes an OpenSCAD solid as input and returns a variable which
+                  you can use along with your other SDF equations. You can use it for offsetting exising objects.
+            </p>
 
-	In this version offset also operates on 3D objects in addition. right now it only works correctly with F6. 
-        you can use this feature to e.g. to downsize connection parts from stl  files  from the internet if they are too tight to assemble	
+          </div>
+        </div>
+        <div class="micro-block">
+          <div>Objects double as dictionaries</div>
+          <div>
+          <p>
+        	  Each of the generated objects has a built-in dictionary, which can be used to store additional
+        	  information along with the object. e.g to store coordinate information about special locations
+        	  of the object.
+      	  </p>
+        	<pre class="code">
+  myobject["top"] = [10,10,90]
+          </pre>
+          </div>
+        </div>
+        <div class="micro-block">
+          <div>Path extrude</div>
+          <div>
+          <p>
+          	path_extrude has works very similar to linear_extrude or rotate_extrude. IMHO it can actually act as a superset of both of them.
+          	The syntax is:
+        	</p>
+          	<pre class="code">
+square().path_extrude([[0,0,0],[0,0,10]])
+          	</pre>
+          	<p>Possible parameters are:</p>
+          	<ul>
+            	<li>path - list of points in 3d space where to feed the path. Points can optionally specified as a 4-value-vector where the 4th value acts as a radius parameter for round corners</li>
+            	<li>twist - amount of degrees to twist the profile along the path</li>
+            	<li>origin - determines 2D center point of the twist  rotation within the profile</li>
+            	<li>scale - factor to scale the profile along the path, can also be 2d vector</li>
+            	<li>closed - whether to close the path to form a ring . true/false</li>
+            	<li>allow_intersect - By default path_extrude will yield an empty result on self-intersection. use this on override</li>
+            	<li>xdir - Direction of the x vector of the profile for the very first path segment.</li>
+          	</ul>
 
-	<h3> frep </h3>
-	OpenSCAD also intrgrates with the Signed Distance format. You can describe an object by providing a function, which will calculate the altitude above its surface.
-	This is based on libfive available on github. Only available in python mode though. Possible SDF commands are
-	<ul>
-		<li> X()
-		<li> Y()
-		<li> Z()
-		<li> operators + = * / %
-		<li> sqrt()
-		<li> abs()
-		<li> max()
-		<li> min()
-		<li> sin()
-		<li> cos()
-		<li> tan()
-		<li> asin()
-		<li> acos()
-		<li> atan()
-		<li> exp()
-		<li> log()
-	</ul>
-	SDF comes  with a  library  which contains some primitives and some blendings. The picure shows a stair blending between a sphere and a cube. <br>
-	<img src="pictures/sdf.png" width=400> <br>
-	See example at <a href="examples/libfive_example.txt">libfive_example.py </a>
+          	<p>
+          	See example at <a href="examples/path_extrude_example.txt">path_extrude_example.py </a>
+          	</p>
+          </div>
+        </div>
+        <div class="micro-block">
+          <div>3D offset</div>
+          <div>
+          <p>
+          	In this version offset also operates on 3D objects in addition. right now it only works correctly with F6 (Render).
+            For example, you can use this feature to downsize connection parts from stl files from the internet if they are too tight to assemble.
+          </p>
+          </div>
+        </div>
 
-	<h3> ifrep </h3>
-	There is first support for ifrep. ifrep takes an OpenSCAD solid as input and returns a variable which
-        you can use along with your other SDF equations. You can use it for offsetting exising objects
+      </div>
+   </div>
 
-	<h2> Get it </h2>
-		<p>Test Versions are available <a href="download.php"> here </a>.  This is developped <a href="https://github.com/gsohler/openscad"> here </a>  in branch "python"
 
-		<p>Have fun and let me know. If you have comments, criticism or even improvement suggestions, dont hesitate to write me a short message at guenther.sohler@gmail.com
-	
 		
-    <?php	
-    mail("guenther.sohler@gmail.com","Openscad Index",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
+    <?php
+      mail("guenther.sohler@gmail.com","Openscad Index",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
     ?>
+  </main>
 	</body>
 </html>
