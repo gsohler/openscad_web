@@ -214,7 +214,7 @@
             Not quite like "Hello world!" but hey, we need to start somewhere. Here's an example
             of a table:
           </p>
-      		<img src="pictures/openscad.png" width="100%" >
+      		<img src="pictures/table.png" width="100%" >
       		<pre class="code">
 def foot(x,y):
 	c=cube([1,1,10])
@@ -228,9 +228,9 @@ parts.append(translate(plate(),[0,0,10]))
 
 for y in [0,10]:
 	for x in [0,10]:
-		parts.append(foot(x,y]))
+		parts.append(foot(x,y))
 
-output([union(parts), cylinder(r=1,h=10).translate([20,10,0])])
+output(parts)
       		</pre>
 
           <p>
@@ -264,6 +264,16 @@ color(texture=1) // specify the index to use
             Use SDFs to create organic meshes!
         	</p>
         	<img src="pictures/sdf.png" width="100%">
+	    <pre class="code">
+from pylibfive import *
+c=lv_coord()
+s1=lv_sphere(lv_trans(c,[2,2,2]),2)
+b1=lv_box(c,[2,2,2])
+sdf=lv_union_stairs(s1,b1,0.4,3])
+fobj=frep(sdf,[-4,-4,-4],[4,4,4],20)
+output(obj)
+
+            </pre>
           <p>
             If you're unfamiliar please look up "Inigo Iquilez", the god-father of SDFs.
           </p>
@@ -340,6 +350,8 @@ square().path_extrude([[0,0,0],[0,0,10]])
           	</ul>
 
           	<p>
+		<img src="pictures/path_extrude.png" width="50%">
+		<p>
           	See example at <a href="examples/path_extrude_example.txt">path_extrude_example.py </a>
           	</p>
           </div>
