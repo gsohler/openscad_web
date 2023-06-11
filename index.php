@@ -148,6 +148,8 @@
         		that must be learned and mastered. This is a problem for wide adoption.
             </p>
 
+            <p><strong>This fork lets you use Python inside of OpenSCAD.</strong></p>
+
             <p>
               Before I continue I'd like to say I fully appreciate all the efforts the team and the Open Source community has contributed towards it over the years.
               The project is truly a work of love and has brought for many the joy of programming back into their lives.
@@ -163,7 +165,7 @@
             So the proposed solution is to put the Python capability behind an option, which I have done.
             Now I hope it's just a matter of time until things are merged.</p>
 
-            <p>This is where you come in. Use this fork, have your say, and let's get it in!</p>
+            <p>This is where you come in. Use this fork, <a href="https://github.com/openscad/openscad/pull/4601">have your say</a>, and let's get it in!</p>
 
         </div>
       </div>
