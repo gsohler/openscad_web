@@ -1,3 +1,12 @@
+<?php
+if(isset($_POST["description"])) {
+	$description=$_POST["description"];
+	$contact=$_POST["contact"];
+	$email=$_POST["email"];
+	mail("guenther.sohler@gmail.com","Openscad Feature Request","Description:$description contact:$contact email:$email");
+	print("Request sent");
+}
+?>
 <html>
 	<head>
   	<title>Python | OpenSCAD</title>
@@ -167,7 +176,21 @@
 	    in an SHA256 hash.
             Now I hope it's just a matter of time until things are merged.</p>
 
-            <p>This is where you come in. Use this fork, <a href="https://github.com/openscad/openscad/pull/4601">have your say</a>, and let's get it in!</p>
+	    <p>This is where you come in. Use this fork, <a href="https://github.com/openscad/openscad/pull/4702">have your say</a>, and let's get it in!</p>
+	    <p> If you dont want to wait for this to happen, you can  easily compile my openscad yourself using this steps:
+<pre>
+git clone https://github.com/gsohler/openscad.git
+cd openscad
+git checkout python
+git submodule update --init --recursive
+mkdir build
+cd build
+cmake -DEXPERIMENTAL=1 -DENABLE_PYTHON=1 ..
+make
+sudo make install
+</pre>
+Dont forget to enable python experimental feature in the preference. In case you like my work  i would love to see my branch forked
+            </p>
 
         </div>
       </div>
@@ -181,7 +204,7 @@
           <p>
             Before downloading it, please understand that "Python | OpenSCAD" is a fork currently maintained by myself, gsohler.
             I heavily wish for this fork/branch to be merged into mainline OpenSCAD and have been working towards
-            making it happen. <a href="https://github.com/openscad/openscad/pull/4601">You can follow the progress here</a>.
+            making it happen. <a href="https://github.com/openscad/openscad/pull/4702">You can follow the progress here</a>.
           </p>
 
           <p>
@@ -198,6 +221,19 @@
           </p>
           <p>
             Ok, now it's probably a good idea to <a href="download.php">download</a> it.
+          <div class="micro-block">
+	    <div> Vote for even more Features ?</div>
+            Do you feel, that OpenSCAD is missing an important feature ?
+	    Vote here , what you want to see next
+	    <form action=index.php method=post>
+	    <textarea name=description cols=50 rows=6>
+            </textarea> <br>
+	    Your Name <input name=contact> <br>
+	    Email (optional) <input name=email>
+            <input type=submit value="Vote">
+	    </form>
+          </div>
+
           </p>
           <div class="micro-block">
             <div>Contact</div>
@@ -216,7 +252,7 @@
             Not quite like "Hello world!" but hey, we need to start somewhere. Here's an example
             of a table:
           </p>
-      		<img src="pictures/openscad.png" width="100%" >
+      		<img src="pictures/table.png" width="100%" >
       		<pre class="code">
 def foot(x,y):
 	c=cube([1,1,10])
@@ -230,9 +266,9 @@ parts.append(translate(plate(),[0,0,10]))
 
 for y in [0,10]:
 	for x in [0,10]:
-		parts.append(foot(x,y]))
+		parts.append(foot(x,y))
 
-output([union(parts), cylinder(r=1,h=10).translate([20,10,0])])
+output(parts)
       		</pre>
 
           <p>
@@ -257,6 +293,7 @@ texture("texture1.jpg"); // get a texture index
 color(texture=1) // specify the index to use
   cube(10); // on the object
             </pre>
+            <img src="pictures/texture_cube.png" width="50%">
           </div>
         </div>
         <div class="micro-block">
@@ -265,9 +302,19 @@ color(texture=1) // specify the index to use
           <p>
             Use SDFs to create organic meshes!
         	</p>
-        	<img src="pictures/sdf.png" width="100%">
+        	<img src="pictures/sdf.png" width="50%">
+	    <pre class="code">
+from pylibfive import *
+c=lv_coord()
+s1=lv_sphere(lv_trans(c,[2,2,2]),2)
+b1=lv_box(c,[2,2,2])
+sdf=lv_union_smooth(s1,b1,0.6])
+fobj=frep(sdf,[-4,-4,-4],[4,4,4],20)
+output(obj)
+
+            </pre>
           <p>
-            If you're unfamiliar please look up "Inigo Iquilez", the god-father of SDFs.
+            If you're unfamiliar please look up "Inigo Quilez", the god-father of SDFs.
           </p>
 
          <p>
@@ -298,7 +345,11 @@ color(texture=1) // specify the index to use
             	I've integrated libfive into OpenSCAD, but only through the Python bindings.
           	</p>
 
-          	See example at <a href="examples/libfive_example.txt">libfive_example.py </a>
+		See example at <a href="examples/libfive_example.txt">libfive_example.py </a>
+		or  <a href="examples/collosseum.txt">collosseum.py </a>
+		<p>
+
+		<img src="pictures/collosseum.png" width="50%">
 
           	<h3>ifrep</h3>
           	<p>
@@ -342,6 +393,8 @@ square().path_extrude([[0,0,0],[0,0,10]])
           	</ul>
 
           	<p>
+		<img src="pictures/path_extrude.png" width="50%">
+		<p>
           	See example at <a href="examples/path_extrude_example.txt">path_extrude_example.py </a>
           	</p>
           </div>
@@ -350,9 +403,16 @@ square().path_extrude([[0,0,0],[0,0,10]])
           <div>3D offset</div>
           <div>
           <p>
-          	In this version offset also operates on 3D objects in addition. right now it only works correctly with F6 (Render).
+          	In this version offset also operates on 3D objects in addition. 
             For example, you can use this feature to downsize connection parts from stl files from the internet if they are too tight to assemble.
-          </p>
+	  </p>
+	   <pre>
+<img src="pictures/offset.png"> <p>
+outer=sphere(10)
+inner=offset(outer,-1)
+shell=outer-iner
+output(shell-cube(15))
+           </pre>
           </div>
         </div>
       </div>
