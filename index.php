@@ -162,7 +162,9 @@
             </p>
 
             <p>The argument is Python will introduce a massive security hole into the sharing culture.
-            So the proposed solution is to put the Python capability behind an option, which I have done.
+	    So the proposed solution is to put the Python capability behind an option, which I have done.
+	    Additionally OpenSCAD asks you, if you trust to a new Python Script and it will saves this decsion for you
+	    in an SHA256 hash.
             Now I hope it's just a matter of time until things are merged.</p>
 
             <p>This is where you come in. Use this fork, <a href="https://github.com/openscad/openscad/pull/4601">have your say</a>, and let's get it in!</p>
@@ -287,6 +289,7 @@ color(texture=1) // specify the index to use
           		<li> asin()
           		<li> acos()
           		<li> atan()
+          		<li> atan2()
           		<li> exp()
           		<li> log()
           	</ul>
@@ -322,7 +325,7 @@ color(texture=1) // specify the index to use
           <div>Path extrude</div>
           <div>
           <p>
-          	path_extrude has works very similar to linear_extrude or rotate_extrude. IMHO it can actually act as a superset of both of them.
+          	path_extrude works very similar to linear_extrude or rotate_extrude. IMHO it can actually act as a superset of both of them.
           	The syntax is:
         	</p>
           	<pre class="code">
@@ -335,7 +338,6 @@ square().path_extrude([[0,0,0],[0,0,10]])
             	<li>origin - determines 2D center point of the twist  rotation within the profile</li>
             	<li>scale - factor to scale the profile along the path, can also be 2d vector</li>
             	<li>closed - whether to close the path to form a ring . true/false</li>
-            	<li>allow_intersect - By default path_extrude will yield an empty result on self-intersection. use this on override</li>
             	<li>xdir - Direction of the x vector of the profile for the very first path segment.</li>
           	</ul>
 
