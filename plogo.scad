@@ -28,7 +28,7 @@ module sub2()
         translate([2.5,10,0])
         rotate([90,0,0])
         cylinder(r=3,h=40);
-        translate([-0.5,-10,-10]) cube([12,20,11]);
+        translate([-0.5,-10,-10]) cube([12,21,11]);
         translate([1.5,-10,-10]) cube([12,20,13]);
         
     }
@@ -37,8 +37,8 @@ module sub2()
 
 module compile()
 {
-    color("#4040f0") sub2();
-    color("yellow") 
+    color("#346e9d") sub2();
+    color("#ffe468") 
     translate([0,0,0]) 
     mirror([1,0,0]) rotate([180,0,0]) sub2();
 }

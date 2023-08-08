@@ -177,6 +177,7 @@ if(isset($_POST["description"])) {
             Now I hope it's just a matter of time until things are merged.</p>
 
 	    <p>This is where you come in. Use this fork, <a href="https://github.com/openscad/openscad/pull/4702">have your say</a>, and let's get it in!</p>
+	    <p> A nice tutorial walking you through some exercises can be found <a href="tutorial/site/index.html">here </a>
 	    <p> If you dont want to wait for this to happen, you can  easily compile my openscad yourself using this steps:
 <pre>
 git clone https://github.com/gsohler/openscad.git
