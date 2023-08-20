@@ -1,1 +1,6 @@
-site_name: My Docs
+site_name: Openscad Python fork
+site_url: https://www.guenther-sohler.net/openscad/docs
+repo_url: https://github.com/gsohler/openscad/
+theme:
+  name: readthedocs
+  highlightjs: true
