@@ -4,3 +4,7 @@ repo_url: https://github.com/gsohler/openscad/
 theme:
   name: readthedocs
   highlightjs: true
+nav:
+  - Home: index.md
+  - Getting Started: getting_started.md
+  - Combining Objects: combining_objects.md
