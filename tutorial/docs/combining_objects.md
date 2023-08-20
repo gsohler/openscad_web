@@ -75,3 +75,5 @@ fusion = cu + cy
 
 output(fusion)
 ```
+
+Now that we know how to combine objects, lets see how we can [position them](./positioning_objects.md).
