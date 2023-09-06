@@ -4,6 +4,8 @@ repo_url: https://github.com/gsohler/openscad/
 theme:
   name: material
   highlightjs: true
+  features:
+    - navigation.footer
 nav:
   - Getting Started: index.md
   - Combining Objects: combining_objects.md
