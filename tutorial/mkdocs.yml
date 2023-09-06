@@ -1,6 +1,7 @@
 site_name: Openscad Python fork
 site_url: https://www.guenther-sohler.net/openscad/docs
 repo_url: https://github.com/gsohler/openscad/
+
 theme:
   name: material
   highlightjs: true
@@ -8,10 +9,14 @@ theme:
     - navigation.footer
     - content.tabs.link
     - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
 nav:
   - Getting Started: index.md
   - Combining Objects: combining_objects.md
   - Positioning Objects: positioning_objects.md
+
 markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
