@@ -2,7 +2,7 @@ site_name: Openscad Python fork
 site_url: https://www.guenther-sohler.net/openscad/docs
 repo_url: https://github.com/gsohler/openscad/
 theme:
-  name: readthedocs
+  name: material
   highlightjs: true
 nav:
   - Getting Started: index.md
