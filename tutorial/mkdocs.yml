@@ -5,8 +5,13 @@ theme:
   name: material
   highlightjs: true
   features:
+    - content.tabs.link
     - navigation.footer
 nav:
   - Getting Started: index.md
   - Combining Objects: combining_objects.md
   - Positioning Objects: positioning_objects.md
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
