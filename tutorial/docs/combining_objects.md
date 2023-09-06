@@ -25,9 +25,15 @@ cy = cylinder(5)
 
 # Create a third object that is a fusion of the cube and the cylinder
 fusion = cu.union(cy)
+# alternatively you can also write:
+# fusion = union([cu, cy, more_objects])
 
 # Both objects are now displayed at once
 output(fusion)
+# or:
+# output( [cu,cy] )
+# or use python to incrementally create the array ...
+
 ```
 
 One important thing to note is the fact the `union()` does **NOT** edit the objects in place. Rather, it creates a third brand new object.  
@@ -37,7 +43,7 @@ This means that:
 - You keep access to the originals objects. For example, you could still display just the cube by using `output(cu)`
 
 ## Substracting shapes (difference)
-You learned how to merge two objects into one, but what if you want to extrude an object from another?
+You learned how to merge two objects into one, but what if you want to exclude an object from another?
 For that, you can use the `difference()` method:
 
 ```py
@@ -60,10 +66,11 @@ You can instead simplify it by using **operators**!
 
 Here is a table detailing which operator matches each method:
 
-| Operator | Method     |
-| -------- | ---------- |
-| +        | union      |
-| -        | difference |
+| Operator | Method       |
+| -------- | ------------ |
+| +        | union        |
+| -        | difference   |
+| *        | intersection |
 
 So, reusing our earlier examples, you could write
 ```py

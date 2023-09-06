@@ -5,7 +5,6 @@ theme:
   name: readthedocs
   highlightjs: true
 nav:
-  - Home: index.md
-  - Getting Started: getting_started.md
+  - Getting Started: index.md
   - Combining Objects: combining_objects.md
   - Positioning Objects: positioning_objects.md
