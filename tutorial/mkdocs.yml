@@ -1,10 +1,46 @@
 site_name: Openscad Python fork
 site_url: https://www.guenther-sohler.net/openscad/docs
 repo_url: https://github.com/gsohler/openscad/
+repo_name: gsohler/openscad
+
 theme:
-  name: readthedocs
+  name: material
   highlightjs: true
+  features:
+    - navigation.footer
+    - navigation.instant
+    - content.tabs.link
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
 nav:
   - Getting Started: index.md
   - Combining Objects: combining_objects.md
   - Positioning Objects: positioning_objects.md
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      use_pygments: true
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences

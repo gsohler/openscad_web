@@ -16,15 +16,29 @@ The major difference is that you need to use the `output()` function for a shape
 
 ## Creating a basic shape
 Lets create a 5x5x5 cube.
-```py
-# Create the cube object, and store it in variable "c"
-c = cube(5)
-# Or, more explicitely
-# c = cube([5,5,5])
 
-# Display the cube
-output(c)
-```
+=== "Python"
+
+    ```py
+    # Create the cube object, and store it in variable "c"
+    c = cube(5)
+    # Or, more explicitely
+    c = cube([5,5,5])
+
+    # Display the cube
+    output(c)
+    ```
+
+=== "OpenSCAD"
+
+    ```c++
+    // Create the cube object
+    cube(5);
+    // Or, more explicitely
+    cube([5,5,5]);
+
+    // The cube is displayed implicitely
+    ```
 
 That was pretty easy!
 Next, let's see how to [combine multiple shapes](./combining_objects.md).
