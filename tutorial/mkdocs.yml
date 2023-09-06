@@ -5,8 +5,9 @@ theme:
   name: material
   highlightjs: true
   features:
-    - content.tabs.link
     - navigation.footer
+    - content.tabs.link
+    - content.code.copy
 nav:
   - Getting Started: index.md
   - Combining Objects: combining_objects.md
