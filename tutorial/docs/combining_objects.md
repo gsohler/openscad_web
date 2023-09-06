@@ -1,6 +1,6 @@
 # Combining objects
 
-## Displaying multiple shapes (union)
+## Displaying multiple shapes
 
 If you tried calling output a second time, you will have noticed that is **overwrites** the previous call.
 For example:
@@ -17,24 +17,46 @@ output(cy)
 ```
 
 So how do we display multiple shapes?
-Simple! You combine them with the `union()` method.
+Simple! We pass them all to the output function using a list:
 ```py
 # Create a cube and a cylinder
 cu = cube([5,5,5])
 cy = cylinder(5)
 
-# Create a third object that is a fusion of the cube and the cylinder
-fusion = cu.union(cy)
-# alternatively you can also write:
-# fusion = union([cu, cy, more_objects])
-
 # Both objects are now displayed at once
-output(fusion)
-# or:
-# output( [cu,cy] )
-# or use python to incrementally create the array ...
-
+output([cu,cy])
 ```
+
+
+## Combining objects with `union()`
+Lets say you wanted to merge 2 objects into one, how could you do that?
+Well, you combine them with the `union()` method:
+=== "Python"
+
+    ```py
+    # Create a cube and a cylinder
+    cu = cube([5,5,5])
+    cy = cylinder(5)
+
+    # Create a third object that is a fusion of the cube and the cylinder
+    fusion = cu.union(cy)
+    # alternatively you can also write:
+    fusion = union([cu, cy])
+
+    # Display the new object
+    output(fusion)
+    ```
+
+=== "OpenSCAD"
+
+    ```c++
+    // Join the 2 objects into one
+    union() {    
+        // Create a cube and a cylinder
+        cube([5,5,5]);
+        cylinder(5);
+    }
+    ```
 
 One important thing to note is the fact the `union()` does **NOT** edit the objects in place. Rather, it creates a third brand new object.  
 This means that:
@@ -42,21 +64,35 @@ This means that:
 - You **must** assign the union to a variable, just calling `cu.union(cy)` alone will have no effects on `cu` or `cy`.
 - You keep access to the originals objects. For example, you could still display just the cube by using `output(cu)`
 
-## Substracting shapes (difference)
+## Substracting objects with `difference()`
 You learned how to merge two objects into one, but what if you want to exclude an object from another?
 For that, you can use the `difference()` method:
 
-```py
-# Create a cube and a cylinder that overlap
-cu = cube([5,5,5], center = True)
-cy = cylinder(15, center = True)
+=== "Python"
 
-# Substract the cylinder from the cube
-diff = cu.difference(cy)
+    ```py
+    # Create a cube and a cylinder that overlap
+    cu = cube([5,5,5], center = True)
+    cy = cylinder(15, center = True)
 
-# Display the result
-output(diff)
-```
+    # Substract the cylinder from the cube
+    diff = cu.difference(cy)
+
+    # Display the result
+    output(diff)
+    ```
+
+=== "OpenSCAD"
+
+    ```c++
+    // Use difference() to substract the cylinder from the cube
+    difference() {
+        // Create a cube and a cylinder that overlap
+        cube([5,5,5], center = true);
+        cylinder(15, center = true);
+    }
+    ```
+
 
 As you can see, this creates a cylinder-shaped hole in the cube!
 
