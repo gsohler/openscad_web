@@ -14,7 +14,7 @@ To access $fn, $fa, $fs, simply set global fn, fa, fs variable respectively.
 
 Its possible to store arbritary data along with solids
 
-== "Python"
+=== "Python"
 
     ```py
     # Create the cube object, and store it in variable "c"
@@ -38,7 +38,7 @@ Its possible to store arbritary data along with solids
 
 Most of the Object manipulation function are available in two different flavors: functions and methods.
 
-== "Python"
+=== "Python"
 
     ```py
     # Create a green cylinder with functions

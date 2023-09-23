@@ -40,7 +40,7 @@ Another option to  position an object is to rotate it. You can do that with the 
     # Create a cube
     c = cube([5,5,5])
 
-    rotated  c.rotate([10,0,-30])
+    rotated=c.rotate([10,0,-30])
     # rotate 10 degrees around X axis, not in Y and -30 around Z axis finally
 
     output(rotated)

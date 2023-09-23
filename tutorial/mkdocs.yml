@@ -31,6 +31,8 @@ nav:
   - Getting Started: index.md
   - Combining Objects: combining_objects.md
   - Positioning Objects: positioning_objects.md
+  - Python Specialities: python_specialities.md
+  - OpenSCAD together with Python: python_together.md
 
 markdown_extensions:
   - pymdownx.superfences

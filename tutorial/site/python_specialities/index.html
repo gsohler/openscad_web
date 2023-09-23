@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://www.guenther-sohler.net/openscad/docs/combining_objects/">
+        <link rel="canonical" href="https://www.guenther-sohler.net/openscad/docs/python_specialities/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../positioning_objects/">
       
       
-        <link rel="next" href="../positioning_objects/">
+        <link rel="next" href="../python_together/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Combining Objects - Openscad Python fork</title>
+        <title>Python Specialities - Openscad Python fork</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#combining-objects" class="md-skip">
+        <a href="#python-specialities" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Combining Objects
+              Python Specialities
             
           </span>
         </div>
@@ -269,29 +269,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Combining Objects
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../combining_objects/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -300,54 +280,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#displaying-multiple-shapes" class="md-nav__link">
-    Displaying multiple shapes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#combining-objects-with-union" class="md-nav__link">
-    Combining objects with union()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#substracting-objects-with-difference" class="md-nav__link">
-    Substracting objects with difference()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-operators" class="md-nav__link">
-    Using operators
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -375,9 +307,29 @@
       
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../python_specialities/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Python Specialities
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -386,6 +338,54 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#special-variables" class="md-nav__link">
+    Special Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-existing-files" class="md-nav__link">
+    Import existing files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storing-data-along-solids" class="md-nav__link">
+    Storing Data along Solids
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-oriented-coding-style" class="md-nav__link">
+    Object oriented coding style
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -436,29 +436,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#displaying-multiple-shapes" class="md-nav__link">
-    Displaying multiple shapes
+  <a href="#special-variables" class="md-nav__link">
+    Special Variables
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#combining-objects-with-union" class="md-nav__link">
-    Combining objects with union()
+  <a href="#import-existing-files" class="md-nav__link">
+    Import existing files
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#substracting-objects-with-difference" class="md-nav__link">
-    Substracting objects with difference()
+  <a href="#storing-data-along-solids" class="md-nav__link">
+    Storing Data along Solids
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-operators" class="md-nav__link">
-    Using operators
+  <a href="#object-oriented-coding-style" class="md-nav__link">
+    Object oriented coding style
   </a>
   
 </li>
@@ -481,130 +481,64 @@
   
 
 
-<h1 id="combining-objects">Combining objects</h1>
-<h2 id="displaying-multiple-shapes">Displaying multiple shapes</h2>
-<p>If you tried calling output a second time, you will have noticed that is <strong>overwrites</strong> the previous call.
-For example:
-<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Create a cube and a cylinder</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">cu</span> <span class="o">=</span> <span class="n">cube</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">cy</span> <span class="o">=</span> <span class="n">cylinder</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># We display the cube</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">output</span><span class="p">(</span><span class="n">cu</span><span class="p">)</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># We display the cylinder, which overwrites the previous output call</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># THE CUBE IS NO LONGER DISPLAYED</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">output</span><span class="p">(</span><span class="n">cy</span><span class="p">)</span>
-</span></code></pre></div></p>
-<p>So how do we display multiple shapes?
-Simple! We pass them all to the output function using a list:
-<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Create a cube and a cylinder</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">cu</span> <span class="o">=</span> <span class="n">cube</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">cy</span> <span class="o">=</span> <span class="n">cylinder</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Both objects are now displayed at once</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">output</span><span class="p">([</span><span class="n">cu</span><span class="p">,</span><span class="n">cy</span><span class="p">])</span>
-</span></code></pre></div></p>
-<h2 id="combining-objects-with-union">Combining objects with <code>union()</code></h2>
-<p>Lets say you wanted to merge 2 objects into one, how could you do that?
-Well, you combine them with the <code>union()</code> method:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">OpenSCAD</label></div>
+<h1 id="python-specialities">Python Specialities</h1>
+<h2 id="special-variables">Special Variables</h2>
+<p>In Python the well known $fn, $fa  and $fs don't exist.
+Generally there are no $ variables needed as python variables can be overwritten any time.
+To access $fn, $fa, $fs, simply set global fn, fa, fs variable respectively.</p>
+<h2 id="import-existing-files">Import existing files</h2>
+<p>'import()' cannnot be reused in python-openscad as its a python keyword. use 'os_import()' instead.</p>
+<h2 id="storing-data-along-solids">Storing Data along Solids</h2>
+<p>Its possible to store arbritary data along with solids</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Create a cube and a cylinder</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">cu</span> <span class="o">=</span> <span class="n">cube</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">cy</span> <span class="o">=</span> <span class="n">cylinder</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Create a third object that is a fusion of the cube and the cylinder</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">fusion</span> <span class="o">=</span> <span class="n">cu</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">cy</span><span class="p">)</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># alternatively you can also write:</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">fusion</span> <span class="o">=</span> <span class="n">union</span><span class="p">([</span><span class="n">cu</span><span class="p">,</span> <span class="n">cy</span><span class="p">])</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Display the new object</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">output</span><span class="p">(</span><span class="n">fusion</span><span class="p">)</span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Join the 2 objects into one</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">union</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">    </span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Create a cube and a cylinder</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">cube</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">]);</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">cylinder</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Create the cube object, and store it in variable &quot;c&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">c</span> <span class="o">=</span> <span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># give it a name</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">c</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;Fancy cube&quot;</span><span class="p">]</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># specify coordinates</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">c</span><span class="p">[</span><span class="s1">&#39;top_middle&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Display the cube</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">output</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Retrieve  Data</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Name of the Cube is &quot;</span><span class="o">%</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span>
 </span></code></pre></div>
 </div>
 </div>
 </div>
-<p>One important thing to note is the fact the <code>union()</code> does <strong>NOT</strong> edit the objects in place. Rather, it creates a third brand new object.<br />
-This means that:</p>
-<ul>
-<li>You <strong>must</strong> assign the union to a variable, just calling <code>cu.union(cy)</code> alone will have no effects on <code>cu</code> or <code>cy</code>.</li>
-<li>You keep access to the originals objects. For example, you could still display just the cube by using <code>output(cu)</code></li>
-</ul>
-<h2 id="substracting-objects-with-difference">Substracting objects with <code>difference()</code></h2>
-<p>You learned how to merge two objects into one, but what if you want to exclude an object from another?
-For that, you can use the <code>difference()</code> method:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">OpenSCAD</label></div>
+<h2 id="object-oriented-coding-style">Object oriented coding style</h2>
+<p>Most of the Object manipulation function are available in two different flavors: functions and methods.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Create a cube and a cylinder that overlap</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">cu</span> <span class="o">=</span> <span class="n">cube</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">cy</span> <span class="o">=</span> <span class="n">cylinder</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Substract the cylinder from the cube</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">diff</span> <span class="o">=</span> <span class="n">cu</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">cy</span><span class="p">)</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># Display the result</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">output</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Create a green cylinder with functions</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">cy</span><span class="o">=</span><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">cy_green</span><span class="o">=</span><span class="n">color</span><span class="p">(</span><span class="n">cy</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># or more simple:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># cy_green = color(cylinder(r=2,h=10),&quot;green&quot;)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Now create a red sphere with methods</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">sp</span><span class="o">=</span><span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">sp_red</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># or more simple:</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># sp_red = sphere(r=2).color(&quot;red&quot;)</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># method flavor deems to be more readble </span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c1"># Now output everything</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c1"># use solids in lists to implicitely union them</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="n">output</span><span class="p">([</span><span class="n">sp_red</span><span class="p">,</span> <span class="n">cy_green</span><span class="o">.</span><span class="n">translate</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span> <span class="p">)</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="c1"># here is yet another method ....</span>
 </span></code></pre></div>
 </div>
-<div class="tabbed-block">
-<div class="language-c++ highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Use difference() to substract the cylinder from the cube</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">difference</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="c1">// Create a cube and a cylinder that overlap</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">cube</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="w"> </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="n">cylinder</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="n">center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
-</span></code></pre></div>
 </div>
 </div>
-</div>
-<p>As you can see, this creates a cylinder-shaped hole in the cube!</p>
-<h2 id="using-operators">Using operators</h2>
-<p>Using the <code>union</code> and <code>difference</code> method works great, but is a little heavy synthax-wise.<br />
-You can instead simplify it by using <strong>operators</strong>!</p>
-<p>Here is a table detailing which operator matches each method:</p>
-<table>
-<thead>
-<tr>
-<th>Operator</th>
-<th>Method</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>+</td>
-<td>union</td>
-</tr>
-<tr>
-<td>-</td>
-<td>difference</td>
-</tr>
-<tr>
-<td>*</td>
-<td>intersection</td>
-</tr>
-</tbody>
-</table>
-<p>So, reusing our earlier examples, you could write
-<div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">cu</span> <span class="o">=</span> <span class="n">cube</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">cy</span> <span class="o">=</span> <span class="n">cylinder</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Replaces cu.union(cy)</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">fusion</span> <span class="o">=</span> <span class="n">cu</span> <span class="o">+</span> <span class="n">cy</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">output</span><span class="p">(</span><span class="n">fusion</span><span class="p">)</span>
-</span></code></pre></div></p>
-<p>Now that we know how to combine objects, lets see how we can <a href="../positioning_objects/">position them</a>.</p>
 
 
 
@@ -628,7 +562,7 @@ You can instead simplify it by using <strong>operators</strong>!</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting Started" rel="prev">
+          <a href="../positioning_objects/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Positioning Objects" rel="prev">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -638,20 +572,20 @@ You can instead simplify it by using <strong>operators</strong>!</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Getting Started
+                Positioning Objects
               </div>
             </div>
           </a>
         
         
           
-          <a href="../positioning_objects/" class="md-footer__link md-footer__link--next" aria-label="Next: Positioning Objects" rel="next">
+          <a href="../python_together/" class="md-footer__link md-footer__link--next" aria-label="Next: OpenSCAD together with Python" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Positioning Objects
+                OpenSCAD together with Python
               </div>
             </div>
             <div class="md-footer__button md-icon">
