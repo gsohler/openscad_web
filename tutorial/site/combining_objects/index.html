@@ -571,7 +571,8 @@ For that, you can use the <code>difference()</code> method:</p>
 <p>As you can see, this creates a cylinder-shaped hole in the cube!</p>
 <h2 id="using-operators">Using operators</h2>
 <p>Using the <code>union</code> and <code>difference</code> method works great, but is a little heavy synthax-wise.<br />
-You can instead simplify it by using <strong>operators</strong>!</p>
+You can instead simplify it by using <strong>operators</strong>!
+Operators can also be used to easily translate or scale solid</p>
 <p>Here is a table detailing which operator matches each method:</p>
 <table>
 <thead>
@@ -582,16 +583,24 @@ You can instead simplify it by using <strong>operators</strong>!</p>
 </thead>
 <tbody>
 <tr>
-<td>+</td>
-<td>union</td>
+<td>|</td>
+<td>union two solids</td>
 </tr>
 <tr>
 <td>-</td>
-<td>difference</td>
+<td>difference two solids</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>intersection of two solids</td>
 </tr>
 <tr>
 <td>*</td>
-<td>intersection</td>
+<td>scale an solid with a value or a vector</td>
+</tr>
+<tr>
+<td>+</td>
+<td>translate an solid with a vector</td>
 </tr>
 </tbody>
 </table>
@@ -604,6 +613,10 @@ You can instead simplify it by using <strong>operators</strong>!</p>
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">output</span><span class="p">(</span><span class="n">fusion</span><span class="p">)</span>
 </span></code></pre></div></p>
+<p>There are some more conveniance function to translate or rotate objects.</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">result</span> <span class="o">=</span> <span class="n">obj1</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">down</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># directions are right, left, front, back, up, down</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">result2</span> <span class="o">=</span> <span class="n">obj2</span><span class="o">.</span><span class="n">rotz</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># 30 degrees, there is rotx, roty, rotz</span>
+</span></code></pre></div>
 <p>Now that we know how to combine objects, lets see how we can <a href="../positioning_objects/">position them</a>.</p>
 
 

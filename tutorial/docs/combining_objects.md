@@ -99,14 +99,17 @@ As you can see, this creates a cylinder-shaped hole in the cube!
 ## Using operators
 Using the `union` and `difference` method works great, but is a little heavy synthax-wise.  
 You can instead simplify it by using **operators**!
+Operators can also be used to easily translate or scale solid
 
 Here is a table detailing which operator matches each method:
 
-| Operator | Method       |
-| -------- | ------------ |
-| +        | union        |
-| -        | difference   |
-| *        | intersection |
+| Operator | Method                                  |
+| -------- | --------------------------------------- |
+| \|        | union two solids                        |
+| -        | difference two solids                   |
+| &        | intersection of two solids              |
+| *        | scale an solid with a value or a vector |
+| +        | translate an solid with a vector        |
 
 So, reusing our earlier examples, you could write
 ```py
@@ -118,5 +121,14 @@ fusion = cu + cy
 
 output(fusion)
 ```
+
+There are some more conveniance function to translate or rotate objects.
+
+```py
+result = obj1.right(1).down(2) # directions are right, left, front, back, up, down
+result2 = obj2.rotz(30) # 30 degrees, there is rotx, roty, rotz
+```
+
+
 
 Now that we know how to combine objects, lets see how we can [position them](./positioning_objects.md).
