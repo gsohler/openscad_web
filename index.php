@@ -1,10 +1,10 @@
 <?php
-if(isset($_POST["description"])) {
-	$description=$_POST["description"];
-	$contact=$_POST["contact"];
-	$email=$_POST["email"];
-	mail("guenther.sohler@gmail.com","Openscad Feature Request","Description:$description contact:$contact email:$email");
-	print("Request sent");
+ if(isset($_POST["description"])) {
+ 	$description=$_POST["description"];
+ 	$contact=$_POST["contact"];
+ 	$email=$_POST["email"];
+ 	mail("guenther.sohler@gmail.com","Openscad Feature Request","Description:$description contact:$contact email:$email");
+ 	print("Request sent");
 }
 ?>
 <html>
@@ -133,6 +133,7 @@ if(isset($_POST["description"])) {
     </header>
 
     <main>
+    <div style="text-align:right"> <a href="download.php">Download</a> </div>
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
       <div class="block">
         <div>Motivation</div>
@@ -157,7 +158,7 @@ if(isset($_POST["description"])) {
         		that must be learned and mastered. This is a problem for wide adoption.
             </p>
 
-            <p><strong>This fork lets you use Python inside of OpenSCAD.</strong></p>
+            <p><strong>This fork lets you use Python inside of OpenSCAD as its native language </strong> </p> No extra external script to create OpenSCAD code.
 
             <p>
               Before I continue I'd like to say I fully appreciate all the efforts the team and the Open Source community has contributed towards it over the years.
@@ -178,20 +179,6 @@ if(isset($_POST["description"])) {
 
 	    <p>This is where you come in. Use this fork, <a href="https://github.com/openscad/openscad/pull/4702">have your say</a>, and let's get it in!</p>
 	    <p> A nice tutorial walking you through some exercises can be found <a href="tutorial/site/index.html">here </a>
-	    <p> If you dont want to wait for this to happen, you can  easily compile my openscad yourself using this steps:
-<pre>
-git clone https://github.com/gsohler/openscad.git
-cd openscad
-git checkout python
-git submodule update --init --recursive
-mkdir build
-cd build
-cmake -DEXPERIMENTAL=1 -DENABLE_PYTHON=1 ..
-make
-sudo make install
-</pre>
-Dont forget to enable python experimental feature in the preference. In case you like my work  i would love to see my branch forked
-            </p>
 
         </div>
       </div>
@@ -221,7 +208,24 @@ Dont forget to enable python experimental feature in the preference. In case you
             Hopefully these benefits will help draw more people to the wonderful world of code CAD!
           </p>
           <p>
-            Ok, now it's probably a good idea to <a href="download.php">download</a> it.
+	    Ok, now it's probably a good idea to <a href="download.php">download</a> it.
+
+Dont forget to enable python experimental feature in the preference. In case you like my work  i would love to see my branch forked
+	    <p> If you rather want to compile it yourself, these are the steps to get it done.
+<pre>
+git clone https://github.com/gsohler/openscad.git
+cd openscad
+git checkout python
+git submodule update --init --recursive
+sudo ./scripts/uni-get-dependencies.sh
+mkdir build
+cd build
+cmake -DEXPERIMENTAL=1 -DENABLE_PYTHON=1 -DENABLE_LIBFIVE ..
+make
+sudo make install
+</pre>
+            </p>
+
           <div class="micro-block">
 	    <div> Vote for even more Features ?</div>
             Do you feel, that OpenSCAD is missing an important feature ?
@@ -239,7 +243,8 @@ Dont forget to enable python experimental feature in the preference. In case you
           <div class="micro-block">
             <div>Contact</div>
             <div>
-              <p>
+	      <p>
+                Python-Openscad related discussion is on our <a href="http://web.libera.chat/?channel=#pyopencad">IRC</a> Channel.<br>
                 If you have comments, criticism or even improvement suggestions, don't hesitate to write to me at guenther.sohler@gmail.com
               </p>
             </div>
@@ -309,9 +314,9 @@ from pylibfive import *
 c=lv_coord()
 s1=lv_sphere(lv_trans(c,[2,2,2]),2)
 b1=lv_box(c,[2,2,2])
-sdf=lv_union_smooth(s1,b1,0.6])
+sdf=lv_union_smooth(s1,b1,0.6)
 fobj=frep(sdf,[-4,-4,-4],[4,4,4],20)
-output(obj)
+output(fobj)
 
             </pre>
           <p>
@@ -423,7 +428,8 @@ output(shell-cube(15))
 
 		
     <?php
-      mail("guenther.sohler@gmail.com","Openscad Index",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
+      $server=gethostbyaddr($_SERVER["REMOTE_ADDR"]);
+      mail("guenther.sohler@gmail.com","Openscad IN $server",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
     ?>
   </main>
 	</body>
