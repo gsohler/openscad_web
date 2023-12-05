@@ -4,7 +4,7 @@ Very likely you don't want to give up the amazing libraries with exist in
 OpenSCAD language only. Just use them. Its very simple to mix OpenSCAD and
 python language.
 
-For that just write 'use <pythonfile.py> in your OpenSCAD script.
+For that just write 'use'  pythonfile.py in your OpenSCAD script.
 Then you will be able to use your beloved libraries and at the same time 
 make use of your Python scripts.
 

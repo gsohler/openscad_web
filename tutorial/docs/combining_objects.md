@@ -117,7 +117,7 @@ cu = cube([5,5,5])
 cy = cylinder(5)
 
 # Replaces cu.union(cy)
-fusion = cu + cy
+fusion = cu | cy
 
 output(fusion)
 ```

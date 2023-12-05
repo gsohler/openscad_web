@@ -21,7 +21,7 @@ Its possible to store arbritary data along with solids
     c = cube([10,10,2])
 
     # give it a name
-    c['name']="Fancy cube"]
+    c['name']="Fancy cube"
 
     # specify coordinates
     c['top_middle']=[5,5,2]

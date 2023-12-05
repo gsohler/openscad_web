@@ -13,7 +13,7 @@ To move an object, you can simply use the `translate()` method:
     c2 = c2.translate([0,0,7])
 
     # Display the result
-    result = c1 + c2
+    result = c1 | c2
     output(result)
     ```
 
