@@ -12,7 +12,7 @@ If both those condition are met, then the file will be interpreted as a Python f
 ## Differences with regular OpenSCAD
 If you're familiar with regular OpenSCAD, then the synthax will be fairly obvious, as the names of functions and classes are the same.
 
-The major difference is that you need to use the `output()` function for a shape to be displayed, as opposed to it being displayed automatically in regular OpenSCAD.
+The major difference is that you need to use the `output()` function for a shape to be displayed, as opposed to it being displayed automatically in regular OpenSCAD. As for every python library, you need to  import the functions with 'inport'. Put this in the beginning of each script.
 
 ## Creating a basic shape
 Lets create a 5x5x5 cube.
@@ -20,6 +20,9 @@ Lets create a 5x5x5 cube.
 === "Python"
 
     ```py
+    # getting openscad functions into namespace
+    from openscad import *
+
     # Create the cube object, and store it in variable "c"
     c = cube(5)
     # Or, more explicitely

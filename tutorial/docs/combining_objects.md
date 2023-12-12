@@ -5,6 +5,7 @@
 If you tried calling output a second time, you will have noticed that is **overwrites** the previous call.
 For example:
 ```py
+from openscad import *
 # Create a cube and a cylinder
 cu = cube([5,5,5])
 cy = cylinder(5)
@@ -19,6 +20,7 @@ output(cy)
 So how do we display multiple shapes?
 Simple! We pass them all to the output function using a list:
 ```py
+from openscad import *
 # Create a cube and a cylinder
 cu = cube([5,5,5])
 cy = cylinder(5)
@@ -34,6 +36,7 @@ Well, you combine them with the `union()` method:
 === "Python"
 
     ```py
+    from openscad import *
     # Create a cube and a cylinder
     cu = cube([5,5,5])
     cy = cylinder(5)
@@ -71,6 +74,7 @@ For that, you can use the `difference()` method:
 === "Python"
 
     ```py
+    from openscad import *
     # Create a cube and a cylinder that overlap
     cu = cube([5,5,5], center = True)
     cy = cylinder(15, center = True)
@@ -113,6 +117,7 @@ Here is a table detailing which operator matches each method:
 
 So, reusing our earlier examples, you could write
 ```py
+from openscad import *
 cu = cube([5,5,5])
 cy = cylinder(5)
 
@@ -125,6 +130,7 @@ output(fusion)
 There are some more conveniance function to translate or rotate objects.
 
 ```py
+from openscad import *
 result = obj1.right(1).down(2) # directions are right, left, front, back, up, down
 result2 = obj2.rotz(30) # 30 degrees, there is rotx, roty, rotz
 ```

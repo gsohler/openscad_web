@@ -5,6 +5,8 @@ To move an object, you can simply use the `translate()` method:
 === "Python"
 
     ```py
+    from openscad import *
+
     # Create two cubes
     c1 = cube([5,5,5])
     c2 = cube([3,3,10])
@@ -37,6 +39,8 @@ Another option to  position an object is to rotate it. You can do that with the 
 === "Python"
 
     ```py
+    from openscad import *
+
     # Create a cube
     c = cube([5,5,5])
 

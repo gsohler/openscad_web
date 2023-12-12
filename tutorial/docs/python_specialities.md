@@ -17,6 +17,8 @@ Its possible to store arbritary data along with solids
 === "Python"
 
     ```py
+    from openscad import *
+
     # Create the cube object, and store it in variable "c"
     c = cube([10,10,2])
 
@@ -41,6 +43,8 @@ Most of the Object manipulation function are available in two different flavors:
 === "Python"
 
     ```py
+    from openscad import *
+
     # Create a green cylinder with functions
     cy=cylinder(r=2,h=10)
     cy_green=color(cy,"green")

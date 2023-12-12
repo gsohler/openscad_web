@@ -34,6 +34,8 @@ Check out this sample:
 === "Python"
 
     ```py
+    from openscad import *
+
     # this is file pythonlib.py and it defines the python functions referred above
     def python_add(a,b):
         return a+b
