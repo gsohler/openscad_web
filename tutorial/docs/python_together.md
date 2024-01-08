@@ -49,8 +49,23 @@ Check out this sample:
         # you could write text to this file if you wanted
         # just dont return a solid here as you dont have one...
 
-    
+    ```
+
+Of course you can also use SCAD from within python
+
+    ```py
+    from openscad import *
+
+    obj = scad("""
+       union()
+       {
+         cube([10,10,10]);
+         cylinder(d=1,h=10);
+       }
+     """
+     obj.output()
 
     ```
 
+Apart from different syntax, pythonscad  also provides some additional functions compared to OpenSCAD [here](./python_new.md).
 

@@ -33,6 +33,7 @@ nav:
   - Positioning Objects: positioning_objects.md
   - Python Specialities: python_specialities.md
   - OpenSCAD together with Python: python_together.md
+  - New Functions in pythonscad: python_new.md
 
 markdown_extensions:
   - pymdownx.superfences

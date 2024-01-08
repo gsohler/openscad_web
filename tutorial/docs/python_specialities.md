@@ -28,6 +28,9 @@ Its possible to store arbritary data along with solids
     # specify coordinates
     c['top_middle']=[5,5,2]
 
+    # alternatively same effect has
+    c.top_middle'=[5,5,2]
+
     # Display the cube
     output(c)
 
@@ -35,6 +38,33 @@ Its possible to store arbritary data along with solids
     print("The Name of the Cube is "%(c['name']))
     ```
 
+## Object handles
+
+Special application of storing data with objects are handles, which are 4x4 Eigen matrices.
+Each object has  handle called 'origin' which is identity matrix at first. 
+You can use all the transformations to objects and also to handles like so:
+
+
+=== "Python"
+
+    ```py
+    from openscad import *
+    c=cube([10,10,10])
+
+    # translate the origin with an offset, so top_center sits on top of the cube
+    c.top_center=translate(c.origin,[5,5,10])
+    
+    # This one even points to the right side
+    c.right_center=translate(roty(c.origin,90),10,5,5)
+
+    # The handles can be used with align
+    cyl = cylidner(d=1,h=2)
+
+    # This placecs cyl onto the right side of the cube - of course rotated
+    #    obj       source handle  dest handle
+    c |= cyl.align(c.right_center,cyl.origin)
+
+    ```
 
 ## Object oriented coding style
 

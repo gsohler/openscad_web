@@ -14,6 +14,8 @@
         <link rel="prev" href="../python_specialities/">
       
       
+        <link rel="next" href="../python_new/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
@@ -349,6 +351,25 @@
   
 
     
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_new/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    New Functions in pythonscad
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -432,6 +453,22 @@ make use of your Python scripts.</p>
 </div>
 </div>
 </div>
+<p>Of course you can also use SCAD from within python</p>
+<div class="language-text highlight"><pre><span></span><code>```py
+from openscad import *
+
+obj = scad(&quot;&quot;&quot;
+   union()
+   {
+     cube([10,10,10]);
+     cylinder(d=1,h=10);
+   }
+ &quot;&quot;&quot;
+ obj.output()
+
+```
+</code></pre></div>
+<p>Apart from different syntax, pythonscad  also provides some additional functions compared to OpenSCAD <a href="../python_new/">here</a>.</p>
 
 
 
@@ -470,6 +507,22 @@ make use of your Python scripts.</p>
             </div>
           </a>
         
+        
+          
+          <a href="../python_new/" class="md-footer__link md-footer__link--next" aria-label="Next: New Functions in pythonscad" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                New Functions in pythonscad
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
         
       </nav>
     

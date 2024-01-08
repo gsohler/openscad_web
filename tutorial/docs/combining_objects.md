@@ -135,6 +135,4 @@ result = obj1.right(1).down(2) # directions are right, left, front, back, up, do
 result2 = obj2.rotz(30) # 30 degrees, there is rotx, roty, rotz
 ```
 
-
-
 Now that we know how to combine objects, lets see how we can [position them](./positioning_objects.md).
