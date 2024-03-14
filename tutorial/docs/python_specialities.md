@@ -92,7 +92,7 @@ Most of the Object manipulation function are available in two different flavors:
     # Now output everything
 
     # use solids in lists to implicitely union them
-    output([sp_red, cy_green.translate([10,0,0]] )
+    output([sp_red, cy_green.translate([10,0,0] )
     # here is yet another method ....
     ```
 
