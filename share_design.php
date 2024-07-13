@@ -1,12 +1,31 @@
 <?php
-if(isset($_GET["download"])) {
-	$download=$_GET["download"];
-        $server=gethostbyaddr($_SERVER["REMOTE_ADDR"]);
-	mail("guenther.sohler@gmail.com","Openscad AC $server $download",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
-	print("Out of Stock");
-	exit(1);
+$mysqli_host="188.68.47.127";
+$mysqli_user="k85151_General";
+$mysqli_pass="Tabler0ne!";
+$mysqli_database="k85151_general";
+
+$cnn = mysqli_connect($mysqli_host, $mysqli_user,$mysqli_pass);
+mysqli_select_db($cnn,$mysqli_database);
+
+$my_ip=gethostbyaddr($_SERVER["REMOTE_ADDR"]);
+
+if(isset($_POST["author"]) && isset($_POST["design"]) && isset($_POST["code"])) {
+	$filename=md5(date("Y-m-d H-i-s"));
+	$author=$_POST["author"];
+	$design=$_POST["design"];
+	$code=$_POST["code"];
+	printf("filename is %s\n",$filename);
+	$fh=fopen($_SERVER['DOCUMENT_ROOT'].'/shared_designs/'.$filename,"w");
+	fprintf($fh,$code);
+	fclose($fh);
+
+	print("Author is $author Design is $design Code is $code\n");
+	$result=mysqli_query($cnn, "insert into  pythonscad_design (author,design,filename,ip_addr,authorized) values ('$author', '$design', '$filename','$my_ip','0' ) ");
+	print(mysqli_error($cnn));
+
 }
 ?>
+
 <html>
 	<head>
   	<title>Python | OpenSCAD</title>
@@ -136,69 +155,39 @@ if(isset($_GET["download"])) {
     <main>
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
       <div class="block">
-        <div>Python OpenSCAD Installers</div>
+        <div>Your shared PythonSCAD artwork</div>
         <div>
 <UL>
+<TABLE border=1>
+<TR> <TD>Author </TD><TD> Design </TD> </TR>
 <?php
-$files=array();
-$dh=opendir("./downloads");
-while(($file= readdir($dh)) !== false) {
-	if(substr($file,0,1) != ".") {
-		array_push($files,$file);
+
+$result=mysqli_query($cnn, "select * from pythonscad_design  ;");
+while($row = mysqli_fetch_array($result))
+{
+	$design=$row["design"];
+	$author=$row["author"];
+	$filename=$row["filename"];
+	$ip_addr=$row["ip_addr"];
+	$authorized=$row["authorized"];
+	if($authorized == 1 or $ip_addr == my_ip ) {
+		print("<TR> <TD> $author </TD> <TD> <a href=\"shared_designs/$filename\"> $design </a>  </TD> </TR> \n");
 	}
 }
-closedir($dh);
 
-
-for($j=0;$j<3;$j++) {
-	for($i=0;$i<sizeof($files);$i++) {
-		$file=$files[$i];
-		$desc="";
-		$size = round(filesize("downloads/$file")/(1024*1024));
-		if(strpos($file,"tar.gz") !== false && $j == 1)
-		{
-			$desc="Linux installation package";
-       		} 
-		if(strpos($file,".exe") !== false && $j == 0)
-		{
-			$desc="Windows Installer";
-       		}
-		if(strpos($file,".dmg") !== false && $j == 2)
-		{
-			$desc="MAC Disc Image";
-		}
-		if($desc != "") {
-			print("<form id=myform action=\"https://www.pythonscad.org/downloads/$file\" method=get> <button class=\"btn\" type=\"submit\" onClick=\"javascript:ajaxLoad('download.php?download=$file','myform', null); \"> $file </button> $desc ($size MB)  </form> \n");
-		}
-	}
-	print("<hr>\n");
-}
 ?>
+</TABLE>
 </UL>
         </div>
       </div>
-      <div class="block">
-	<div>Windows Installation Instructions</div>
-The Windows installer is currently not signed . This is why you will see a Windows warning dialog about unknown origin. <br>
-		To make OpenSCAD for python actually work you need to install Python 3.11. To Make it work follow these steps: <br>
-<li> Download and execute the OpenSCADInstaller to install OpenSCAD in your windows
-<li> Download and install <a href="https://www.python.org/ftp/python/3.11.5/python-3.11.5-amd64.exe"> Python 3.11 </a>
-<li> create a test.py containing something simple like : cube().output()
-<li> Lauch OpenSCAD and enable Feature "Python Engine"
-<li> Open test.py and confirm security warning
-<li> press F5/F6 to see the cube
-<li> extend the code ...
-<li> dont hesitate to ask in the forums/mail/newsgroup if something is not working as offered
-
-      </div>
-
     </div>
    </div>
 		
 <?php
       $server=gethostbyaddr($_SERVER["REMOTE_ADDR"]);
-      mail("guenther.sohler@gmail.com","Openscad DL $server",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
+      mail("guenther.sohler@gmail.com","Openscad SH $server",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
     ?>
   </main>
 	</body>
 </html>
+

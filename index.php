@@ -133,7 +133,7 @@
     </header>
 
     <main>
-    <div style="text-align:right"> <a href="download.php">Download</a> </div>
+    <div style="text-align:right"> <a href="https://pythonscad.org/download.php">Download</a> </div>
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
       <div class="block">
         <div>Motivation</div>
@@ -158,7 +158,7 @@
         		that must be learned and mastered. This is a problem for wide adoption.
             </p>
 
-            <p><strong>This fork lets you use Python inside of OpenSCAD as its native language </strong> </p> No extra external script to create OpenSCAD code.
+            <p><strong>This fork lets you use Python inside of OpenSCAD as its native language </strong> </p> No extra external script to create OpenSCAD code. And as its based on openscad we aim to keep all the features which already exist in openscad. Only added features, no skipped ones ...
 
             <p>
               Before I continue I'd like to say I fully appreciate all the efforts the team and the Open Source community has contributed towards it over the years.
@@ -177,7 +177,7 @@
 	    in an SHA256 hash.
             Now I hope it's just a matter of time until things are merged.</p>
 
-	    <p>This is where you come in. Use this fork, <a href="https://github.com/openscad/openscad/pull/4702">have your say</a>, and let's get it in!</p>
+	    <p>This is where you come in. Use this fork, <a href="https://github.com/openscad/openscad/pull/4841">have your say</a>, and let's get it in!</p>
 	    <p> A nice tutorial walking you through some exercises can be found <a href="tutorial/site/index.html">here </a>
 
         </div>
@@ -208,9 +208,9 @@
             Hopefully these benefits will help draw more people to the wonderful world of code CAD!
           </p>
           <p>
-	    Ok, now it's probably a good idea to <a href="download.php">download</a> it.
+	    Ok, now it's probably a good idea to <a href="https://pythonscad.org/download.php">download</a> it.
 
-Dont forget to enable python experimental feature in the preference. In case you like my work  i would love to see my branch forked
+Dont forget to enable python experimental feature in the preference. You might also want start openscad with '--trust-python' to disable annoying warnings as python is considered unsafe by the openscad developers. In case you like my work  i would love to see my branch forked
 	    <p> If you rather want to compile it yourself, these are the steps to get it done.
 <pre>
 git clone https://github.com/gsohler/openscad.git
@@ -218,9 +218,10 @@ cd openscad
 git checkout python
 git submodule update --init --recursive
 sudo ./scripts/uni-get-dependencies.sh
+# make sure to get cryptopp and python dev packages installed, additionally
 mkdir build
 cd build
-cmake -DEXPERIMENTAL=1 -DENABLE_PYTHON=1 -DENABLE_LIBFIVE ..
+cmake -DEXPERIMENTAL=1 -DENABLE_PYTHON=1 -DENABLE_LIBFIVE=1 ..
 make
 sudo make install
 </pre>
@@ -278,8 +279,10 @@ output(parts)
       		</pre>
 
           <p>
-            There is also a <a href="examples/qrcode.txt">QR code generator</a> and
-            <a href="examples/figlet.txt">Figlet</a> example you can see.
+	    There is also a <a href="examples/qrcode.txt">QR code generator</a>  <p>
+            <a href="pictures/qrcode.png"> <img src="pictures/qrcode.png" width=300 ></a> <p>
+		and <a href="examples/figlet.txt">Figlet</a> <p>
+            <a href="pictures/figlet.png"> <img src="pictures/figlet.png" width=300></a> <p> example you can see.
           </p>
         </div>
       </div>
@@ -429,7 +432,7 @@ output(shell-cube(15))
 		
     <?php
       $server=gethostbyaddr($_SERVER["REMOTE_ADDR"]);
-      mail("guenther.sohler@gmail.com","Openscad IN $server",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
+#      mail("guenther.sohler@gmail.com","Openscad IN $server",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
     ?>
   </main>
 	</body>

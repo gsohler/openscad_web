@@ -1,5 +1,5 @@
-
-from  pylibfive import *;
+from openscad import * 
+from  pylibfive import *
 
 levels=4
 diameter=7

@@ -1,5 +1,7 @@
+from openscad import *
 import pyqrcode
-txt="teepee"
+
+txt="scan me!"
 lines = pyqrcode.create(txt).text().split()
 bits=[]
 bit=cube([1.1,1.1,1.1])
