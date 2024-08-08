@@ -53,6 +53,8 @@ Check out this sample:
 
 Of course you can also use SCAD from within python
 
+=== "Python"
+
     ```py
     from openscad import *
 
