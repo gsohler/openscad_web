@@ -1,8 +1,11 @@
 <?php
+$root = $_SERVER["DOCUMENT_ROOT"];
+$dat = date("Y-m-d H:i:s");
 if(isset($_GET["download"])) {
 	$download=$_GET["download"];
         $server=gethostbyaddr($_SERVER["REMOTE_ADDR"]);
 	mail("guenther.sohler@gmail.com","Openscad AC $server $download",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
+        file_put_contents("$root/openscad.txt","$dat OpenSCAD AC $server $download\n",FILE_APPEND);
 	print("Out of Stock");
 	exit(1);
 }
@@ -150,7 +153,7 @@ while(($file= readdir($dh)) !== false) {
 closedir($dh);
 
 
-for($j=0;$j<3;$j++) {
+for($j=0;$j<4;$j++) {
 	for($i=0;$i<sizeof($files);$i++) {
 		$file=$files[$i];
 		$desc="";
@@ -166,6 +169,10 @@ for($j=0;$j<3;$j++) {
 		if(strpos($file,".dmg") !== false && $j == 2)
 		{
 			$desc="MAC Disc Image";
+		}
+		if(strpos($file,".AppImage") !== false && $j == 3)
+		{
+			$desc="Linux AppImage";
 		}
 		if($desc != "") {
 			print("<form id=myform action=\"https://www.pythonscad.org/downloads/$file\" method=get> <button class=\"btn\" type=\"submit\" onClick=\"javascript:ajaxLoad('download.php?download=$file','myform', null); \"> $file </button> $desc ($size MB)  </form> \n");
@@ -183,12 +190,14 @@ The Windows installer is currently not signed . This is why you will see a Windo
 		To make OpenSCAD for python actually work you need to install Python 3.11. To Make it work follow these steps: <br>
 <li> Download and execute the OpenSCADInstaller to install OpenSCAD in your windows
 <li> Download and install <a href="https://www.python.org/ftp/python/3.11.5/python-3.11.5-amd64.exe"> Python 3.11 </a>
+<li> In case the installer fails to create a proper desktop symbol, please grab the openscad.exe inside the 'bin' directory and link it to the desktop/taskbar
 <li> create a test.py containing something simple like : cube().output()
-<li> Lauch OpenSCAD and enable Feature "Python Engine"
+<li> Lauch OpenSCAD and enable <font color=red > Feature "Python Engine" </font>
 <li> Open test.py and confirm security warning
 <li> press F5/F6 to see the cube
 <li> extend the code ...
-<li> dont hesitate to ask in the forums/mail/newsgroup if something is not working as offered
+<li> dont hesitate to ask on  <a href="http://web.libera.chat/?channel=#pyopencad">IRC</a> Channel. or in <a href="http://reddit.com/r/pythonscad"> Reddit </a> if its not working as expected.
+
 
       </div>
 
@@ -198,6 +207,7 @@ The Windows installer is currently not signed . This is why you will see a Windo
 <?php
       $server=gethostbyaddr($_SERVER["REMOTE_ADDR"]);
       mail("guenther.sohler@gmail.com","Openscad DL $server",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
+      file_put_contents("$root/openscad.txt","$dat OpenSCAD DL $server\n",FILE_APPEND);
     ?>
   </main>
 	</body>

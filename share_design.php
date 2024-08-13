@@ -170,7 +170,7 @@ while($row = mysqli_fetch_array($result))
 	$filename=$row["filename"];
 	$ip_addr=$row["ip_addr"];
 	$authorized=$row["authorized"];
-	if($authorized == 1 or $ip_addr == my_ip ) {
+	if($authorized == 1 or $ip_addr == $my_ip ) {
 		print("<TR> <TD> $author </TD> <TD> <a href=\"shared_designs/$filename\"> $design </a>  </TD> </TR> \n");
 	}
 }

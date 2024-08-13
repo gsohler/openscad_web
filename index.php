@@ -179,6 +179,8 @@
 
 	    <p>This is where you come in. Use this fork, <a href="https://github.com/openscad/openscad/pull/4841">have your say</a>, and let's get it in!</p>
 	    <p> A nice tutorial walking you through some exercises can be found <a href="tutorial/site/index.html">here </a>
+	    <p> William F. Adams has created a nice index <a href="http://old.reddit.com/r/pythonscad/wiki/index">here </a>
+
 
         </div>
       </div>
@@ -192,7 +194,7 @@
           <p>
             Before downloading it, please understand that "Python | OpenSCAD" is a fork currently maintained by myself, gsohler.
             I heavily wish for this fork/branch to be merged into mainline OpenSCAD and have been working towards
-            making it happen. <a href="https://github.com/openscad/openscad/pull/4702">You can follow the progress here</a>.
+            making it happen. <a href="https://github.com/openscad/openscad/pull/4841">You can follow the progress here</a>.
           </p>
 
           <p>
@@ -245,8 +247,10 @@ sudo make install
             <div>Contact</div>
             <div>
 	      <p>
-                Python-Openscad related discussion is on our <a href="http://web.libera.chat/?channel=#pyopencad">IRC</a> Channel.<br>
-                If you have comments, criticism or even improvement suggestions, don't hesitate to write to me at guenther.sohler@gmail.com
+		Python-Openscad related discussion is on our <a href="http://web.libera.chat/?channel=#pyopencad">IRC</a> Channel.<br>
+		A Formum to raise questions is available at <a href="http://reddit.com/r/pythonscad"> Reddit </a> <br>
+		If you have comments, criticism or even improvement suggestions, don't hesitate to write to me at guenther.sohler@gmail.com<pr>
+                Designs, which pythonscad community have shared are <a href="share_design.php"> here </a> .
               </p>
             </div>
           </div>
@@ -279,10 +283,18 @@ output(parts)
       		</pre>
 
           <p>
-	    There is also a <a href="examples/qrcode.txt">QR code generator</a>  <p>
-            <a href="pictures/qrcode.png"> <img src="pictures/qrcode.png" width=300 ></a> <p>
-		and <a href="examples/figlet.txt">Figlet</a> <p>
-            <a href="pictures/figlet.png"> <img src="pictures/figlet.png" width=300></a> <p> example you can see.
+	    Many applications are possible like   <p>
+	a <a href="examples/qrcode.txt">QR code generator</a>  <p>
+       	<a href="pictures/qrcode.png"> <img src="pictures/qrcode.png" width=300 ></a> <p>
+
+	or <a href="examples/figlet.txt">Using Figlet 3D Ascii art</a> <p>
+	<a href="pictures/figlet.png"> <img src="pictures/figlet.png" width=300></a> <p> 
+
+	or <a href="examples/gyroid.txt">A Gyroid</a> <p>
+	<a href="pictures/gyroid.webp"> <img src="pictures/gyroid.webp" width=300></a> <p> 
+
+	or even <a href="examples/read_gds.txt">GDS File Parser</a> used for creating Microchips<p>
+	<a href="pictures/read_gds.png"> <img src="pictures/read_gds.png" width=300></a> <p> 
           </p>
         </div>
       </div>
@@ -385,7 +397,7 @@ output(fobj)
           <div>Path extrude</div>
           <div>
           <p>
-          	path_extrude works very similar to linear_extrude or rotate_extrude. IMHO it can actually act as a superset of both of them.
+          	path_extrude works very similar to linear_extrude or rotate_extrude. IMHO it can actually act as a superset of both of them. Like in linear_extrude and rotate_extrude, the extruded  2D shape is always perpendicular to the extrusion.
           	The syntax is:
         	</p>
           	<pre class="code">
