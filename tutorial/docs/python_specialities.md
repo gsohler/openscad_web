@@ -58,7 +58,7 @@ You can use all the transformations to objects and also to handles like so:
     c.right_center=translate(roty(c.origin,90),10,5,5)
 
     # The handles can be used with align
-    cyl = cylidner(d=1,h=2)
+    cyl = cylinder(d=1,h=2)
 
     # This placecs cyl onto the right side of the cube - of course rotated
     #    obj       source handle  dest handle
