@@ -6,6 +6,7 @@ $mysqli_database="k85151_general";
 
 $cnn = mysqli_connect($mysqli_host, $mysqli_user,$mysqli_pass);
 mysqli_select_db($cnn,$mysqli_database);
+$dat = date("Y-m-d H:i:s");
 
 $my_ip=gethostbyaddr($_SERVER["REMOTE_ADDR"]);
 
@@ -23,6 +24,12 @@ if(isset($_POST["author"]) && isset($_POST["design"]) && isset($_POST["code"])) 
 	$result=mysqli_query($cnn, "insert into  pythonscad_design (author,design,filename,ip_addr,authorized) values ('$author', '$design', '$filename','$my_ip','0' ) ");
 	print(mysqli_error($cnn));
 
+}
+if(isset($_GET["delete"])) {
+	$delete=$_GET["delete"];
+	$query="delete from pythonscad_design WHERE filename = '$delete' and ip_addr = '$my_ip';  ";
+	$result=mysqli_query($cnn, $query);
+	print(mysqli_error($cnn));
 }
 ?>
 
@@ -171,7 +178,12 @@ while($row = mysqli_fetch_array($result))
 	$ip_addr=$row["ip_addr"];
 	$authorized=$row["authorized"];
 	if($authorized == 1 or $ip_addr == $my_ip ) {
-		print("<TR> <TD> $author </TD> <TD> <a href=\"shared_designs/$filename\"> $design </a>  </TD> </TR> \n");
+		print("<TR>\n");
+		print("<TD> $author </TD> <TD> <a href=\"shared_designs/$filename\"> $design </a>  </TD>\n");
+		if($ip_addr ==$my_ip) {
+		  printf("<TD> <a href='share_design.php?delete=$filename'> Delete </a></TD>");			
+		}
+	        print("</TR>\n");
 	}
 }
 
@@ -183,11 +195,13 @@ while($row = mysqli_fetch_array($result))
     </div>
    </div>
 		
-<?php
-      $server=gethostbyaddr($_SERVER["REMOTE_ADDR"]);
-      mail("guenther.sohler@gmail.com","Openscad SH $server",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
-    ?>
   </main>
 	</body>
 </html>
+<?php
+	$root = $_SERVER["DOCUMENT_ROOT"];
+$server=gethostbyaddr($_SERVER["REMOTE_ADDR"]);
+      file_put_contents("$root/openscad.txt","$dat OpenSCAD SD $server\n",FILE_APPEND);
+?>
+
 

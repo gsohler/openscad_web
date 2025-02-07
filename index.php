@@ -3,7 +3,6 @@
  	$description=$_POST["description"];
  	$contact=$_POST["contact"];
  	$email=$_POST["email"];
- 	mail("guenther.sohler@gmail.com","Openscad Feature Request","Description:$description contact:$contact email:$email");
  	print("Request sent");
 }
 ?>
@@ -132,8 +131,14 @@
       <p style="margin: 1cm;">Leverage one of the world's most popular programming languages to express parametric 3D models.</p>
     </header>
 
+
     <main>
-    <div style="text-align:right"> <a href="https://pythonscad.org/download.php">Download</a> </div>
+    <div style="text-align:right"> 
+<a href="https://pythonscad.org/tutorial/site/index.html">Tutorial </a> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://pythonscad.org/share_design.php">Gallery </a> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://pythonscad.org/download.php">Downloads</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<a href="https://pythonscad.org/contact.php">Contact </a> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+ </div>
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
       <div class="block">
         <div>Motivation</div>
@@ -179,7 +184,8 @@
 
 	    <p>This is where you come in. Use this fork, <a href="https://github.com/openscad/openscad/pull/4841">have your say</a>, and let's get it in!</p>
 	    <p> A nice tutorial walking you through some exercises can be found <a href="tutorial/site/index.html">here </a>
-	    <p> William F. Adams has created a nice index <a href="http://old.reddit.com/r/pythonscad/wiki/index">here </a>
+	    <p> William F. Adams has created a nice wiki on that  <a href="http://old.reddit.com/r/openpythonscad/wiki/index">here </a>
+	    <p> Python Stub files for all available functions in PythonSCAD can be found  <a href="https://raw.githubusercontent.com/pythonscad/pythonscad/refs/heads/master/libraries/python/openscad.pyi">here </a>
 
 
         </div>
@@ -215,9 +221,8 @@
 Dont forget to enable python experimental feature in the preference. You might also want start openscad with '--trust-python' to disable annoying warnings as python is considered unsafe by the openscad developers. In case you like my work  i would love to see my branch forked
 	    <p> If you rather want to compile it yourself, these are the steps to get it done.
 <pre>
-git clone https://github.com/gsohler/openscad.git
-cd openscad
-git checkout python
+git clone https://github.com/pythonscad/pythonscad.git
+cd pythonscad
 git submodule update --init --recursive
 sudo ./scripts/uni-get-dependencies.sh
 # make sure to get cryptopp and python dev packages installed, additionally
@@ -248,7 +253,7 @@ sudo make install
             <div>
 	      <p>
 		Python-Openscad related discussion is on our <a href="http://web.libera.chat/?channel=#pyopencad">IRC</a> Channel.<br>
-		A Formum to raise questions is available at <a href="http://reddit.com/r/pythonscad"> Reddit </a> <br>
+		A Forum to raise questions is available at <a href="http://reddit.com/r/openpythonscad"> Reddit </a> <br>
 		If you have comments, criticism or even improvement suggestions, don't hesitate to write to me at guenther.sohler@gmail.com<pr>
                 Designs, which pythonscad community have shared are <a href="share_design.php"> here </a> .
               </p>
@@ -260,41 +265,41 @@ sudo make install
         <div>Usage samples</div>
         <div>
           <p>
-            Not quite like "Hello world!" but hey, we need to start somewhere. Here's an example
-            of a table:
+            Lets create a housing for the new camera.
           </p>
-      		<img src="pictures/table.png" width="100%" >
-      		<pre class="code">
-def foot(x,y):
-	c=cube([1,1,10])
-	return translate(c,[x,y,0])
+      		<img src="pictures/box_anim.gif" width="100%" >
+		<pre class="code">
+from openscad import *
+fn=20
 
-def plate():
-	return cube([11,11,1])
+box = cube([40,40,40])
+box -= cube([36,36,40]) + [2,2,2]
+box -= cylinder(d=20,h=5) + [20,20,-1]
+box -= cylinder(d=3,h=10) ^ [[5,35],[5,35], -1]
+box.show()
 
-parts=[]
-parts.append(translate(plate(),[0,0,10]))
-
-for y in [0,10]:
-	for x in [0,10]:
-		parts.append(foot(x,y))
-
-output(parts)
       		</pre>
 
-          <p>
+	  <p>
+	    Below samples depend on external Python Libraries, which you can install with pip. In case PythonSCAD cannot find it, please tell it the path like <pre>
+import sys
+sys.path.append("\\path\\to\\python\\site-packages-dir")
+</pre>
 	    Many applications are possible like   <p>
-	a <a href="examples/qrcode.txt">QR code generator</a>  <p>
-       	<a href="pictures/qrcode.png"> <img src="pictures/qrcode.png" width=300 ></a> <p>
+	      a <a href="examples/qrcode.txt">QR code generator</a>  <p>
+             	<a href="pictures/qrcode.png"> <img src="pictures/qrcode.png" width=300 ></a> <p>
 
-	or <a href="examples/figlet.txt">Using Figlet 3D Ascii art</a> <p>
-	<a href="pictures/figlet.png"> <img src="pictures/figlet.png" width=300></a> <p> 
+      	     or <a href="examples/figlet.txt">Using Figlet 3D Ascii art</a> <p>
+	        <a href="pictures/figlet.png"> <img src="pictures/figlet.png" width=300></a> <p> 
 
-	or <a href="examples/gyroid.txt">A Gyroid</a> <p>
-	<a href="pictures/gyroid.webp"> <img src="pictures/gyroid.webp" width=300></a> <p> 
+	     or <a href="examples/gyroid.txt">A Gyroid</a> <p>
+	        <a href="pictures/gyroid.webp"> <img src="pictures/gyroid.webp" width=300></a> <p> 
 
 	or even <a href="examples/read_gds.txt">GDS File Parser</a> used for creating Microchips<p>
-	<a href="pictures/read_gds.png"> <img src="pictures/read_gds.png" width=300></a> <p> 
+		<a href="pictures/read_gds.png"> <img src="pictures/read_gds.png" width=300></a> <p> 
+              PythonSCAD is present on Thingiverse
+                 <li> <a href="https://thingiverse.com/thing:6939488">Zelda's Spirit Flute</a> by L.D.
+                 <li> <a href="https://thingiverse.com/thing:6766806">Dremel Impeller Blower</a> by jhnphn
           </p>
         </div>
       </div>
@@ -325,6 +330,7 @@ color(texture=1) // specify the index to use
         	</p>
         	<img src="pictures/sdf.png" width="50%">
 	    <pre class="code">
+from openscad import *
 from pylibfive import *
 c=lv_coord()
 s1=lv_sphere(lv_trans(c,[2,2,2]),2)
@@ -425,14 +431,14 @@ square().path_extrude([[0,0,0],[0,0,10]])
           <div>
           <p>
           	In this version offset also operates on 3D objects in addition. 
-            For example, you can use this feature to downsize connection parts from stl files from the internet if they are too tight to assemble.
+                Fillets can easily be created by downsizing concave edges
 	  </p>
 	   <pre>
-<img src="pictures/offset.png"> <p>
-outer=sphere(10)
-inner=offset(outer,-1)
-shell=outer-iner
-output(shell-cube(15))
+<img src="pictures/offset.png" width="500"> <p>
+from openscad import *
+c = cube(10) + [[0,0,0], [5,5,5]]
+c = c.offset(-2,fa=5)
+c.show()
            </pre>
           </div>
         </div>
@@ -444,7 +450,6 @@ output(shell-cube(15))
 		
     <?php
       $server=gethostbyaddr($_SERVER["REMOTE_ADDR"]);
-#      mail("guenther.sohler@gmail.com","Openscad IN $server",gethostbyaddr($_SERVER["REMOTE_ADDR"])."|||".implode(" ",$_SERVER));
     ?>
   </main>
 	</body>
