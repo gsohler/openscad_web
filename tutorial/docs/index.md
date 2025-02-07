@@ -3,11 +3,9 @@
 ## Enabling Python support
 For Python support to be enabled, 2 conditions must be met:
 
-1. The `python-engine` feature must be enabled
-![Enabling the python engine](./img/enable_python_feature.png)
-2. The extension of the file you're editing **MUST** be `.py`.
+The extension of the file you're editing **MUST** be `.py`.
 
-If both those condition are met, then the file will be interpreted as a Python file.
+If this is met, then the file will be interpreted as a Python file.
 
 ## Differences with regular OpenSCAD
 If you're familiar with regular OpenSCAD, then the synthax will be fairly obvious, as the names of functions and classes are the same.

@@ -487,12 +487,8 @@
 <h1 id="getting-started-with-python-powered-openscad">Getting started with Python-powered OpenSCAD</h1>
 <h2 id="enabling-python-support">Enabling Python support</h2>
 <p>For Python support to be enabled, 2 conditions must be met:</p>
-<ol>
-<li>The <code>python-engine</code> feature must be enabled
-<img alt="Enabling the python engine" src="img/enable_python_feature.png" /></li>
-<li>The extension of the file you're editing <strong>MUST</strong> be <code>.py</code>.</li>
-</ol>
-<p>If both those condition are met, then the file will be interpreted as a Python file.</p>
+<p>The extension of the file you're editing <strong>MUST</strong> be <code>.py</code>.</p>
+<p>If this is met, then the file will be interpreted as a Python file.</p>
 <h2 id="differences-with-regular-openscad">Differences with regular OpenSCAD</h2>
 <p>If you're familiar with regular OpenSCAD, then the synthax will be fairly obvious, as the names of functions and classes are the same.</p>
 <p>The major difference is that you need to use the <code>output()</code> function for a shape to be displayed, as opposed to it being displayed automatically in regular OpenSCAD. As for every python library, you need to  import the functions with 'inport'. Put this in the beginning of each script.</p>
@@ -502,7 +498,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># getting openscad functions into namespace</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">openscad</span> <span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Create the cube object, and store it in variable &quot;c&quot;</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">c</span> <span class="o">=</span> <span class="n">cube</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
