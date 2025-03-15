@@ -8,7 +8,7 @@ To access $fn, $fa, $fs, simply set global fn, fa, fs variable respectively.
 
 ## Import existing files
 
-'import()' cannnot be reused in python-openscad as its a python keyword. use 'os\_import()' instead.
+'import()' cannnot be reused in python-openscad as its a python keyword. use 'osimport()' instead.
 
 ## Storing Data along Solids
 
@@ -32,7 +32,7 @@ Its possible to store arbritary data along with solids
     c.top_middle'=[5,5,2]
 
     # Display the cube
-    output(c)
+    show(c)
 
     # Retrieve  Data
     print("The Name of the Cube is "%(c['name']))
@@ -41,7 +41,7 @@ Its possible to store arbritary data along with solids
 ## Object handles
 
 Special application of storing data with objects are handles, which are 4x4 Eigen matrices.
-Each object has  handle called 'origin' which is identity matrix at first. 
+Each object has a handle called 'origin' which is identity matrix at first. 
 You can use all the transformations to objects and also to handles like so:
 
 
@@ -89,10 +89,10 @@ Most of the Object manipulation function are available in two different flavors:
     
     # method flavor deems to be more readble 
 
-    # Now output everything
+    # Now show everything
 
     # use solids in lists to implicitely union them
-    output([sp_red, cy_green.translate([10,0,0] )
+    show([sp_red, cy_green.translate([10,0,0] )
     # here is yet another method ....
     ```
 

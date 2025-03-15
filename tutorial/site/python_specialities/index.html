@@ -520,7 +520,7 @@
 Generally there are no $ variables needed as python variables can be overwritten any time.
 To access $fn, $fa, $fs, simply set global fn, fa, fs variable respectively.</p>
 <h2 id="import-existing-files">Import existing files</h2>
-<p>'import()' cannnot be reused in python-openscad as its a python keyword. use 'os_import()' instead.</p>
+<p>'import()' cannnot be reused in python-openscad as its a python keyword. use 'osimport()' instead.</p>
 <h2 id="storing-data-along-solids">Storing Data along Solids</h2>
 <p>Its possible to store arbritary data along with solids</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
@@ -541,7 +541,7 @@ To access $fn, $fa, $fs, simply set global fn, fa, fs variable respectively.</p>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">c</span><span class="o">.</span><span class="n">top_middle</span><span class="s1">&#39;=[5,5,2]</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Display the cube</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">output</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">show</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># Retrieve  Data</span>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Name of the Cube is &quot;</span><span class="o">%</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span>
@@ -551,7 +551,7 @@ To access $fn, $fa, $fs, simply set global fn, fa, fs variable respectively.</p>
 </div>
 <h2 id="object-handles">Object handles</h2>
 <p>Special application of storing data with objects are handles, which are 4x4 Eigen matrices.
-Each object has  handle called 'origin' which is identity matrix at first. 
+Each object has a handle called 'origin' which is identity matrix at first. 
 You can use all the transformations to objects and also to handles like so:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
 <div class="tabbed-content">
@@ -596,10 +596,10 @@ You can use all the transformations to objects and also to handles like so:</p>
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1"># method flavor deems to be more readble </span>
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="c1"># Now output everything</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="c1"># Now show everything</span>
 </span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
 </span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="c1"># use solids in lists to implicitely union them</span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="n">output</span><span class="p">([</span><span class="n">sp_red</span><span class="p">,</span> <span class="n">cy_green</span><span class="o">.</span><span class="n">translate</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="n">show</span><span class="p">([</span><span class="n">sp_red</span><span class="p">,</span> <span class="n">cy_green</span><span class="o">.</span><span class="n">translate</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
 </span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="c1"># here is yet another method ....</span>
 </span></code></pre></div>
 </div>

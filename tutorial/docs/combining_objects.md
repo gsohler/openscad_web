@@ -2,7 +2,7 @@
 
 ## Displaying multiple shapes
 
-If you tried calling output a second time, you will have noticed that is **overwrites** the previous call.
+If you tried calling show a second time, you will have noticed that is **overwrites** the previous call.
 For example:
 ```py
 from openscad import *
@@ -11,14 +11,14 @@ cu = cube([5,5,5])
 cy = cylinder(5)
 
 # We display the cube
-output(cu)
-# We display the cylinder, which overwrites the previous output call
+show(cu)
+# We display the cylinder, which overwrites the previous show call
 # THE CUBE IS NO LONGER DISPLAYED
-output(cy)
+show(cy)
 ```
 
 So how do we display multiple shapes?
-Simple! We pass them all to the output function using a list:
+Simple! We pass them all to the show function using a list:
 ```py
 from openscad import *
 # Create a cube and a cylinder
@@ -26,7 +26,7 @@ cu = cube([5,5,5])
 cy = cylinder(5)
 
 # Both objects are now displayed at once
-output([cu,cy])
+show([cu,cy])
 ```
 
 
@@ -35,37 +35,37 @@ Lets say you wanted to merge 2 objects into one, how could you do that?
 Well, you combine them with the `union()` method:
 === "Python"
 
-    ```py
-    from openscad import *
-    # Create a cube and a cylinder
-    cu = cube([5,5,5])
-    cy = cylinder(5)
+```py
+from openscad import *
+# Create a cube and a cylinder
+cu = cube([5,5,5])
+cy = cylinder(5)
 
-    # Create a third object that is a fusion of the cube and the cylinder
-    fusion = cu.union(cy)
-    # alternatively you can also write:
-    fusion = union([cu, cy])
+# Create a third object that is a fusion of the cube and the cylinder
+fusion = cu.union(cy)
+# alternatively you can also write:
+fusion = union([cu, cy])
 
-    # Display the new object
-    output(fusion)
-    ```
+# Display the new object
+show(fusion)
+```
 
 === "OpenSCAD"
 
-    ```c++
-    // Join the 2 objects into one
-    union() {    
-        // Create a cube and a cylinder
-        cube([5,5,5]);
-        cylinder(5);
-    }
-    ```
+```c++
+// Join the 2 objects into one
+union() {    
+    // Create a cube and a cylinder
+    cube([5,5,5]);
+    cylinder(5);
+}
+```
 
 One important thing to note is the fact the `union()` does **NOT** edit the objects in place. Rather, it creates a third brand new object.  
 This means that:
 
 - You **must** assign the union to a variable, just calling `cu.union(cy)` alone will have no effects on `cu` or `cy`.
-- You keep access to the originals objects. For example, you could still display just the cube by using `output(cu)`
+- You keep access to the originals objects. For example, you could still display just the cube by using `show(cu)`
 
 ## Substracting objects with `difference()`
 You learned how to merge two objects into one, but what if you want to exclude an object from another?
@@ -73,29 +73,29 @@ For that, you can use the `difference()` method:
 
 === "Python"
 
-    ```py
-    from openscad import *
-    # Create a cube and a cylinder that overlap
-    cu = cube([5,5,5], center = True)
-    cy = cylinder(15, center = True)
+```py
+from openscad import *
+# Create a cube and a cylinder that overlap
+cu = cube([5,5,5], center = True)
+cy = cylinder(15, center = True)
 
-    # Substract the cylinder from the cube
-    diff = cu.difference(cy)
+# Substract the cylinder from the cube
+diff = cu.difference(cy)
 
-    # Display the result
-    output(diff)
-    ```
+# Display the result
+show(diff)
+```
 
 === "OpenSCAD"
 
-    ```c++
-    // Use difference() to substract the cylinder from the cube
-    difference() {
-        // Create a cube and a cylinder that overlap
-        cube([5,5,5], center = true);
-        cylinder(15, center = true);
-    }
-    ```
+```c++
+// Use difference() to substract the cylinder from the cube
+difference() {
+    // Create a cube and a cylinder that overlap
+    cube([5,5,5], center = true);
+    cylinder(15, center = true);
+}
+```
 
 
 As you can see, this creates a cylinder-shaped hole in the cube!
@@ -124,13 +124,15 @@ cy = cylinder(5)
 # Replaces cu.union(cy)
 fusion = cu | cy
 
-output(fusion)
+show(fusion)
 ```
 
 There are some more conveniance function to translate or rotate objects.
 
 ```py
 from openscad import *
+obj1 = cube(10)
+obj2=cylinder(r=1,h=2)
 result = obj1.right(1).down(2) # directions are right, left, front, back, up, down
 result2 = obj2.rotz(30) # 30 degrees, there is rotx, roty, rotz
 ```

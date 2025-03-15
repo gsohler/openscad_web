@@ -16,7 +16,7 @@ To move an object, you can simply use the `translate()` method:
 
     # Display the result
     result = c1 | c2
-    output(result)
+    show(result)
     ```
 
 === "OpenSCAD"
@@ -38,26 +38,26 @@ Another option to  position an object is to rotate it. You can do that with the 
 
 === "Python"
 
-    ```py
-    from openscad import *
+```py
+from openscad import *
 
-    # Create a cube
-    c = cube([5,5,5])
+# Create a cube
+c = cube([5,5,5])
 
-    rotated=c.rotate([10,0,-30])
-    # rotate 10 degrees around X axis, not in Y and -30 around Z axis finally
+rotated=c.rotate([10,0,-30])
+# rotate 10 degrees around X axis, not in Y and -30 around Z axis finally
 
-    output(rotated)
-    ```
+show(rotated)
+```
 
 === "OpenSCAD"
 
-    ```c++
+```c++
 
-    // rotate 10 degrees around X axis, not in Y and -30 around Z axis finally
-    rotate([10,0,-30])
-        cube([5,5,5]);
-    ```
+// rotate 10 degrees around X axis, not in Y and -30 around Z axis finally
+rotate([10,0,-30])
+    cube([5,5,5]);
+```
 
 One advantage of python language over the OpenSCAD is that you specify the build processes in several
 tiny steps without having to use  hierarchy
