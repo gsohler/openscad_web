@@ -73,9 +73,14 @@
 	    So the proposed solution is to put the Python capability behind an option, which I have done.
 	    Additionally OpenSCAD asks you, if you trust to a new Python Script and it will saves this decsion for you
 	    in an SHA256 hash.
-            Now I hope it's just a matter of time until things are merged.</p>
+	    Now I hope it's just a matter of time until things are merged.</p>
+	    <font color=darkblue>
+	    Update Feb 2025:<br>
+	    Finally openscad core devs started to merge huge code chunks of PythonSCAD into openscad. So effectively
+	    core functionality of PytonSCAD is available  in OpenSCAD. This is very exciting as it means the python functionality in OpenSCAD will be available to a way bigger audience. <br>
+            Finally PythonSCAD will be still available to provide those features, which OpenSCAD will never merge.	
+            </font>
 
-	    <p>This is where you come in. Use this fork, <a href="https://github.com/openscad/openscad/pull/4841">have your say</a>, and let's get it in!</p>
 	    <p> A nice tutorial walking you through some exercises can be found <a href="tutorial/site/index.html">here </a>
 	    <p> William F. Adams has created a nice wiki on that  <a href="http://old.reddit.com/r/openpythonscad/wiki/index">here </a>
 	    <p> Python Stub files for all available functions in PythonSCAD can be found  <a href="https://raw.githubusercontent.com/pythonscad/pythonscad/refs/heads/master/libraries/python/openscad.pyi">here </a>
