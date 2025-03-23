@@ -190,18 +190,32 @@ for($j=0;$j<5;$j++) {
       <div class="block">
 	<div>Windows Installation Instructions</div>
 The Windows installer is currently not signed . This is why you will see a Windows warning dialog about unknown origin. <br>
-		To make OpenSCAD for python actually work you need to install Python 3.11. To Make it work follow these steps: <br>
+		To make OpenSCAD for python actually work you need to install Python 3.11. To Make it work follow these steps: <br> <p>
 <li> Download and execute the OpenSCADInstaller to install OpenSCAD in your windows
 <li> Download and install <a href="https://www.python.org/ftp/python/3.11.5/python-3.11.5-amd64.exe"> Python 3.11 </a>
 <li> In case the installer fails to create a proper desktop symbol, please grab the openscad.exe inside the 'bin' directory and link it to the desktop/taskbar
-<li> create a test.py containing something simple like : from openscad import * | cube().output()
-<li> Lauch OpenSCAD and enable <font color=red > Feature "Python Engine" </font>
+
+
+<li> create a test.py containing something simple like :
+  <pre class="code">
+from openscad import *
+a=cube(1)
+a.show()
+  </pre>
 <li> Open test.py and confirm security warning
 <li> press F5/F6 to see the cube
 <li> extend the code ...
-<li> dont hesitate to ask on  <a href="http://web.libera.chat/?channel=#pyopencad">IRC</a> Channel. or in <a href="http://reddit.com/r/openpythonscad"> Reddit </a> if its not working as expected.
-
-
+<li> dont hesitate to ask on  <a href="http://web.libera.chat/?channel=#pyopenscad">IRC</a> Channel. or in <a href="http://reddit.com/r/openpythonscad"> Reddit </a> if its not working as expected.
+      </div>
+      <div class="block">
+	<div>General Python Version information</div>
+          PythonSCAD works very well on its own, unless you plan to use modules with come with a shared library(cpython) such as .dll, .dylib or .so <p>
+	  If you use such a module, these module belong to a certain python version and they expect PythonSCAD to use the exact same version. If the first two numbers do not  match, these modules cannot be loaded <p>
+         The PythonSCAD's binary Distributions come with these versions:
+         <li> Linux AppImage: Python 3.12.0
+ 	 <li> Apple DMG: Python 3.13.1
+         <li> Windows: Python 3.11.5-2
+ 
       </div>
       <div class="block">
 	<div>MAC OsX Installation Instructions</div>

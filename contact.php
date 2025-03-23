@@ -168,7 +168,8 @@ if(isset($_GET["delete"])) {
 		<li> Python-Openscad related discussion is on our <a href="http://web.libera.chat/?channel=#pyopencad">IRC</a> Channel.<br>
 		<li> A Forum to raise questions is available at <a href="http://reddit.com/r/openpythonscad"> Reddit </a> <br>
 		<li> If you have comments, criticism or even improvement suggestions, don't hesitate to write to me at guenther.sohler@gmail.com<pr>
-                <li> Designs, which pythonscad community have shared are <a href="share_design.php"> here </a> .
+		<li> Designs, which pythonscad community have shared are <a href="share_design.php"> here </a> .
+		<li> In case you feel urgent need to drive the PythonSCAD development, <br> feel free to PayPal me @ my email-address.
 </UL>
         </div>
       </div>
