@@ -239,4 +239,15 @@ alltogether = concat(part1, part2, part3)
 
 ```
 
+## exising functions are improved
+
+Some of the existing functions got additional useful parameters
+
+    * circle gets an angle parameter , so you can easily make pie's
+    * same for cylinder, why should it be missing
+    * sphere can accept a function which  receives a 3d vector and will output a radius
+    * linear_extrude can also extrude a python function. this will get a height and shall return a 2d polygon
+    * rotate_extrude can also extrude a python function. this will get a height and shall return a 2d polygon
+    * rotate_extrude has a v parameter  , when not [0,0,0] it will do nice helix
+
 

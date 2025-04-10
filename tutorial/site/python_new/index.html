@@ -488,6 +488,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#exising-functions-are-improved" class="md-nav__link">
+    exising functions are improved
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -616,6 +623,13 @@
         <li class="md-nav__item">
   <a href="#concat" class="md-nav__link">
     concat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exising-functions-are-improved" class="md-nav__link">
+    exising functions are improved
   </a>
   
 </li>
@@ -811,6 +825,15 @@ createing an Union operation on them. This is useful when the sub-parts are not 
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">alltogether</span> <span class="o">=</span> <span class="n">concat</span><span class="p">(</span><span class="n">part1</span><span class="p">,</span> <span class="n">part2</span><span class="p">,</span> <span class="n">part3</span><span class="p">)</span>
 </span></code></pre></div>
+<h2 id="exising-functions-are-improved">exising functions are improved</h2>
+<p>Some of the existing functions got additional useful parameters</p>
+<div class="language-text highlight"><pre><span></span><code>* circle gets an angle parameter , so you can easily make pie&#39;s
+* same for cylinder, why should it be missing
+* sphere can accept a function which  receives a 3d vector and will output a radius
+* linear_extrude can also extrude a python function. this will get a height and shall return a 2d polygon
+* rotate_extrude can also extrude a python function. this will get a height and shall return a 2d polygon
+* rotate_extrude has a v parameter  , when not [0,0,0] it will do nice helix
+</code></pre></div>
 
 
 
