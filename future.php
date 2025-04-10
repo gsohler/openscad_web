@@ -21,7 +21,7 @@
 <a href="examples.php">Examples </a> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="references.php">References</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 <a href="future.php">Future </a> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="contacts.phphtml">Contacts </a> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+<a href="contacts.php">Contacts </a> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
 </div>
 
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
