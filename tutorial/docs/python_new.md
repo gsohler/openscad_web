@@ -211,8 +211,17 @@ s.show() # very near to circle
 Thanks to scrameta, pythonscad got wonderful skin.
 skin is like you put arbritary 2d objects in space and skin will cover all of them tightly
 
-u
+
 This is basically morphing a square into a circle
+```py
+from openscad import *
+a=square(4,center=True)
+b=circle(r=2,fn=20).up(10)
+s=skin(a,b)
+s.show()
+```
+
+
 
 ## add\_parameter
 
