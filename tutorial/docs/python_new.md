@@ -200,7 +200,7 @@ Spline is like 'polygon'  just with the difference, that the resulting object is
 
 ```py
 from openscad import *
-s = spline([[0,0],[10,0],[10,10],[0,10])
+s = spline([[0,0],[10,0],[10,10],[0,10]])
 
 s.show() # very near to circle
 
