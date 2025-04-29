@@ -112,7 +112,7 @@ Here is a table detailing which operator matches each method:
 | \|        | union two solids                        |
 | -        | difference two solids                   |
 | &        | intersection of two solids              |
-| *        | scale an solid with a value or a vector |
+| *        | scale a solid with a value or a vector  |
 | +        | translate an solid with a vector        |
 
 So, reusing our earlier examples, you could write
@@ -132,9 +132,9 @@ There are some more conveniance function to translate or rotate objects.
 ```py
 from openscad import *
 obj1 = cube(10)
-obj2=cylinder(r=1,h=2)
+obj2=cylinder(r=1,h=10)
 result = obj1.right(1).down(2) # directions are right, left, front, back, up, down
-result2 = obj2.rotz(30) # 30 degrees, there is rotx, roty, rotz
+result2 = obj2.roty(30) # 30 degrees, there is rotx, roty, rotz
 ```
 
 Now that we know how to combine objects, lets see how we can [position them](./positioning_objects.md).

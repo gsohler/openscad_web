@@ -623,7 +623,7 @@ Operators can also be used to easily translate or scale solid</p>
 </tr>
 <tr>
 <td>*</td>
-<td>scale an solid with a value or a vector</td>
+<td>scale a solid with a value or a vector</td>
 </tr>
 <tr>
 <td>+</td>
@@ -644,9 +644,9 @@ Operators can also be used to easily translate or scale solid</p>
 <p>There are some more conveniance function to translate or rotate objects.</p>
 <div class="language-py highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">obj1</span> <span class="o">=</span> <span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">obj2</span><span class="o">=</span><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">obj2</span><span class="o">=</span><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">result</span> <span class="o">=</span> <span class="n">obj1</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">down</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># directions are right, left, front, back, up, down</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">result2</span> <span class="o">=</span> <span class="n">obj2</span><span class="o">.</span><span class="n">rotz</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># 30 degrees, there is rotx, roty, rotz</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">result2</span> <span class="o">=</span> <span class="n">obj2</span><span class="o">.</span><span class="n">roty</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># 30 degrees, there is rotx, roty, rotz</span>
 </span></code></pre></div>
 <p>Now that we know how to combine objects, lets see how we can <a href="../positioning_objects/">position them</a>.</p>
 

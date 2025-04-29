@@ -19,18 +19,6 @@ To move an object, you can simply use the `translate()` method:
     show(result)
     ```
 
-=== "OpenSCAD"
-
-    ```c++
-    // Create the first cube
-    cube([5,5,5]);
-
-    // Create the second cube, and apply
-    // a translation of 7 units up
-    translate([0,0,7])
-    cube([3,3,10]);
-    ```
-
 Notice how we assign the result of the `translate()` method back into c2.  
 This is because just like the `union()` and `difference()` methods we saw earlier, this method return a brand new object.
 

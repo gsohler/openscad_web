@@ -10,9 +10,9 @@ To access $fn, $fa, $fs, simply set global fn, fa, fs variable respectively.
 
 'import()' cannnot be reused in python-openscad as its a python keyword. use 'osimport()' instead.
 
-## Storing Data along Solids
+## Storing Data with Solids
 
-Its possible to store arbritary data along with solids
+It's possible to store arbitrary data along with solids
 
 === "Python"
 
@@ -29,20 +29,21 @@ Its possible to store arbritary data along with solids
     c['top_middle']=[5,5,2]
 
     # alternatively same effect has
-    c.top_middle'=[5,5,2]
+    c.top_middle=[5,5,2]
 
     # Display the cube
     show(c)
 
     # Retrieve  Data
-    print("The Name of the Cube is "%(c['name']))
+    print("The Name of the Cube is ",(c['name']))
+
     ```
 
 ## Object handles
 
 Special application of storing data with objects are handles, which are 4x4 Eigen matrices.
 Each object has a handle called 'origin' which is identity matrix at first. 
-You can use all the transformations to objects and also to handles like so:
+You can use all the transformations to objects and also to handles like this:
 
 
 === "Python"
@@ -55,7 +56,7 @@ You can use all the transformations to objects and also to handles like so:
     c.top_center=translate(c.origin,[5,5,10])
     
     # This one even points to the right side
-    c.right_center=translate(roty(c.origin,90),10,5,5)
+    c.right_center=translate(roty(c.origin,90),[10,5,5])
 
     # The handles can be used with align
     cyl = cylinder(d=1,h=2)
@@ -92,7 +93,7 @@ Most of the Object manipulation function are available in two different flavors:
     # Now show everything
 
     # use solids in lists to implicitely union them
-    show([sp_red, cy_green.translate([10,0,0] )
+    show([sp_red, cy_green.translate([10,0,0] ) ])
     # here is yet another method ....
     ```
 
