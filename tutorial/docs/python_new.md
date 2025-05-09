@@ -263,7 +263,7 @@ from openscad import *
 alltogether = concat(part1, part2, part3)
 ```
 
-## exising functions are improved
+## existing functions are improved
 
 Some of the existing functions got additional useful parameters
 
@@ -288,33 +288,13 @@ pie.show()
 ###  sphere can accept a function which  receives a 3d vector and will output a radius
 ```py
 from openscad import *
-from math import *
-
-def dot(v1, v2):
-    return v1[0]*v2[0]+ v1[1]*v2[1] + v1[2]*v2[2]
-
-def mydotmax(v, dirs):    
-    res = 0
-    for dir in dirs:
-        res = max(res, abs(dot(v, dir)))
-    return res
-
-dirs=[]
-
-dirs.append([0.0,0.0,1.0])
-dirs.append([1.0,0.0,0.0])
-dirs.append([0.0,1.0,0.0])
-dirs.append([0.5,0.5,0.5])
-dirs.append([0.5,0.5,-0.5])
-dirs.append([0.5,-0.5,0.5])
-dirs.append([0.5,-0.5,-0.5])
 
 def rfunc(v):
-  cf = mydotmax(v, dirs)
-  return 10/pow(cf,1.5)
-
+  cf = abs(v[0])+abs(v[1])+abs(v[2])+3
+  return 10/cf
 sphere(rfunc,fs=0.5,fn=10).show()
 ```
+<img src="../img/sphere_cb-expected.png" alt="Sphere with custom radius" width="200"/>
 
 ### linear\_extrude can also extrude a python function. this will get a height and shall return a 2d polygon
 
@@ -328,16 +308,29 @@ def xsection(h):
 prisma = linear_extrude(xsection, height=10,fn=20)
 prisma.show()
 ```
+<img src="../img/linext_xsect-expected.png" alt="Linear Extrude with custom xsection" width="200"/>
 
-    * rotate_extrude can also extrude a python function. this will get a height and shall return a 2d polygon
+### rotate\_extrude can also extrude a python function. this will get a height and shall return a 2d polygon
+
+```py
+from openscad import *
+from math import *
+def xsection(h):
+    v =2*sin(4*pi*h)
+    res=[[10+v,-v],[15-v,-v],[15-v,5+v],[10+v,5+v]]
+    return res
+rotate_extrude(xsection,fn=50).show()
+```
+<img src="../img/rotext_xsect-expected.png" alt="Rotate Extrude with custom xsection" width="200"/>
 
 ### rotate\_extrude has a v parameter  , when not [0,0,0] it will do nice helix
 
 ```py
 from  openscad import *
 
-circle(3).right(10).rotate_extrude(v=[0,0,20],angle=300).show()
+circle(3).right(10).rotate_extrude(v=[0,0,20],angle=600).show()
 ```
+<img src="../img/helix-expected.png" alt="Sphere with custom radius" width="200"/>
 
         
 
