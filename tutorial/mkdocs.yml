@@ -1,7 +1,7 @@
 site_name: Openscad Python fork
-site_url: https://www.guenther-sohler.net/openscad/docs
-repo_url: https://github.com/gsohler/openscad/
-repo_name: gsohler/openscad
+site_url: https://www.pythonscad.org/tutorial
+repo_url: https://github.com/pythonscad/pythonscad/
+repo_name: pythonscad/pythonscad
 
 theme:
   name: material

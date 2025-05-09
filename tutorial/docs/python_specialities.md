@@ -65,6 +65,8 @@ You can use all the transformations to objects and also to handles like this:
     #    obj       source handle  dest handle
     c |= cyl.align(c.right_center,cyl.origin)
 
+    c.show()
+
     ```
 
 ## Object oriented coding style
@@ -76,25 +78,24 @@ Most of the Object manipulation function are available in two different flavors:
     ```py
     from openscad import *
 
-    # Create a green cylinder with functions
-    cy=cylinder(r=2,h=10)
-    cy_green=color(cy,"green")
-    # or more simple:
-    # cy_green = color(cylinder(r=2,h=10),"green")
+    # Create a green cube with functions
+    cu=cube(3)
+    cu_green=color(cu,"green")
+    # or simply:
+    #cu_green = color(cube(10),"green")
 
-    # Now create a red sphere with methods
+    # Now create a red sphere using methods
     sp=sphere(r=2)
     sp_red = sp.color("red")
-    # or more simple:
+    # or simply:
     # sp_red = sphere(r=2).color("red")
-    
-    # method flavor deems to be more readble 
+
+    # the methods version seems to be more readable
 
     # Now show everything
-
-    # use solids in lists to implicitely union them
-    show([sp_red, cy_green.translate([10,0,0] ) ])
-    # here is yet another method ....
+    
+    # use solids in lists to implicitly union them
+    show([sp_red, cu_green.translate([10,0,0] ) ])
     ```
 
 

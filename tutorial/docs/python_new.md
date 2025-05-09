@@ -40,7 +40,7 @@ corner
 
 ```py
 from openscad import *
-p=path\_extrude(square(1),[[0,0,0],[0,0,10,3], [10,0,10,3],[10,10,10]]);
+p=path_extrude(square(1),[[0,0,0],[0,0,10,3], [10,0,10,3],[10,10,10]]);
 show(p);
 ```
 
@@ -152,10 +152,12 @@ from openscad import *
 e = edge(size=10, center=True)
 
 # and of course you can extrude it
-square = linear_extrude(height=10)
+square = linear_extrude(e, height=10)
+square.show()
 
 # or get back the edges in a python list
 all_e = square.edges()
+
 
 ```
 
@@ -165,10 +167,24 @@ You can retrieve a list of faces for any solid in a python list
 
 ```py
 from openscad import *
+
+core=sphere(r=2)
+faces = core.faces()
+
+flower = core
+for f in faces:
+    flower |= f.linear_extrude(height=4)
+flower |= cylinder(r=1,h=20).rotx(180)
+
+flower.show()
+
+from openscad import *
 c = cube(10)
 
 # returns a list of 6 faces
 faces = c.faces()
+
+faces[2].show()
 
 
 ```
@@ -200,7 +216,7 @@ Spline is like 'polygon'  just with the difference, that the resulting object is
 
 ```py
 from openscad import *
-s = spline([[0,0],[10,0],[10,10],[0,10]])
+s = spline([[0,0],[10,0],[10,10],[0,10]],fn=20)
 
 s.show() # very near to circle
 
@@ -245,18 +261,84 @@ createing an Union operation on them. This is useful when the sub-parts are not 
 from openscad import *
 
 alltogether = concat(part1, part2, part3)
-
 ```
 
 ## exising functions are improved
 
 Some of the existing functions got additional useful parameters
 
-    * circle gets an angle parameter , so you can easily make pie's
-    * same for cylinder, why should it be missing
-    * sphere can accept a function which  receives a 3d vector and will output a radius
-    * linear_extrude can also extrude a python function. this will get a height and shall return a 2d polygon
+### circle gets an angle parameter
+
+```py
+from openscad import *
+
+pie = circle(r=5,angle=90)
+pie.show()
+```
+
+### same for cylinder, why should it be missing
+
+```py
+from openscad import *
+
+pie = cylinder(r=5,h=6, angle=90)
+pie.show()
+```
+
+###  sphere can accept a function which  receives a 3d vector and will output a radius
+```py
+from openscad import *
+from math import *
+
+def dot(v1, v2):
+    return v1[0]*v2[0]+ v1[1]*v2[1] + v1[2]*v2[2]
+
+def mydotmax(v, dirs):    
+    res = 0
+    for dir in dirs:
+        res = max(res, abs(dot(v, dir)))
+    return res
+
+dirs=[]
+
+dirs.append([0.0,0.0,1.0])
+dirs.append([1.0,0.0,0.0])
+dirs.append([0.0,1.0,0.0])
+dirs.append([0.5,0.5,0.5])
+dirs.append([0.5,0.5,-0.5])
+dirs.append([0.5,-0.5,0.5])
+dirs.append([0.5,-0.5,-0.5])
+
+def rfunc(v):
+  cf = mydotmax(v, dirs)
+  return 10/pow(cf,1.5)
+
+sphere(rfunc,fs=0.5,fn=10).show()
+```
+
+### linear\_extrude can also extrude a python function. this will get a height and shall return a 2d polygon
+
+```py
+from openscad import *
+from math import *
+def xsection(h):
+    v =5+sin(h)
+    return [[-v,-v],[v,-v],[v,v],[-v,v]]
+    
+prisma = linear_extrude(xsection, height=10,fn=20)
+prisma.show()
+```
+
     * rotate_extrude can also extrude a python function. this will get a height and shall return a 2d polygon
-    * rotate_extrude has a v parameter  , when not [0,0,0] it will do nice helix
+
+### rotate\_extrude has a v parameter  , when not [0,0,0] it will do nice helix
+
+```py
+from  openscad import *
+
+circle(3).right(10).rotate_extrude(v=[0,0,20],angle=300).show()
+```
+
+        
 
 
