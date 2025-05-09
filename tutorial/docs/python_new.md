@@ -93,12 +93,13 @@ from pylibfive import *
 c=lv_coord()
 s1=lv_sphere(lv_trans(c,[2,2,2]),2)
 b1=lv_box(c,[2,2,2])
-sdf=lv_union_smooth(s1,b1,0.6)
+sdf=lv_union_stairs(s1,b1,1,3)
   
-# And mesh it finally to get something, that openSCAD can display
+# And mesh it finally to get something, that PythonSCAD can display
 fobj=frep(sdf,[-4,-4,-4],[4,4,4],20)
 show(fobj)
 ```
+<img src="../img/sdf-expected.png" alt="Flower" width="200"/>
 
 On a lower level, SDF used a formula and creates surfaces in the area, where this function hits zero.
 All functions, which are provided by libfive are also available in openSCAD. These are
@@ -126,6 +127,7 @@ lv.comp(a,b)
 lv.atan2(x,y)
 lv.print(formula) # print tree of formula
 ```
+A great introduction to the world of SDF can be found in <a href="https://www.youtube.com/watch?v=62-pRVZuS5c&t=60s"> here </a>
 
 
 
@@ -174,20 +176,9 @@ faces = core.faces()
 flower = core
 for f in faces:
     flower |= f.linear_extrude(height=4)
-flower |= cylinder(r=1,h=20).rotx(180)
-
 flower.show()
-
-from openscad import *
-c = cube(10)
-
-# returns a list of 6 faces
-faces = c.faces()
-
-faces[2].show()
-
-
 ```
+<img src="../img/flower-expected.png" alt="Flower" width="200"/>
 note that objects returned by faces (and edges) have a property called 'matrix'  which is a 4x4 eigen matrix which shows their orientation in space.  it can be used to filter them
 
 ## export
@@ -216,11 +207,14 @@ Spline is like 'polygon'  just with the difference, that the resulting object is
 
 ```py
 from openscad import *
-s = spline([[0,0],[10,0],[10,10],[0,10]],fn=20)
 
-s.show() # very near to circle
-
+pts=[[0,6],[10,-5],[20,10],[0,19]]
+s = spline(pts,fn=20).linear_extrude(height=1)
+for pt in pts:
+    s |= (cylinder(r=0.3,h=10,fn=20)+pt)
+s.show() 
 ```
+<img src="../img/spline-expected.png" alt="Spline" width="200"/>
 
 ## skin
 
@@ -231,13 +225,12 @@ skin is like you put arbritary 2d objects in space and skin will cover all of th
 This is basically morphing a square into a circle
 ```py
 from openscad import *
-a=square(4,center=True)
-b=circle(r=2,fn=20).up(10)
+a=square(4,center=True).roty(40)
+b=circle(r=2,fn=20).rotx(40).up(10)
 s=skin(a,b)
 s.show()
 ```
-
-
+<img src="../img/skin-expected.png" alt="Skin" width="200"/>
 
 ## add\_parameter
 
@@ -272,9 +265,10 @@ Some of the existing functions got additional useful parameters
 ```py
 from openscad import *
 
-pie = circle(r=5,angle=90)
+pie = circle(r=5,angle=70)
 pie.show()
 ```
+<img src="../img/pie1-expected.png" alt="Circle Pie" width="200"/>
 
 ### same for cylinder, why should it be missing
 
@@ -284,6 +278,7 @@ from openscad import *
 pie = cylinder(r=5,h=6, angle=90)
 pie.show()
 ```
+<img src="../img/pie-expected.png" alt="Cylinder Pie" width="200"/>
 
 ###  sphere can accept a function which  receives a 3d vector and will output a radius
 ```py

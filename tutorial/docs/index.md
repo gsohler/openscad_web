@@ -1,4 +1,4 @@
-# Getting started with Python-powered OpenSCAD
+# Getting started with PythonSCAD
 
 ## Enabling Python support
 For Python support to be enabled, this  must be met:
