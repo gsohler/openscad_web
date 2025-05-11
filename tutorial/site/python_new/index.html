@@ -447,6 +447,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fillet" class="md-nav__link">
+    fillet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#faces" class="md-nav__link">
     faces
   </a>
@@ -495,6 +502,13 @@
   
     <nav class="md-nav" aria-label="existing functions are improved">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#union-difference" class="md-nav__link">
+    union, difference
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#circle-gets-an-angle-parameter" class="md-nav__link">
@@ -634,6 +648,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#fillet" class="md-nav__link">
+    fillet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#faces" class="md-nav__link">
     faces
   </a>
@@ -682,6 +703,13 @@
   
     <nav class="md-nav" aria-label="existing functions are improved">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#union-difference" class="md-nav__link">
+    union, difference
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#circle-gets-an-angle-parameter" class="md-nav__link">
@@ -806,10 +834,10 @@ pull defines one point one direction where it inserts  "void"  right into the sp
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># One Cube</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">c</span><span class="o">=</span><span class="n">cube</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># this pulls from inside the cube 5 into z direction. New height of the cube is 10.</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">d</span><span class="o">=</span><span class="n">pull</span><span class="p">(</span><span class="n">c</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">d</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">p</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">pull</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>  <span class="c1"># Attach Point , Pull amount</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
+<p><img src="../img/pull-expected.png" alt="Flower" width="200"/></p>
 <h2 id="signed-distance-functions-within-openscad">Signed distance Functions within OpenSCAD</h2>
 <p>No need to create SDF objects in other tools and import into OpenSCAD after.
 Thanks to embedded libfive this can be done online. Watch this small sample to get an idea, how easy it is:</p>
@@ -863,7 +891,7 @@ A great introduction to the world of SDF can be found in <a href="https://www.yo
 </span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">show</span><span class="p">(</span><span class="n">c1</span> <span class="o">|</span> <span class="n">c2</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="edge">edge</h2>
-<p>Python has a new primitive called "edge" which just has a length</p>
+<p>PythonSCAD has a new primitive called "edge" which just has a length</p>
 <div class="language-py highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">e</span> <span class="o">=</span> <span class="n">edge</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
@@ -874,121 +902,140 @@ A great introduction to the world of SDF can be found in <a href="https://www.yo
 </span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># or get back the edges in a python list</span>
 </span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">all_e</span> <span class="o">=</span> <span class="n">square</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
 </span></code></pre></div>
-<h2 id="faces">faces</h2>
-<p>You can retrieve a list of faces for any solid in a python list</p>
+<h2 id="fillet">fillet</h2>
+<p>You can use fillet to add roundings and chamfers to your existing object an easy cases,
+so dont challenge the algorithmus. Usually if you have an idea, how to fillet, the tool can do it, too</p>
 <p><div class="language-py highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">core</span><span class="o">=</span><span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">faces</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">faces</span><span class="p">()</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">flower</span> <span class="o">=</span> <span class="n">core</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">faces</span><span class="p">:</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="n">flower</span> <span class="o">|=</span> <span class="n">f</span><span class="o">.</span><span class="n">linear_extrude</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="n">flower</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">c</span><span class="o">=</span><span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">mask</span><span class="o">=</span><span class="n">cube</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span><span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">demo</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="n">c</span><span class="o">.</span><span class="n">fillet</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="c1"># Normal fillet with r=1, fn=2, thus bevel</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    <span class="n">c</span><span class="o">.</span><span class="n">fillet</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span> <span class="c1">#fillet with r=2 and more points</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="n">c</span><span class="o">.</span><span class="n">fillet</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">mask</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="c1"># really round, but just with masked edges(which are front)</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">]</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="n">show</span><span class="p">(</span><span class="n">demo</span><span class="p">)</span>
+</span></code></pre></div>
+<img src="../img/fillet-expected.png" alt="Flower" width="200"/></p>
+<h2 id="faces">faces</h2>
+<p>You can retrieve a list of faces for any solid in a python list</p>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">core</span><span class="o">=</span><span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">faces</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">faces</span><span class="p">()</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">flower</span> <span class="o">=</span> <span class="n">core</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">faces</span><span class="p">:</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="n">flower</span> <span class="o">|=</span> <span class="n">f</span><span class="o">.</span><span class="n">linear_extrude</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="n">flower</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
 <img src="../img/flower-expected.png" alt="Flower" width="200"/>
 note that objects returned by faces (and edges) have a property called 'matrix'  which is a 4x4 eigen matrix which shows their orientation in space.  it can be used to filter them</p>
 <h2 id="export">export</h2>
 <p>You can use this to export your data to disk programmatically like so:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">c</span> <span class="o">=</span> <span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">cyl</span> <span class="o">=</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">c</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s2">&quot;mycube.stl&quot;</span><span class="p">)</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># with 3mf format you can even store many objects at once</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="n">export</span><span class="p">(</span> <span class="p">{</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="s2">&quot;cube&quot;</span> <span class="p">:</span> <span class="n">c</span><span class="p">,</span>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="s2">&quot;cylinder&quot;</span> <span class="p">:</span> <span class="n">cyl</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="p">},</span><span class="s2">&quot;myfile.3mf&quot;</span><span class="p">)</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">c</span> <span class="o">=</span> <span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">cyl</span> <span class="o">=</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">c</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="s2">&quot;mycube.stl&quot;</span><span class="p">)</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># with 3mf format you can even store many objects at once</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="n">export</span><span class="p">(</span> <span class="p">{</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="s2">&quot;cube&quot;</span> <span class="p">:</span> <span class="n">c</span><span class="p">,</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    <span class="s2">&quot;cylinder&quot;</span> <span class="p">:</span> <span class="n">cyl</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="p">},</span><span class="s2">&quot;myfile.3mf&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="spline">spline</h2>
 <p>Spline is like 'polygon'  just with the difference, that the resulting object is very round and will meet the given points</p>
-<p><div class="language-py highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">pts</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">19</span><span class="p">]]</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">s</span> <span class="o">=</span> <span class="n">spline</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">linear_extrude</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">pts</span><span class="p">:</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="n">s</span> <span class="o">|=</span> <span class="p">(</span><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">+</span><span class="n">pt</span><span class="p">)</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">s</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">pts</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">19</span><span class="p">]]</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">s</span> <span class="o">=</span> <span class="n">spline</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">linear_extrude</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">pts</span><span class="p">:</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="n">s</span> <span class="o">|=</span> <span class="p">(</span><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">+</span><span class="n">pt</span><span class="p">)</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">s</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
 </span></code></pre></div>
 <img src="../img/spline-expected.png" alt="Spline" width="200"/></p>
 <h2 id="skin">skin</h2>
 <p>Thanks to scrameta, pythonscad got wonderful skin.
 skin is like you put arbritary 2d objects in space and skin will cover all of them tightly</p>
 <p>This is basically morphing a square into a circle
-<div class="language-py highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">a</span><span class="o">=</span><span class="n">square</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">roty</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">b</span><span class="o">=</span><span class="n">circle</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">rotx</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="o">.</span><span class="n">up</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">s</span><span class="o">=</span><span class="n">skin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">s</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">a</span><span class="o">=</span><span class="n">square</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">roty</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">b</span><span class="o">=</span><span class="n">circle</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">rotx</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="o">.</span><span class="n">up</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">s</span><span class="o">=</span><span class="n">skin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">s</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
 <img src="../img/skin-expected.png" alt="Skin" width="200"/></p>
 <h2 id="add_parameter">add_parameter</h2>
 <p>This is how pythonscad can interact with the customizer</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># This will add an entry for myvar in customnizer with default value of 5</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;myvar&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># This will add an entry for myvar in customnizer with default value of 5</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;myvar&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="concat">concat</h2>
 <p>Concat concatenates the triangles and vertices of serveral objects without actually
 createing an Union operation on them. This is useful when the sub-parts are not yet water-tight and CSG would fail on them.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">alltogether</span> <span class="o">=</span> <span class="n">concat</span><span class="p">(</span><span class="n">part1</span><span class="p">,</span> <span class="n">part2</span><span class="p">,</span> <span class="n">part3</span><span class="p">)</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">alltogether</span> <span class="o">=</span> <span class="n">concat</span><span class="p">(</span><span class="n">part1</span><span class="p">,</span> <span class="n">part2</span><span class="p">,</span> <span class="n">part3</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="existing-functions-are-improved">existing functions are improved</h2>
 <p>Some of the existing functions got additional useful parameters</p>
+<h3 id="union-difference">union, difference</h3>
+<p>Specify r or fn as an additional parameter and the new created common edges get nice roundings</p>
 <h3 id="circle-gets-an-angle-parameter">circle gets an angle parameter</h3>
-<p><div class="language-py highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">pie</span> <span class="o">=</span> <span class="n">circle</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">angle</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">pie</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">pie</span> <span class="o">=</span> <span class="n">circle</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">angle</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">pie</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
 <img src="../img/pie1-expected.png" alt="Circle Pie" width="200"/></p>
 <h3 id="same-for-cylinder-why-should-it-be-missing">same for cylinder, why should it be missing</h3>
-<p><div class="language-py highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">pie</span> <span class="o">=</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">pie</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">pie</span> <span class="o">=</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">pie</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
 <img src="../img/pie-expected.png" alt="Cylinder Pie" width="200"/></p>
 <h3 id="sphere-can-accept-a-function-which-receives-a-3d-vector-and-will-output-a-radius">sphere can accept a function which  receives a 3d vector and will output a radius</h3>
-<p><div class="language-py highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">rfunc</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>  <span class="n">cf</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="nb">abs</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="nb">abs</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">+</span><span class="mi">3</span>
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>  <span class="k">return</span> <span class="mi">10</span><span class="o">/</span><span class="n">cf</span>
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="n">sphere</span><span class="p">(</span><span class="n">rfunc</span><span class="p">,</span><span class="n">fs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">rfunc</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>  <span class="n">cf</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="nb">abs</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="nb">abs</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">+</span><span class="mi">3</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>  <span class="k">return</span> <span class="mi">10</span><span class="o">/</span><span class="n">cf</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="n">sphere</span><span class="p">(</span><span class="n">rfunc</span><span class="p">,</span><span class="n">fs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
 <img src="../img/sphere_cb-expected.png" alt="Sphere with custom radius" width="200"/></p>
 <h3 id="linear_extrude-can-also-extrude-a-python-function-this-will-get-a-height-and-shall-return-a-2d-polygon">linear_extrude can also extrude a python function. this will get a height and shall return a 2d polygon</h3>
-<p><div class="language-py highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">xsection</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="n">v</span> <span class="o">=</span><span class="mi">5</span><span class="o">+</span><span class="n">sin</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>    <span class="k">return</span> <span class="p">[[</span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="o">-</span><span class="n">v</span><span class="p">],[</span><span class="n">v</span><span class="p">,</span><span class="o">-</span><span class="n">v</span><span class="p">],[</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">],[</span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">]]</span>
-</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
-</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="n">prisma</span> <span class="o">=</span> <span class="n">linear_extrude</span><span class="p">(</span><span class="n">xsection</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="n">prisma</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</span></code></pre></div>
-<img src="../img/linext_xsect-expected.png" alt="Linear Extrude with custom xsection" width="200"/></p>
-<h3 id="rotate_extrude-can-also-extrude-a-python-function-this-will-get-a-height-and-shall-return-a-2d-polygon">rotate_extrude can also extrude a python function. this will get a height and shall return a 2d polygon</h3>
 <p><div class="language-py highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">xsection</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    <span class="n">v</span> <span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    <span class="n">res</span><span class="o">=</span><span class="p">[[</span><span class="mi">10</span><span class="o">+</span><span class="n">v</span><span class="p">,</span><span class="o">-</span><span class="n">v</span><span class="p">],[</span><span class="mi">15</span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="o">-</span><span class="n">v</span><span class="p">],[</span><span class="mi">15</span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="mi">5</span><span class="o">+</span><span class="n">v</span><span class="p">],[</span><span class="mi">10</span><span class="o">+</span><span class="n">v</span><span class="p">,</span><span class="mi">5</span><span class="o">+</span><span class="n">v</span><span class="p">]]</span>
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    <span class="k">return</span> <span class="n">res</span>
-</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="n">rotate_extrude</span><span class="p">(</span><span class="n">xsection</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    <span class="n">v</span> <span class="o">=</span><span class="mi">5</span><span class="o">+</span><span class="n">sin</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    <span class="k">return</span> <span class="p">[[</span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="o">-</span><span class="n">v</span><span class="p">],[</span><span class="n">v</span><span class="p">,</span><span class="o">-</span><span class="n">v</span><span class="p">],[</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">],[</span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">]]</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="n">prisma</span> <span class="o">=</span> <span class="n">linear_extrude</span><span class="p">(</span><span class="n">xsection</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="n">prisma</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></code></pre></div>
+<img src="../img/linext_xsect-expected.png" alt="Linear Extrude with custom xsection" width="200"/></p>
+<h3 id="rotate_extrude-can-also-extrude-a-python-function-this-will-get-a-height-and-shall-return-a-2d-polygon">rotate_extrude can also extrude a python function. this will get a height and shall return a 2d polygon</h3>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">xsection</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    <span class="n">v</span> <span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>    <span class="n">res</span><span class="o">=</span><span class="p">[[</span><span class="mi">10</span><span class="o">+</span><span class="n">v</span><span class="p">,</span><span class="o">-</span><span class="n">v</span><span class="p">],[</span><span class="mi">15</span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="o">-</span><span class="n">v</span><span class="p">],[</span><span class="mi">15</span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="mi">5</span><span class="o">+</span><span class="n">v</span><span class="p">],[</span><span class="mi">10</span><span class="o">+</span><span class="n">v</span><span class="p">,</span><span class="mi">5</span><span class="o">+</span><span class="n">v</span><span class="p">]]</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>    <span class="k">return</span> <span class="n">res</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">rotate_extrude</span><span class="p">(</span><span class="n">xsection</span><span class="p">,</span><span class="n">fn</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
 <img src="../img/rotext_xsect-expected.png" alt="Rotate Extrude with custom xsection" width="200"/></p>
 <h3 id="rotate_extrude-has-a-v-parameter-when-not-000-it-will-do-nice-helix">rotate_extrude has a v parameter  , when not [0,0,0] it will do nice helix</h3>
-<p><div class="language-py highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kn">from</span><span class="w">  </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">rotate_extrude</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">],</span><span class="n">angle</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kn">from</span><span class="w">  </span><span class="nn">openscad</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">rotate_extrude</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">],</span><span class="n">angle</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
 <img src="../img/helix-expected.png" alt="Sphere with custom radius" width="200"/></p>
 

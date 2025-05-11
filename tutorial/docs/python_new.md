@@ -74,10 +74,11 @@ from openscad import *
 # One Cube
 c=cube([2,2,5])
 
-# this pulls from inside the cube 5 into z direction. New height of the cube is 10.
-d=pull(c,[1,1,1],[0,0,5])
-d.show()
+p=c.pull([1,1,3],[4,-2,5])  # Attach Point , Pull amount
+p.show()
 ```
+
+<img src="../img/pull-expected.png" alt="Flower" width="200"/>
 
 
 ## Signed distance Functions within OpenSCAD
@@ -147,7 +148,7 @@ show(c1 | c2)
 
 ## edge
 
-Python has a new primitive called "edge" which just has a length
+PythonSCAD has a new primitive called "edge" which just has a length
 
 ```py
 from openscad import *
@@ -162,6 +163,30 @@ all_e = square.edges()
 
 
 ```
+
+## fillet
+
+You can use fillet to add roundings and chamfers to your existing object an easy cases,
+so dont challenge the algorithmus. Usually if you have an idea, how to fillet, the tool can do it, too
+ 
+
+```py
+from openscad import *
+
+c=cube(10);
+
+mask=cube([30,1,30],center=True)
+
+demo = [
+    c.fillet(1), # Normal fillet with r=1, fn=2, thus bevel
+    c.fillet(2,fn=5).right(15), #fillet with r=2 and more points
+    c.fillet(3,mask,fn=20).right(30), # really round, but just with masked edges(which are front)
+]
+show(demo)
+
+
+```
+<img src="../img/fillet-expected.png" alt="Flower" width="200"/>
 
 ## faces
 
@@ -259,6 +284,10 @@ alltogether = concat(part1, part2, part3)
 ## existing functions are improved
 
 Some of the existing functions got additional useful parameters
+
+### union, difference
+
+Specify r or fn as an additional parameter and the new created common edges get nice roundings
 
 ### circle gets an angle parameter
 
