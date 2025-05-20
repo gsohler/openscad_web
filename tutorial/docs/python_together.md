@@ -64,8 +64,8 @@ Of course you can also use SCAD from within python
          cube([10,10,10]);
          cylinder(d=1,h=10);
        }
-     """)
-     obj.show()
+    """)
+    obj.show()
 
     ```
 

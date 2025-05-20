@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PythonSCAD Cheat Sheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2em;
+      background-color: #f9f9f9;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    pre {
+      background-color: #ecf0f1;
+      padding: 1em;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    code {
+      font-family: Consolas, monospace;
+    }
+    section {
+      margin-bottom: 2em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PythonSCAD Cheat Sheet</h1>
+
+  <section>
+    <h2>🧱 Primitives</h2>
+    <pre><code>c   = cube([x, y, z])           # Create a cube with specified dimensions
+sph = sphere(r)                 # Create a sphere with radius r
+cyl = cylinder(h, r1, r2)       # Create a cylinder with height h and radii r1 and r2
+sq  = square([x, y])            # Create a 2D square
+cir = circle(r)                 # Create a 2D circle
+pol = polygon(points)           # Create a 2D polygon with given points</code></pre>
+  </section>
+
+  <section>
+    <h2>🔄 Transformations</h2>
+    <pre><code>translate(obj, [x, y, z])   # Translate object by x, y, z
+rotate(obj, [x, y, z])      # Rotate object by x, y, z degrees
+scale(obj, [x, y, z])       # Scale object by x, y, z factors
+mirror([obj, x, y, z])      # Mirror object across the plane defined by x, y, z</code></pre>
+  </section>
+
+  <section>
+    <h2>🔗 Boolean Operations</h2>
+    <pre><code>union(obj1, obj2)         # Union of obj1 and obj2
+difference(obj1, obj2)    # Subtract obj2 from obj1
+intersection(obj1, obj2)  # Intersection of obj1 and obj2</code></pre>
+  </section>
+
+  <section>
+    <h2>🌀 Extrusions</h2>
+    <pre><code>linear_extrude(shape, height=5)           # Extrude 2D shape linearly
+rotate_extrude(shape, angle=45)           # Extrude 2D shape by rotating it
+path_extrude(square(3), path)             # Extrude shape along a specified path</code></pre>
+  </section>
+
+  <section>
+    <h2>🎨 Appearance</h2>
+    <pre><code>color(obj, "red")           # Apply red color to object
+color(obj, [r, g, b])       # Apply RGB color to object</code></pre>
+  </section>
+
+  <section>
+    <h2>🧰 Advanced Features</h2>
+    <pre><code>hull()(obj1, obj2)          # Create convex hull of obj1 and obj2
+minkowski(obj1, obj2)       # Minkowski sum of obj1 and obj2
+offset(shape, delta)        # Offset 2D shape by delta</code></pre>
+  </section>
+
+  <section>
+    <h2>🧪 Displaying Objects</h2>
+    <pre><code>show(obj)                   # Render the object
+export(obj,"output.3mf")    # Exporting to a file    
+</code></pre>
+  </section>
+
+  <section>
+    <h2>🐍 Python-Specific Features</h2>
+    <pre><code># Variables and Expressions
+
+# Quickly arrange objects
+show([ cube(4).right(5*i) for i in range(5) ])
+
+# Functions
+def pillar():
+    return cylinder(h=50, r=5)
+
+# Modify the mesh
+c = cube(5)
+pts, tri = c.mesh()
+for pt in pts:
+  if pt[2] &gt; 3 and pt[1] &gt; 3:
+    pt[2] = pt[2] + 3
+polyhedron(pts, tri).show()    
+
+show(pillar())</code></pre>
+  </section>
+  <section>
+    <h2> Handles</h2>
+    <pre><code># Variables and Expressions
+c = cube([10,10,10])
+c.right_side = translate(roty(c.origin, 90),[10,5,5])
+  </section>
+
+  <section>
+    <h2>📚 Additional Resources</h2>
+    <ul>
+      <li><a href="https://pythonscad.org/">PythonSCAD Official Website</a></li>
+      <li><a href="https://github.com/pythonscad/pythonscad">PythonSCAD GitHub Repository</a></li>
+      <li><a href="https://www.reddit.com/r/OpenPythonSCAD/wiki/index/">r/OpenPythonSCAD Wiki</a></li>
+    </ul>
+  </section>
+
+</body>
+</html>

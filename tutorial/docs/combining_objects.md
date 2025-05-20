@@ -14,6 +14,7 @@ cy = cylinder(5)
 show(cu)
 # We display the cylinder, which overwrites the previous show call
 # THE CUBE IS NO LONGER DISPLAYED
+# Latest pythonscad versions support multiple show() statements, which will all implicitely union
 show(cy)
 ```
 

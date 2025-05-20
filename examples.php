@@ -72,30 +72,8 @@ sys.path.append("\\path\\to\\python\\site-packages-dir")
         <div><h3>Additional features</h3></div>
         <p>On top of Python support, this fork also has the following extra capabilities.</p>
         <div class="features">
-        <div class="micro-block">
-          <div><h3>Texture your models</h3></div>
-          <div>
-          <p>
-            Use textures to make your objects more impressive!
-          </p>
-            <img src="pictures/island.png" width=500><br>
-            <pre class="code">
-
-
-texture("texture1.jpg"); // get a texture index
-color(texture=1) // specify the index to use
-  cube(10); // on the object
-            </pre>
-            <img src="pictures/texture_cube.png" width=500>
-          </div>
-        </div>
 
         <div class="micro-block">
-           <pre class="code">
-
-          
-                      </pre>
-
           <div><h3>F-REP/SDF engine (libfive)</h3></div>
           <div>
           <p>
