@@ -48,10 +48,11 @@
           <p>
 	    here are the <a href="downloads.php">downloads</a><br><br>
 
+		There is a brief Cheat-Sheet available in <a href="cheatsheet.html"> here </a>. Thanks ChatGPT.<br><br>
 		Python-Openscad related discussion is on our <a href="http://web.libera.chat/?channel=#pyopenscad">IRC</a> Channel.<br><br>
 		A Forum to raise questions is available at <a href="http://reddit.com/r/openpythonscad"> Reddit </a> <br><br>
     Designs, which pythonscad community have shared are <a href="https://pythonscad.org/share_design.php"> here </a><br><br><br>
-		If you have comments, criticism or even improvement suggestions, don't hesitate to write to me at guenther.sohler@gmail.com<br><br?
+		If you have comments, criticism or even improvement suggestions, don't hesitate to write to me at guenther.sohler@gmail.com<br><br>
     
 	</body>
 </html>
