@@ -51,7 +51,7 @@
 		Python-Openscad related discussion is on our <a href="http://web.libera.chat/?channel=#pyopenscad">IRC</a> Channel.<br><br>
 		A Forum to raise questions is available at <a href="http://reddit.com/r/openpythonscad"> Reddit </a> <br><br>
     Designs, which pythonscad community have shared are <a href="https://pythonscad.org/share_design.php"> here </a><br><br><br>
-    For those which want to contribute in a mailing list, feel free to jump <a href="https://groups.google.com/g/pythonscad"> here </a> <br> <br> <br>
+    For those which want to contribute in a mailing list,  write an empty mail message to 'pythonscad+subscribe@googlemain.com'  </a> <br> <br> <br>
 		If you have comments, criticism or even improvement suggestions, don't hesitate to write to me at guenther.sohler@gmail.com<br><br>
     
 	</body>
