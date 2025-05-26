@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PythonSCAD Helper Sheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2em;
+      background-color: #f9f9f9;
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+
+    #searchInput {
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px;
+      margin-bottom: 24px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .section {
+      margin-bottom: 2em;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr 2fr;
+      gap: 0.4em;
+      align-items: start;
+    }
+    .grid div {
+      background-color: #ecf0f1;
+      padding: 0.4em;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    
+    code {
+      font-family: Consolas, monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PythonSCAD Helper</h1>
+
+  <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search this helper  ...">
+
+<!-- ************************************* -->
+<!-- edit the sections below to add features, or edit existing -->
+
+   <div class="section">
+    <h2>🧱 Primitives</h2>
+    <div class="grid">
+      <div class="func"><code>cube([x, y, z])</code></div>
+      <div>Create a rectangular cuboid with specified dimensions</div>
+      <div><code>cube([10, 20, 30]).show()</code></div>
+
+      <div class="func"><code>sphere(r)</code></div>
+      <div>Create a sphere with radius r</div>
+      <div><code>sphere(15).show()</code></div>
+
+      <div class="func"><code>cylinder(h, r1, r2)</code></div>
+      <div>Create a frustrum of a cone with height h and radii r1 and r2</div>
+      <div><code>cylinder(h=20, r1=10, r2=5).show()</code></div>
+
+      <div class="func"><code>square([x, y])</code></div>
+      <div>Create a square</div>
+      <div><code>square([5, 15]).show()</code></div>
+
+      <div class="func"><code>circle(r)</code></div>
+      <div>Create a circle</div>
+      <div><code>circle(5).show()</code></div>
+
+      <div class="func"><code>polygon(points)</code></div>
+      <div>Create a polygon with given points</div>
+      <div><code>polygon([[0,0], [10,0], [5,10]]).show()</code></div>
+    
+      <div class="func"><code>text(string, size, font)</code></div>
+      <div>Render 2D text with size and font</div>
+      <div><code>
+
+
+text("Hello", size=10).linear_extrude(2).show()
+</code></div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔄 Transformations</h2>
+    <div class="grid">
+      <div class="func"><code>translate(obj,[x, y, z])</code></div>
+      <div>Translate object by x, y, z</div>
+      <div><code>cube([5,5,5]).translate([10, 0, 0]).show()</code></div>
+
+      <div class="func"><code>rotate(obj,[x, y, z])</code></div>
+      <div>Rotate object by x, y, z degrees</div>
+      <div><code>cube([5,10,5]).rotate([0, 0, 45]).show()</code></div>
+
+      <div class="func"><code>scale(obj,[x, y, z])</code></div>
+      <div>Scale object by x, y, z factors</div>
+      <div><code>cube([5,5,5]).scale([2, 2, 1]).show()</code></div>
+
+      <div class="func"><code>mirror(obj,[x, y, z])</code></div>
+      <div>Mirror object across the plane defined by x, y, z</div>
+      <div><code>cube([5,10,15]).mirror([1, 0, 0]).show()</code></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔗 Boolean Operations</h2>
+    <div class="grid">
+      <div class="func"><code>union(obj1, obj2)</code></div>
+      <div>Union of obj1 and obj2</div>
+      <div><code>union(cube([5,5,5]), sphere(3)).show()</code></div>
+
+      <div class="func"><code>difference(obj1, obj2)</code></div>
+      <div>Subtract obj2 from obj1</div>
+      <div><code>difference(cube([5,5,5]), sphere(3)).show()</code></div>
+
+      <div class="func"><code>intersection(obj1, obj2)</code></div>
+      <div>Intersection of obj1 and obj2</div>
+      <div><code>intersection(cube(5), sphere(3)).show()</code></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🌀 Extrusions</h2>
+    <div class="grid">
+      <div class="func"><code>linear_extrude(shape,height)</code></div>
+      <div>Extrude 2D shape linearly</div>
+      <div><code>circle(5).linear_extrude(10).show()</code></div>
+
+      <div class="func"><code>rotate_extrude(angle,shape,v)</code></div>
+      <div>Extrude 2D shape by rotating it, and displacing in x,y,z</div>
+      <div><code>square(3).right(5).rotate_extrude(v=[0,0,10], angle=600).show()</code></div>
+
+      <div class="func"><code>path_extrude(shape, path)</code></div>
+      <div>Extrude shape along a specified path, with curved bends</div>
+      <div><code>path_extrude(square(2),[[0,0,0],[0,0,5,3],[8,8,8],[8,8,12]]).show()</code></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🎨 Appearance</h2>
+    <div class="grid">
+      <div class="func"><code>color(obj,"color")</code></div>
+      <div>Apply  color to object (CSS extended color space)</div>
+      <div><code>cube([5,5,5]).color("rebeccapurple").show()</code></div>
+
+      <div class="func"><code>color(obj,[r, g, b, a])</code></div>
+      <div>Apply RGB color and alpha as float versions to object</div>
+      <div><code>cube(5).color([0.4, 0.8,0.3, 0.2]).show()</code></div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🧰 Advanced Features</h2>
+    <div class="grid">
+      <div class="func"><code>hull(obj1, obj2)</code></div>
+      <div>Create convex hull of obj1 and obj2</div>
+      <div><code>hull(cube([5,5,5]), sphere(3)).show()</code></div>
+
+      <div class="func"><code>minkowski(obj1, obj2)</code></div>
+      <div>Minkowski sum of obj1 and obj2</div>
+      <div><code>minkowski(cube(10), sphere(1)).show()</code></div>
+
+      <div class="func"><code>offset(shape,delta)</code></div>
+      <div>Offset 2D shape by delta</div>
+      <div><code>square([10,15]).offset(4).show()</code></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🧪 Displaying Items</h2>
+    <div class="grid">
+      <div class="func"><code>show(obj)</code></div>
+      <div>Render the object</div>
+      <div><code>show(cube([5,5,5]))</code></div>
+
+      <div class="func"><code>print(val)</code></div>
+      <div>Prints values to the console</div>
+      <div><code>v=125<br>print("v + v = ",v+v)</code></div>
+
+
+
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🐍 Python-Specific Features</h2>
+    <div class="grid">
+      <div class="func"><code>Variables and Expressions</code></div>
+      <div>Define variables and use them in expressions</div>
+      <div><code>width = 10<br>height = 20<br>cube([width, height, 5]).show()</code></div>
+
+      <div class="func"><code>Loops and Conditionals</code></div>
+      <div>Use loops and conditionals to create patterns</div>
+      <div><code>for i in range(5):<br>&nbsp;&nbspcube([5, 5, 5]).translate([i * 10, 0, 0]).show()</code></div>
+
+      <div class="func"><code>Functions</code></div>
+      <div>Define reusable functions</div>
+      <div><code>def pillar(radius):<br>&nbsp;&nbsp;return cylinder(h=50, r=radius)<br>show(pillar(9))</code></div>
+    </div>
+  </div>
+
+<div class="section">
+  <h2>➗ Math Functions</h2>
+  <div class="grid">
+    <div class="func"><code>Sin(x)</code></div>
+    <div>Returns the sine of angle x (degrees)</div>
+    <div><code>Sin(90)</code></div>
+
+    <div class="func"><code>Cos(x)</code></div>
+    <div>Returns the cosine of angle x</div>
+    <div><code>Cos(0)</code></div>
+
+    <div class="func"><code>Tan(x)</code></div>
+    <div>Returns the tangent of angle x</div>
+    <div><code>Tan(45)</code></div>
+
+    <div class="func"><code>Asin(x)</code></div>
+    <div>Returns the arcus sine of x (degrees)</div>
+    <div><code>Asin(1)</code></div>
+
+    <div class="func"><code>Acos(x)</code></div>
+    <div>Returns the arcus cosine of x</div>
+    <div><code>Acos(0.5)</code></div>
+
+    <div class="func"><code>Atan(x)</code></div>
+    <div>Returns the arcus tangent of x</div>
+    <div><code>Atan(1)</code></div>
+
+  </div>
+</div>
+
+<div class="section">
+  <h2>🧰 Utilities</h2>
+  <div class="grid">
+    <div class="func"><code>range(start, end, step)</code></div>
+    <div>Generates a range of values</div>
+    <div><code>range(0, 10, 2)</code></div>
+
+    <div class="func"><code>len(x)</code></div>
+    <div>Returns length of list or string</div>
+    <div><code>len([1,2,3])</code></div>
+
+    <div class="func"><code>round(x, digits)</code></div>
+    <div>Rounds x to specified number of digits</div>
+    <div><code>round(3.14159, 2)</code></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🔁 Flow Control</h2>
+  <div class="grid">
+    <div class="func"><code>for i in range(n):</code></div>
+    <div>Iterate over a range of values</div>
+    <div><code>
+     for i in range(3):<br>
+&nbsp;cube(2).right(i * 3).show()
+</code></div>
+
+    <div class="func"><code>if condition:</code></div>
+    <div>Execute code block if condition is true</div>
+    <div><code>
+if True:<br>
+&nbsp; cube(2).show()
+</code></div>
+
+    <div class="func"><code>while condition:</code></div>
+    <div>Execute code block while condition is true</div>
+    <div><code>
+i = 0<br>
+while i &lt; 3:<br>&nbsp
+    cube(2).right(i * 3).show()<br>&nbsp
+    i += 1
+</code></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🧩 Custom Shapes</h2>
+  <div class="grid">
+    <div class="func"><code>polyhedron(points, faces)</code></div>
+    <div>Create a 3D shape from points and faces</div>
+    <div><code>
+points = [[0,0,0], [1,0,0], [1,1,0], [0,1,0],
+          [0,0,1], [1,0,1], [1,1,1], [0,1,1]]<br>
+faces = [[0,1,2,3], [4,5,6,7], [0,1,5,4],
+         [1,2,6,5], [2,3,7,6], [3,0,4,7]]<br>
+polyhedron(points, faces).show()
+</code></div>
+
+    <div class="func"><code>circle(r, angle)</code></div>
+    <div>Create a circular arc</div>
+    <div><code>
+circle(r=5, angle=70).show()
+</code></div>
+
+    <div class="func"><code>cylinder(r, h, angle)</code></div>
+    <div>Create a cylindrical sector</div>
+    <div><code>
+cylinder(r=5, h=10, angle=120).show()
+</code></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>⚙️ Advanced Features</h2>
+  <div class="grid">
+    <div class="func"><code>divmatrix(mat)</code></div>
+    <div>Apply the inverse of a transformation matrix</div>
+    <div><code>
+
+mat = [[1,0,0,5],[0,1,0,0],[0,0,1,0],[0,0,0,1]]<br>
+a = cube([1,1,2])<br>
+b = a.multmatrix(mat)<br>
+c = b.divmatrix(mat)<br>
+c.show()<br>
+b.show()
+</code></div>
+
+    <div class="func"><code>mesh()</code></div>
+    <div>Convert object to mesh (vertices and triangles)</div>
+    <div><code>
+
+u = cube(1) | cylinder(d=1,h=10)<br>
+pts, tris = u.mesh()<br>
+v = polyhedron(pts, tris)<br>
+v.show()<br>
+print("pts = ",pts,"\n\ntris = ",tris)
+
+</code></div>
+
+    <div class="func"><code>quick transformations</code></div>
+    <div>Shorthand for common transformations</div>
+    <div><code>
+cube(2).right(1.5).rotx(30).show() 
+</code></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🧩 Custom Shapes</h2>
+  <div class="grid">
+    <div class="func"><code>sphere(rfunc)</code></div>
+    <div>Create a sphere with radius defined by a function</div>
+    <div><code>
+
+def rfunc(v):<br>&nbsp
+  cf = abs(v[0]) + abs(v[1]) + abs(v[2]) + 3<br>&nbsp
+  return 10 / cf<br>
+sphere(rfunc, fs=0.5, fn=10).show()
+</code></div>
+
+    <div class="func"><code>linear_extrude(xsection, height)</code></div>
+    <div>Extrude a shape defined by a function along Z-axis</div>
+    <div><code>
+
+from math import sin<br>
+def xsection(h):<br>&nbsp
+    v = 5 + sin(h)<br>&nbsp
+    return [[-v,-v],[v,-v],[v,v],[-v,v]]<br>
+linear_extrude(xsection, height=10, fn=20).show()
+</code></div>
+
+    <div class="func"><code>rotate_extrude(xsection)</code></div>
+    <div>Rotate a shape defined by a function around Z-axis</div>
+    <div><code>
+
+from math import sin, pi<br>
+def xsection(h):<br>&nbsp
+    v = 2 * sin(4 * pi * h)<br>&nbsp
+    return [[10+v,-v],[15-v,-v],[15-v,5+v],[10+v,5+v]]<br>
+rotate_extrude(xsection, fn=50).show()
+</code></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🧵 Skinning</h2>
+  <div class="grid">
+    <div class="func"><code>skin(shape1, shape2)</code></div>
+    <div>Create a smooth surface between two 2D shapes</div>
+    <div><code>
+a = square(4, center=True).roty(40)<br>
+b = circle(r=2, fn=20).rotx(40).up(10)<br>
+skin(a, b).show()
+</code></div>
+  </div>
+</div>
+
+
+<div class="section">
+  <h2>🌀 Splines</h2>
+  <div class="grid">
+    <div class="func"><code>spline(points, fn)</code></div>
+    <div>Create a smooth curve through specified points</div>
+    <div><code>
+
+
+pts = [[0,6],[10,-5],[20,10],[0,19]]<br>
+s = spline(pts, fn=20).linear_extrude(height=1)<br>
+for pt in pts:<br>&nbsp
+    s |= cylinder(r=0.3, h=10, fn=20).translate(pt)<br>
+s.show()
+</code></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🛠️ Advanced Utilities</h2>
+  <div class="grid">
+    <div class="func"><code>add_parameter(name, default)</code></div>
+    <div>Add a parameter for customization</div>
+    <div><code>
+
+
+add_parameter("myvar", 5)<br>
+cube(myvar).show()
+</code></div>
+
+    <div class="func"><code>concat(obj1, obj2, ...)</code></div>
+    <div>Concatenate multiple objects without union</div>
+    <div><code>
+
+
+part1 = cube(2)<br>
+part2 = sphere(1).right(3)<br>
+concat(part1, part2).show()
+</code></div>
+  </div>
+</div>
+
+
+<div class="section">
+  <h2>📥 Import / Export</h2>
+  <div class="grid">
+    <div class="func"><code>osimport(filename)</code></div>
+    <div>Import a file as an object</div>
+    <div><code>
+d=osimport("rooftiles.stl").show() 
+
+</code></div>
+
+    <div class="func"><code>export(obj, filename)</code></div>
+    <div>Export an object to an 3D file</div>
+    <div><code>
+export(d,"tiles.stl")
+
+</code></div>
+  </div>
+</div>
+
+
+<div class="section">
+  <h2>🐞 Debugging Aids</h2>
+  <div class="grid">
+    <div class="func"><code>debug(obj, faces)</code></div>
+    <div>Color selected faces for debugging</div>
+    <div><code>
+
+
+debug(cube(2), faces=[1,2]).show()
+</code></div>
+
+  </div>
+</div>
+
+
+</-- **************************************************-->
+<!-- add sections for functions above -->
+
+
+
+  <div class="section">
+    <h2>📚 Additional Resources</h2>
+<div class="grid">
+   <div class="func"><code> <ul><li><a href="https://pythonscad.org/">PythonSCAD Official Website</a></li></ul></code></div>
+
+
+     <div ><code> <ul> <li><a href="https://github.com/pythonscad/pythonscad">PythonSCAD GitHub Repository</a></li></ul></code></div>
+
+      <div><code> <ul><li><a href="https://www.reddit.com/r/OpenPythonSCAD/wiki/index/">r/OpenPythonSCAD Wiki</a></li></ul></dode></div>
+
+
+    
+   </div>
+  </div>
+
+
+ 
+
+</-- **************************************************-->
+<!-- do not alter anything below here-->
+
+
+<script>
+function searchFunction() {
+  const input = document.getElementById("searchInput");
+  const filter = input.value.toLowerCase();
+  const sections = document.querySelectorAll(".section");
+
+  sections.forEach(section => {
+    let matches = false;
+    const items = section.querySelectorAll(".grid > div");
+
+    // Loop through each <div> inside the grid (3 at a time per item)
+    for (let i = 0; i < items.length; i += 3) {
+      const func = items[i]?.textContent.toLowerCase() || "";
+      const desc = items[i + 1]?.textContent.toLowerCase() || "";
+      const example = items[i + 2]?.textContent.toLowerCase() || "";
+
+      const visible = func.includes(filter) || desc.includes(filter) || example.includes(filter);
+      // Show or hide the 3 related divs
+      items[i].style.display = visible ? "" : "none";
+      items[i + 1].style.display = visible ? "" : "none";
+      items[i + 2].style.display = visible ? "" : "none";
+
+      if (visible) matches = true;
+    }
+
+    // Hide entire section if no matches
+    section.style.display = matches ? "" : "none";
+  });
+}
+</script>
+
+
+</body>
+</html>
