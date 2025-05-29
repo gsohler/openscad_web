@@ -71,7 +71,7 @@
 
             <p>The argument is Python will introduce a massive security hole into the sharing culture.
 	    So the proposed solution is to put the Python capability behind an option, which I have done.
-	    Additionally OpenSCAD asks you, if you trust to a new Python Script and it will saves this decsion for you
+	    Additionally PythonSCAD asks you, if you trust to a new Python Script and it will saves this decsion for you
 	    in an SHA256 hash.
 	    Now I hope it's just a matter of time until things are merged.</p>
 	    <font color=darkblue>
