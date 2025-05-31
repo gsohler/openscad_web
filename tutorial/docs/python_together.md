@@ -1,24 +1,27 @@
 # Python together with OpenSCAD
 
-Very likely you don't want to give up the amazing libraries with exist in
-OpenSCAD language only. Just use them. Its very simple to mix OpenSCAD and
-python language.
+You probably don’t want to give up the great libraries that exist in the
+OpenSCAD language—and there’s no need to. You can easily use them
+alongside Python.
 
-For that just write 'use'  pythonfile.py in your OpenSCAD script.
-Then you will be able to use your beloved libraries and at the same time 
-make use of your Python scripts.
+Just add this line to your OpenSCAD script:
+|use <pythonfile.py>|
 
-Check out this sample:
+This lets you keep using your favourite OpenSCAD libraries while also
+taking advantage of Python where it makes sense.
+
+Here’s a quick example:
 
 === "OpenSCAD"
 
     ```c++
-    // Traditionally use was used to source content from other files which are not on the very toplevel, like modules
-    // use <file.scad> --- this will only load things defined in the file (OpenSCAD modules)
-    // include <file.scad> --- this will also execute OpenSCAD code, which is sitting the the root of the sourced file
+    // In OpenSCAD 'use <file.scad>' imports modules and functions,
+    //but does not execute any commands other than those definitions
 
-    // now with this fork you can simple type
-    use <pythonlib.py>
+    // 'include <file.scad>' acts as if all the contents of the included
+    //are were written in the including file
+
+    // now with this fork you can 'use <pythonlib.py>'
 
     // and call functions like
     echo(python_add(1,2));
@@ -40,7 +43,7 @@ Check out this sample:
     def python_add(a,b):
         return a+b
 
-    def python_cube(size): # you could use any number of parameters
+    def python_cube(size): # fucntion  parameters can be
     # numbers, strings and even arrays are supported
         return cube([size,size,1]) # My special sizing requirement
 
