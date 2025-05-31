@@ -78,6 +78,15 @@
       <div class="func"><code>polygon(points)</code></div>
       <div>Create a polygon with given points</div>
       <div><code>polygon([[0,0], [10,0], [5,10]]).show()</code></div>
+
+      <div class="func"><code>text(string, size, font)</code></div>
+      <div>Render 2D text with size and font</div>
+      <div><code>
+
+
+text("Hello", size=10).linear_extrude(2).show()
+</code></div>
+
     </div>
   </div>
 
@@ -165,8 +174,8 @@
       <div>Offset 2D shape by delta</div>
       <div><code>square([10,15]).offset(4).show()</code></div>
 
-      <div class="fillet"><code>offset(shape,delta)</code></div>
-      <div>Creates a fillet or bevel on a solikd</div>
+      <div class="func"><code>fillet(shape,r)</code></div>
+      <div>Creates a fillet or bevel on a solid</div>
       <div><code>cylinder(r1=10,r2=5,h=10,fn=6).fillet(fn=2,r=1).show()</code></div>
     </div>
   </div>
@@ -203,23 +212,6 @@
       <div><code>def pillar(radius):<br>&nbsp;&nbsp;return cylinder(h=50, r=radius)<br>show(pillar(9))</code></div>
     </div>
   </div>
-
-<div class="section">
-  <h2>🧭 Vector Operations</h2>
-  <div class="grid">
-    <div class="func"><code>norm(v)</code></div>
-    <div>Normalize vector v to unit length</div>
-    <div><code>norm([3, 4, 0])</code></div>
-
-    <div class="func"><code>dot(v1, v2)</code></div>
-    <div>Dot product of vectors v1 and v2</div>
-    <div><code>dot([1, 2, 3], [4, 5, 6])</code></div>
-
-    <div class="func"><code>cross(v1, v2)</code></div>
-    <div>Cross product of v1 and v2</div>
-    <div><code>cross([1, 0, 0], [0, 1, 0])</code></div>
-  </div>
-</div>
 
 <div class="section">
   <h2>🧰 Utilities</h2>
@@ -352,7 +344,7 @@ rotate_extrude(xsection, fn=50).show()
 </div>
 
 <div class="section">
-  <h2>⚙️ Advanced Features</h2>
+  <h2>⚙️ Extra Features</h2>
   <div class="grid">
     <div class="func"><code>divmatrix(mat)</code></div>
     <div>Apply the inverse of a transformation matrix</div>
@@ -447,15 +439,6 @@ concat(part1, part2).show()
   <h2>🔧 Utilities & Constants</h2>
   <div class="grid">
 
-    <div class="func"><code>pi</code></div>
-    <div>Mathematical constant π (3.14159...)</div>
-    <div><code>circle(pi).linear_extrude(1).show()</code></div>
-
-    <div class="func"><code>set_defaults(fn=.., fa=.., fs=..)</code></div>
-    <div>Set default resolution for all shapes (fn = fragments, fa = angle, fs = segment size)</div>
-    <div><code>set_defaults(fn=100)
-circle(5).linear_extrude(1).show()</code></div>
-
     <div class="func"><code>fn</code></div>
     <div>Fragments (sides) used for circles or curves</div>
     <div><code>circle(5, fn=60).linear_extrude(1).show()</code></div>
@@ -494,20 +477,6 @@ cube(2).right(frame_num).show()
   </div>
 </div>
 
-</-->
-<div class="section">
-  <h2>🔤 Text Rendering</h2>
-  <div class="grid">
-    <div class="func"><code>text(string, size, font)</code></div>
-    <div>Render 2D text with size and font</div>
-    <div><code>
-text("Hello", size=10).linear_extrude(2).show()
-</code></div>
-    
-</code></div>
-  </div>
-</div>
-
 
 <div class="section">
   <h2>📥 Import / Export</h2>
@@ -515,14 +484,14 @@ text("Hello", size=10).linear_extrude(2).show()
     <div class="func"><code>osimport(filename)</code></div>
     <div>Import a file as an object</div>
     <div><code>
-d=osimport(r"P:\Docs\rooftiles.stl").show() 
+d=osimport("rooftiles.stl").show() 
 
 </code></div>
 
     <div class="func"><code>export(obj, filename)</code></div>
-    <div>Export an object to an STL file</div>
+    <div>Export an object to an 3D file</div>
     <div><code>
-export(d,r"p:docs\tiles.stl")
+export(d,"tiles.stl")
 
 </code></div>
   </div>
