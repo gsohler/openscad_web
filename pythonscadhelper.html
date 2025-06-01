@@ -69,7 +69,7 @@
 
       <div class="func"><code>square([x, y])</code></div>
       <div>Create a square</div>
-      <div><code>square([10, 10]).show()</code></div>
+      <div><code>square([5, 15]).show()</code></div>
 
       <div class="func"><code>circle(r)</code></div>
       <div>Create a circle</div>
@@ -78,6 +78,16 @@
       <div class="func"><code>polygon(points)</code></div>
       <div>Create a polygon with given points</div>
       <div><code>polygon([[0,0], [10,0], [5,10]]).show()</code></div>
+
+      <div class="func"><code>spline(points, fn)</code></div>
+      <div>Create a smooth curve through specified points</div>
+      <div><code>
+pts = [[0,6],[10,-5],[20,10],[0,19]]<br>
+s = spline(pts, fn=20).linear_extrude(height=1)<br>
+for pt in pts:<br>&nbsp
+    s |= cylinder(r=0.3, h=10, fn=20).translate(pt)<br>
+s.show()
+      </code></div>
 
       <div class="func"><code>text(string, size, font)</code></div>
       <div>Render 2D text with size and font</div>
@@ -160,7 +170,7 @@ text("Hello", size=10).linear_extrude(2).show()
   </div>
 
   <div class="section">
-    <h2>🧰 Advanced Features</h2>
+    <h2>🧰 Advanced 3D operations</h2>
     <div class="grid">
       <div class="func"><code>hull(obj1, obj2)</code></div>
       <div>Create convex hull of obj1 and obj2</div>
@@ -177,11 +187,20 @@ text("Hello", size=10).linear_extrude(2).show()
       <div class="func"><code>fillet(shape,r)</code></div>
       <div>Creates a fillet or bevel on a solid</div>
       <div><code>cylinder(r1=10,r2=5,h=10,fn=6).fillet(fn=2,r=1).show()</code></div>
+
+      <div class="func"><code>concat(obj1, obj2, ...)</code></div>
+      <div>Concatenate multiple objects without union</div>
+      <div><code>
+part1 = cube(2)<br>
+part2 = sphere(1).right(3)<br>
+concat(part1, part2).show()
+  </code></div>
+
     </div>
   </div>
 
   <div class="section">
-    <h2>🧪 Displaying Items</h2>
+    <h2>🧪 GUI interaction</h2>
     <div class="grid">
       <div class="func"><code>show(obj)</code></div>
       <div>Render the object</div>
@@ -191,6 +210,11 @@ text("Hello", size=10).linear_extrude(2).show()
       <div>Prints values to the console</div>
       <div><code>v=125<br>print("v + v = ",v+v)</code></div>
 
+    <div class="func"><code>add_parameter(name, default)</code></div>
+    <div>Add a parameter for customization</div>
+    <div><code> add_parameter("myvar", 5)<br>
+cube(myvar).show()
+</code></div>
 
 
     </div>
@@ -358,6 +382,17 @@ c.show()<br>
 b.show()
 </code></div>
 
+    <div class="func"><code>align(object,connecthandle)</code></div>
+    <div>Align one object to another using handles</div>
+    <div><code>
+		    cone=cylinder(h=10,d1=5,d2=0) <br>
+		    cone.tip=translate(cone.origin,[0,0,10]) <br>
+		    cub= cube(6)-[3,3,0]   <br>
+		    cone = cone.roty(30) # Handles are also transformed<br>
+		    cone |= cub.align(cone.tip) <br>
+		    cone.show() <br>
+</code></div>
+
     <div class="func"><code>mesh()</code></div>
     <div>Convert object to mesh (vertices and triangles)</div>
     <div><code>
@@ -374,63 +409,27 @@ print("pts = ",pts,"\n\ntris = ",tris)
     <div>Shorthand for common transformations</div>
     <div><code>
 cube(2).right(1.5).rotx(30).show() 
+(cylinder(r=3,h=5)*0.4 + [5,0,0]).show()
 </code></div>
+
+    <div class="func"><code>quick combination</code></div>
+    <div>Union(+), Difference(-) and Intersections(&amp;)</div>
+    <div><code>
+(cube(2)-sphere(2)).show() 
+</code></div>
+
   </div>
 </div>
-
-
 
 <div class="section">
   <h2>🧵 Skinning</h2>
   <div class="grid">
     <div class="func"><code>skin(shape1, shape2)</code></div>
-    <div>Create a smooth surface between two 2D shapes</div>
+    <div>Create a smooth surface between two 2.5D shapes</div>
     <div><code>
 a = square(4, center=True).roty(40)<br>
 b = circle(r=2, fn=20).rotx(40).up(10)<br>
 skin(a, b).show()
-</code></div>
-  </div>
-</div>
-
-
-<div class="section">
-  <h2>🌀 Splines</h2>
-  <div class="grid">
-    <div class="func"><code>spline(points, fn)</code></div>
-    <div>Create a smooth curve through specified points</div>
-    <div><code>
-
-
-pts = [[0,6],[10,-5],[20,10],[0,19]]<br>
-s = spline(pts, fn=20).linear_extrude(height=1)<br>
-for pt in pts:<br>&nbsp
-    s |= cylinder(r=0.3, h=10, fn=20).translate(pt)<br>
-s.show()
-</code></div>
-  </div>
-</div>
-
-<div class="section">
-  <h2>🛠️ Advanced Utilities</h2>
-  <div class="grid">
-    <div class="func"><code>add_parameter(name, default)</code></div>
-    <div>Add a parameter for customization</div>
-    <div><code>
-
-
-add_parameter("myvar", 5)<br>
-cube(myvar).show()
-</code></div>
-
-    <div class="func"><code>concat(obj1, obj2, ...)</code></div>
-    <div>Concatenate multiple objects without union</div>
-    <div><code>
-
-
-part1 = cube(2)<br>
-part2 = sphere(1).right(3)<br>
-concat(part1, part2).show()
 </code></div>
   </div>
 </div>
@@ -453,29 +452,7 @@ concat(part1, part2).show()
 
   </div>
 </div>
-<!--
-<div class="section">
-  <h2>🎞️ Animations</h2>
-  <div class="grid">
-    <div class="func"><code>animate(variable, start, end, steps)</code></div>
-    <div>Animate a variable changing from start to end in steps</div>
-    <div><code>
 
-
-for angle in range(0, 360, 30):<br>&nbsp
-    cube(3).roty(angle).show()
-</code></div>
-
-    <div class="func"><code>frame(number)</code></div>
-    <div>Get current animation frame number</div>
-    <div><code>
-
-
-frame_num = 5  # example frame number
-cube(2).right(frame_num).show()
-</code></div>
-  </div>
-</div>
 
 
 <div class="section">
@@ -497,55 +474,47 @@ export(d,"tiles.stl")
   </div>
 </div>
 
+
+<div class="section">
+  <h2>➗ PythonSCAD Math Functions</h2>
+  <div class="grid">
+    <div class="func"><code>Sin(x)</code></div>
+    <div>Returns the sine of angle x (degrees)</div>
+    <div><code>Sin(90)</code></div>
+
+    <div class="func"><code>Cos(x)</code></div>
+    <div>Returns the cosine of angle x</div>
+    <div><code>Cos(0)</code></div>
+
+    <div class="func"><code>Tan(x)</code></div>
+    <div>Returns the tangent of angle x</div>
+    <div><code>Tan(45)</code></div>
+
+    <div class="func"><code>Asin(x)</code></div>
+    <div>Returns the arcus sine of x (degrees)</div>
+    <div><code>Asin(1)</code></div>
+
+    <div class="func"><code>Acos(x)</code></div>
+    <div>Returns the arcus cosine of x</div>
+    <div><code>Acos(0.5)</code></div>
+
+    <div class="func"><code>Atan(x)</code></div>
+    <div>Returns the arcus tangent of x</div>
+    <div><code>Atan(1)</code></div>
+
+  </div>
+</div>
+
 <div class="section">
   <h2>🐞 Debugging Aids</h2>
   <div class="grid">
     <div class="func"><code>debug(obj, faces)</code></div>
     <div>Color selected faces for debugging</div>
-    <div><code>
-
-
-debug(cube(2), faces=[1,2]).show()
+    <div><code>debug(cube(2), faces=[1,2]).show()
 </code></div>
 
   </div>
 </div>
-
-<div class="section">
-  <h2>➗ Mathematical Functions</h2>
-  <div class="grid">
-    <div class="func"><code>sin(angle)</code></div>
-    <div>Calculate sine of angle (degrees)</div>
-    <div><code>
-from math import sin, radians<br>
-
-angle = 90<br>
-print(sin(radians(angle)))
-</code></div>
-
-    <div class="func"><code>cos(angle)</code></div>
-    <div>Calculate cosine of angle (degrees)</div>
-    <div><code>
-from math import cos, radians<br>
-
-angle = 180<br>
-print(cos(radians(angle)))
-
-</code></div>
-
-    <div class="func"><code>norm(vector)</code></div>
-    <div>Calculate magnitude of a vector</div>
-    <div><code>
-from math import sqrt<br>
-def norm(v):<br>&nbsp
-  return sqrt(sum(x*x for x in v)) <br>
-
-print(norm([3,4,0]))
-</code></div>
-  </div>
-</div>
-
-
 
 </-- **************************************************-->
 <!-- add sections for functions above -->
