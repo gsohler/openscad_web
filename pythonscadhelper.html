@@ -462,15 +462,22 @@ skin(a, b).show()
     <div>Import a file as an object</div>
     <div><code>
 d=osimport("rooftiles.stl").show() 
+</code></div>
 
+    <div class="func"><code>osuse(scadfile)</code></div>
+    <div>Reuse existing SCAD modules</div>
+    <div><code>
+bosl=osuse("BOSL2\\std.scad")
+bosl.cuboid(5, roundings=0.5, fn=40).show()
 </code></div>
 
     <div class="func"><code>export(obj, filename)</code></div>
     <div>Export an object to an 3D file</div>
     <div><code>
 export(d,"tiles.stl")
-
 </code></div>
+
+
   </div>
 </div>
 
