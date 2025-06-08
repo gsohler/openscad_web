@@ -78,6 +78,16 @@
       <div class="func"><code>polygon(points)</code></div>
       <div>Create a polygon with given points</div>
       <div><code>polygon([[0,0], [10,0], [5,10]]).show()</code></div>
+ 
+      <div class="func"><code>polyhedron(points, faces)</code></div>
+      <div>Create a 3D shape from points and faces</div>
+      <div><code>
+points = [[0,0,0], [1,0,0], [1,1,0], [0,1,0],
+          [0,0,1], [1,0,1], [1,1,1], [0,1,1]]<br>
+faces = [[0,1,2,3], [4,5,6,7], [0,1,5,4],
+         [1,2,6,5], [2,3,7,6], [3,0,4,7]]<br>
+polyhedron(points, faces).show()
+       </code></div>
 
       <div class="func"><code>spline(points, fn)</code></div>
       <div>Create a smooth curve through specified points</div>
@@ -118,6 +128,38 @@ text("Hello", size=10).linear_extrude(2).show()
       <div class="func"><code>mirror(obj,[x, y, z])</code></div>
       <div>Mirror object across the plane defined by x, y, z</div>
       <div><code>cube([5,10,15]).mirror([1, 0, 0]).show()</code></div>
+
+            <div class="func"><code>multmatrix(m)</code></div>
+            <div>Apply transformation matrix</div>
+            <div><code>mat = [[1,0,0,10],[0,1,0,0],[0,0,1,0],[0,0,0,1]]<br>cube(5).multmatrix(mat).show()</code></div>
+
+            <div class="func"><code>divmatrix(m)</code></div>
+            <div>Apply inverse matrix</div>
+            <div><code>mat=[[1,0,0,6],[0,1,0,0],[0,0,1,0],[0,0,0,1]] # Move to the right by 6<br>
+
+a=cube([1,1,1])<br>
+b=a.multmatrix(mat) # move to right<br>
+c=b.divmatrix(mat) # move back left<br>
+c.show()<br>
+b.show()<br>
+</code></div>
+
+            <div class="func"><code>offset(r, delta=None, chamfer=False)</code></div>
+            <div>Offset 2D shape</div>
+            <div><code>square(10).offset(2).show()</code></div>
+
+            <div class="func"><code>roof(method, convexity=1)</code></div>
+            <div>Create roof from 2D shape</div>
+            <div><code>square(10).roof().show()</code></div>
+
+            <div class="func"><code>pull(src, dst)</code></div>
+            <div>Pull between points</div>
+            <div><code>cube(5).pull([0,0,1],[10,2,2]).show()</code></div>
+
+            <div class="func"><code>wrap(r)</code></div>
+            <div>Wrap around cylinder</div>
+            <div><code>text("Hello again").linear_extrude(3).rotate([90,0,0]).wrap(2).show()	    
+
     </div>
   </div>
 
@@ -181,8 +223,8 @@ text("Hello", size=10).linear_extrude(2).show()
       <div><code>minkowski(cube(10), sphere(1)).show()</code></div>
 
       <div class="func"><code>offset(shape,delta)</code></div>
-      <div>Offset 2D shape by delta</div>
-      <div><code>square([10,15]).offset(4).show()</code></div>
+      <div>Offset 3D shape by delta</div>
+      <div><code>cube([10,15,4]).offset(4).show()</code></div>
 
       <div class="func"><code>fillet(shape,r)</code></div>
       <div>Creates a fillet or bevel on a solid</div>
@@ -205,6 +247,22 @@ concat(part1, part2).show()
       <div class="func"><code>show(obj)</code></div>
       <div>Render the object</div>
       <div><code>show(cube([5,5,5]))</code></div>
+
+      <div class="func"><code>highlight(obj)</code></div>
+      <div>Highlight object</div>
+      <div><code>cube(5).highlight().show()</code></div>
+
+      <div class="func"><code>background(obj)</code></div>
+      <div>Show in background</div>
+      <div><code>cube(5).background().show()</code></div>
+
+      <div class="func"><code>only(obj)</code></div>
+      <div>Show only this object</div>
+      <div><code>only(cube(5)).show()</code></div>      
+
+       <div class="func"><code>marked(number)</code></div>
+       <div>Create draggable parameter, press F6 and hold Ctrl while dragging</div>
+       <div><code>size = marked(5)<br>cube(size).show()</code></div>
 
       <div class="func"><code>print(val)</code></div>
       <div>Prints values to the console</div>
@@ -308,15 +366,6 @@ o.cube(2).show()
 
   <h2>🧩 Custom Shapes</h2>
   <div class="grid">
-    <div class="func"><code>polyhedron(points, faces)</code></div>
-    <div>Create a 3D shape from points and faces</div>
-    <div><code>
-points = [[0,0,0], [1,0,0], [1,1,0], [0,1,0],
-          [0,0,1], [1,0,1], [1,1,1], [0,1,1]]<br>
-faces = [[0,1,2,3], [4,5,6,7], [0,1,5,4],
-         [1,2,6,5], [2,3,7,6], [3,0,4,7]]<br>
-polyhedron(points, faces).show()
-</code></div>
 
     <div class="func"><code>circle(r, angle)</code></div>
     <div>Create a circular arc</div>
@@ -370,17 +419,6 @@ rotate_extrude(xsection, fn=50).show()
 <div class="section">
   <h2>⚙️ Extra Features</h2>
   <div class="grid">
-    <div class="func"><code>divmatrix(mat)</code></div>
-    <div>Apply the inverse of a transformation matrix</div>
-    <div><code>
-
-mat = [[1,0,0,5],[0,1,0,0],[0,0,1,0],[0,0,0,1]]<br>
-a = cube([1,1,2])<br>
-b = a.multmatrix(mat)<br>
-c = b.divmatrix(mat)<br>
-c.show()<br>
-b.show()
-</code></div>
 
     <div class="func"><code>align(object,connecthandle)</code></div>
     <div>Align one object to another using handles</div>
@@ -471,6 +509,10 @@ bosl=osuse("BOSL2\\std.scad")
 bosl.cuboid(5, roundings=0.5, fn=40).show()
 </code></div>
 
+     <div class="func"><code>scad(code)</code></div>
+     <div>Evaluate SCAD code</div>
+     <div><code>scad("sphere(5);").show()</code></div>
+
     <div class="func"><code>export(obj, filename)</code></div>
     <div>Export an object to an 3D file</div>
     <div><code>
@@ -483,7 +525,7 @@ export(d,"tiles.stl")
 
 
 <div class="section">
-  <h2>➗ PythonSCAD Math Functions</h2>
+  <h2>➗ PythonSCAD trigonometry</h2>
   <div class="grid">
     <div class="func"><code>Sin(x)</code></div>
     <div>Returns the sine of angle x (degrees)</div>
@@ -508,6 +550,22 @@ export(d,"tiles.stl")
     <div class="func"><code>Atan(x)</code></div>
     <div>Returns the arcus tangent of x</div>
     <div><code>Atan(1)</code></div>
+
+    <div class="func"><code>norm(v)</code></div>
+    <div>Vector magnitude</div>
+    <div><code>print(norm([3,4,0])) # 5.0</code></div>
+
+    <div class="func"><code>dot(v1, v2)</code></div>
+    <div>Dot product</div>
+    <div><code>print(dot([1,2,3],[4,5,6])) # 32</code></div>
+
+    <div class="func"><code>cross(v1, v2)</code></div>
+    <div>Cross product</div>
+    <div><code>print(cross([1,0,0],[0,1,0])) # [0,0,1]</code></div>
+
+    <div class="func"><code>bbox(obj)</code></div>
+    <div>Evaluate Bounding Box</div>
+    <div><code>min, max = obj.bbox()</code></div>
 
   </div>
 </div>
