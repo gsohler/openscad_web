@@ -1,13 +1,6 @@
 <?php
 $root = $_SERVER["DOCUMENT_ROOT"];
 $dat = date("Y-m-d H:i:s");
-if(isset($_GET["download"])) {
-	$download=$_GET["download"];
-        $server=gethostbyaddr($_SERVER["REMOTE_ADDR"]);
-	file_put_contents("$root/openscad.txt","$dat OpenSCAD AC $server $download\n",FILE_APPEND);
-	printf("Feedback welcome");
-	exit(1);
-}
 ?>
 <html>
 	<head>
@@ -146,43 +139,71 @@ $files=array();
 $dh=opendir("./downloads");
 while(($file= readdir($dh)) !== false) {
 	if(substr($file,0,1) != ".") {
-		array_push($files,$file);
+		$files[-filemtime("./downloads/$file")] = $file; # latest files first
 	}
 }
 closedir($dh);
+ksort($files);
 
-
+print("<TABLE BORDER=1>\n");
+printf("<TR><TD> Installer </TD><TD> Description </TD> <TD>Size/MB</TD>\n");
 for($j=0;$j<5;$j++) {
-	for($i=0;$i<sizeof($files);$i++) {
-		$file=$files[$i];
-		$desc="";
+	if($j == 0) {
+		$desc="Windows Installer";
+	}
+	if($j == 1) {
+		$desc="Linux installation package";
+	}
+	if($j == 2) {
+		$desc="MAC Disc Image";
+	}
+	if($j == 3) {
+		$desc="Linux AppImage";
+	}
+	if($j == 4) {
+		$desc="Fedora/CentOS RPM Package";
+	}
+	print("<TR><TD colspan=3><center>$desc</center></TD></TR>\n");
+	foreach($files as $file) {
+		$print=0;
+		$desc="Created recent installer";
+		$file_check = str_replace(".","-",$file);
+		if(str_contains($file_check,"2023-10-08")) { $desc="Legacy old version"; }
+		if(str_contains($file_check,"20241229")) { $desc="1st rpm installer"; }
+		if(str_contains($file_check,"2024-12-29")) { $desc="Version with SDF features enabled"; }
+		if(str_contains($file_check,"2025-02-16")) { $desc="1st success on Raspberry PI"; }
+		if(str_contains($file_check,"2025-03-18")) { $desc="python import path corrected"; }
+		if(str_contains($file_check,"2025-03-29")) { $desc="1st support for interactive dragging"; }
+		if(str_contains($file_check,"2025-03-19")) { $desc="pythonscad accepts defines on Commandline "; }
+#		if(str_contains($file_check,"2025-04-02")) { $desc="Resolved warning when exporting 3mf under windows"; }
+		if(str_contains($file_check,"2025-04-13")) { $desc="nimport working again"; }
+		if(str_contains($file_check,"2025-05-02")) { $desc="2D colored render, preliminary"; }
+		if(str_contains($file_check,"2025-05-09")) { $desc="Fixed Bug & segfault with rotextrude"; }
+		if(str_contains($file_check,"2025-05-15")) { $desc="Roof is activated again. Script will now implicitley union all show() contents"; }
+		if(str_contains($file_check,"2025-05-20")) { $desc="nimport fixed, resolved random show() crashes"; }
+		if(str_contains($file_check,"2025-06-04")) { $desc="osuse crash fixed"; }
+		if(str_contains($file_check,"2025-06-05")) { $desc="Added dot(), cross() and norm() function"; }
+		if(str_contains($file_check,"2025-06-17")) { $desc="No external python required, ToggleButtons for Handle and Measure"; }
+		if(str_contains($file_check,"2025-06-26")) { $desc="Wrap function can warp arbritary shape"; }
+		if(str_contains($file_check,"2025-07-04")) { $desc="Filleting greatly improved"; }
+		if(str_contains($file_check,"2025-07-11")) { $desc="Wrap and handle bugfixes"; }
+		if(str_contains($file_check,"2025-07-15")) { $desc="Bugixes, objects iteratable"; }
 		$size = round(filesize("downloads/$file")/(1024*1024));
-		if(strpos($file,"tar.gz") !== false && $j == 1)
-		{
-			$desc="Linux installation package";
-       		} 
-		if(strpos($file,".exe") !== false && $j == 0)
-		{
-			$desc="Windows Installer";
-       		}
-		if(strpos($file,".dmg") !== false && $j == 2)
-		{
-			$desc="MAC Disc Image";
-		}
-		if(strpos($file,".AppImage") !== false && $j == 3)
-		{
-			$desc="Linux AppImage";
-		}
-		if(strpos($file,".rpm") !== false && $j == 4)
-		{
-			$desc="Fedora/CentOS RPM Package";
-		}
-		if($desc != "") {
-			print("<form id=myform action=\"https://www.pythonscad.org/downloads/$file\" method=get> <button class=\"btn\" type=\"submit\" onClick=\"javascript:ajaxLoad('download.php?download=$file','myform', null); \"> $file </button> $desc ($size MB)  </form> \n");
+		if(strpos($file,"tar.gz") !== false && $j == 1) { $print=1; } 
+		if(strpos($file,".exe") !== false && $j == 0) { $print=1; }
+		if(strpos($file,".dmg") !== false && $j == 2) { $print=1; }
+		if(strpos($file,".AppImage") !== false && $j == 3) { $print=1; }
+		if(strpos($file,".rpm") !== false && $j == 4) { $print=1; }
+		if($print == 1) {
+			printf("<TR>\n");
+			printf("<TD> <a href=\"https://www.pythonscad.org/downloads/$file\" > $file </a> </TD>\n");
+			printf("<TD> $desc </TD> \n");
+			printf("<TD> <center> $size </center> </TD>  \n");
+			printf("</TR>\n");
 		}
 	}
-	print("<hr>\n");
 }
+print("</TABLE\n");
 ?>
 </UL>
         </div>
@@ -193,7 +214,6 @@ The Windows installer is currently not signed . This is why you will see a Windo
 		To make OpenSCAD for python actually work you need to install Python 3.11. To Make it work follow these steps: <br> <p>
 <li> Download and execute the OpenSCADInstaller to install OpenSCAD in your windows
 <li> Download and install <a href="https://www.python.org/ftp/python/3.11.5/python-3.11.5-amd64.exe"> Python 3.11 </a>
-<li> In case the installer fails to create a proper desktop symbol, please grab the openscad.exe inside the 'bin' directory and link it to the desktop/taskbar
 
 
 <li> create a test.py containing something simple like :
