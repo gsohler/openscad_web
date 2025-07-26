@@ -193,7 +193,25 @@ c = c.offset(-2,fa=5)
 c.show()
            </pre>
           </div>
-        </div>
+	</div>
+
+        <div class="micro-block">
+          <div><h3>Fileting</h3></div>
+          <div>
+          <p>
+          	Often its nice to have a small fillet in your design. You can e.g. crfeate them while combinig the objects, but there many different variants possible.
+	  </p>
+	   <pre>
+<img src="pictures/fillet.png" width="300"> <p>
+from openscad import *
+plate = cube([40,40,20])
+tower = cylinder(50,10,fn=6) + [20,20,0]
+design= union(plate, tower,fn=10,r=5)
+design.show()
+           </pre>
+          </div>
+	</div>
+
       </div>
     </div>
    </div>
