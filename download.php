@@ -188,6 +188,7 @@ for($j=0;$j<5;$j++) {
 		if(str_contains($file_check,"2025-07-04")) { $desc="Filleting greatly improved"; }
 		if(str_contains($file_check,"2025-07-11")) { $desc="Wrap and handle bugfixes"; }
 		if(str_contains($file_check,"2025-07-15")) { $desc="Bugixes, objects iteratable"; }
+		if(str_contains($file_check,"2025-07-15")) { $desc="colorful polyhedron and surface function and textures"; }
 		$size = round(filesize("downloads/$file")/(1024*1024));
 		if(strpos($file,"tar.gz") !== false && $j == 1) { $print=1; } 
 		if(strpos($file,".exe") !== false && $j == 0) { $print=1; }
@@ -213,7 +214,7 @@ print("</TABLE\n");
 The Windows installer is currently not signed . This is why you will see a Windows warning dialog about unknown origin. <br>
 		To make OpenSCAD for python actually work you need to install Python 3.11. To Make it work follow these steps: <br> <p>
 <li> Download and execute the OpenSCADInstaller to install OpenSCAD in your windows
-<li> Download and install <a href="https://www.python.org/ftp/python/3.11.5/python-3.11.5-amd64.exe"> Python 3.11 </a>
+<li> Optionally download and install <a href="https://www.python.org/ftp/python/3.12.9/python-3.12.9-amd64.exe"> Python 3.12 </a> this is useful if you plan to use PIP packages together with PythonSCAD
 
 
 <li> create a test.py containing something simple like :
@@ -234,7 +235,7 @@ a.show()
          The PythonSCAD's binary Distributions come with these versions:
          <li> Linux AppImage: Python 3.12.0
  	 <li> Apple DMG: Python 3.13.1
-         <li> Windows: Python 3.11.5-2
+         <li> Windows: Python 3.12.9
  
       </div>
       <div class="block">
